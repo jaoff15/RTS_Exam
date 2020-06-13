@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
--- Date        : Thu Jun 11 13:15:23 2020
+-- Date        : Sat Jun 13 16:31:59 2020
 -- Host        : JacobOffersen running 64-bit Ubuntu 19.10
--- Command     : write_vhdl -force -mode synth_stub -rename_top design_1_auto_pc_0 -prefix
---               design_1_auto_pc_0_ design_1_auto_pc_0_stub.vhdl
+-- Command     : write_vhdl -force -mode synth_stub
+--               /home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_auto_pc_0/design_1_auto_pc_0_stub.vhdl
 -- Design      : design_1_auto_pc_0
 -- Purpose     : Stub declaration of top-level module interface
 -- Device      : xc7z020clg400-1

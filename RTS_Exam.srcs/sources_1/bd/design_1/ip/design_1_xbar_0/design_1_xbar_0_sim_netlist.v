@@ -1,10 +1,10 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-// Date        : Thu Jun 11 13:15:16 2020
+// Date        : Sat Jun 13 16:31:40 2020
 // Host        : JacobOffersen running 64-bit Ubuntu 19.10
 // Command     : write_verilog -force -mode funcsim
-//               /home/jacoboffersen/eclipse-workspace/rts_exam_project/rts_exam_project.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_sim_netlist.v
+//               /home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_sim_netlist.v
 // Design      : design_1_xbar_0
 // Purpose     : This verilog netlist is a functional simulation representation of the design and should not be modified
 //               or synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -177,7 +177,7 @@ module design_1_xbar_0
   (* C_DEBUG = "1" *) 
   (* C_FAMILY = "zynq" *) 
   (* C_M_AXI_ADDR_WIDTH = "64'b0000000000000000000000000001000000000000000000000000000000010000" *) 
-  (* C_M_AXI_BASE_ADDR = "128'b00000000000000000000000000000000010000111100000100000000000000000000000000000000000000000000000001000011110000000000000000000000" *) 
+  (* C_M_AXI_BASE_ADDR = "128'b00000000000000000000000000000000010000010010000000000000000000000000000000000000000000000000000001000011110000000000000000000000" *) 
   (* C_M_AXI_READ_CONNECTIVITY = "64'b1111111111111111111111111111111111111111111111111111111111111111" *) 
   (* C_M_AXI_READ_ISSUING = "64'b0000000000000000000000000000000100000000000000000000000000000001" *) 
   (* C_M_AXI_SECURE = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) 
@@ -330,9 +330,9 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
     s_axi_arready,
     s_axi_rvalid,
     D,
+    any_error,
     \gen_no_arbiter.m_amesg_i_reg[48]_0 ,
     aresetn_d_reg,
-    any_error,
     \m_atarget_hot_reg[2] ,
     aclk,
     \m_ready_d_reg[0]_0 ,
@@ -385,9 +385,9 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
   output [0:0]s_axi_arready;
   output [0:0]s_axi_rvalid;
   output [2:0]D;
+  output any_error;
   output [34:0]\gen_no_arbiter.m_amesg_i_reg[48]_0 ;
   output aresetn_d_reg;
-  output any_error;
   output \m_atarget_hot_reg[2] ;
   input aclk;
   input \m_ready_d_reg[0]_0 ;
@@ -450,6 +450,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
   wire \m_atarget_hot[2]_i_3_n_0 ;
   wire \m_atarget_hot[2]_i_4_n_0 ;
   wire \m_atarget_hot[2]_i_5_n_0 ;
+  wire \m_atarget_hot[2]_i_6_n_0 ;
   wire \m_atarget_hot_reg[2] ;
   wire [1:0]m_axi_arvalid;
   wire [1:0]m_axi_awvalid;
@@ -508,7 +509,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I4(mi_bvalid),
         .I5(mi_wready),
         .O(\m_atarget_hot_reg[2] ));
-  (* SOFT_HLUTNM = "soft_lutpair3" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT4 #(
     .INIT(16'hFBFF)) 
     \gen_axilite.s_axi_awready_i_i_2 
@@ -517,7 +518,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I2(m_ready_d_0[1]),
         .I3(s_axi_wvalid),
         .O(\gen_axilite.s_axi_awready_i_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT4 #(
     .INIT(16'h0040)) 
     \gen_axilite.s_axi_bvalid_i_i_2 
@@ -1078,7 +1079,6 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I3(s_axi_wvalid),
         .I4(m_ready_d_0[1]),
         .O(\splitter_aw/m_ready_d0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h54000000)) 
     \gen_no_arbiter.m_grant_hot_i[0]_i_4 
@@ -1135,76 +1135,92 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .D(\gen_no_arbiter.s_ready_i[0]_i_1_n_0 ),
         .Q(s_ready_i),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'h80)) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
     \m_atarget_enc[0]_i_1 
        (.I0(aresetn_d),
-        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [16]),
-        .I2(\m_atarget_hot[2]_i_2_n_0 ),
+        .I1(\m_atarget_hot[2]_i_2_n_0 ),
         .O(aresetn_d_reg));
-  LUT1 #(
-    .INIT(2'h1)) 
-    \m_atarget_enc[1]_i_1 
-       (.I0(\m_atarget_hot[2]_i_2_n_0 ),
-        .O(any_error));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
-  LUT3 #(
-    .INIT(8'h40)) 
-    \m_atarget_hot[0]_i_1 
-       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [16]),
-        .I1(aa_grant_any),
-        .I2(\m_atarget_hot[2]_i_2_n_0 ),
-        .O(D[0]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
-  LUT3 #(
-    .INIT(8'h80)) 
-    \m_atarget_hot[1]_i_1 
-       (.I0(aa_grant_any),
-        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [16]),
-        .I2(\m_atarget_hot[2]_i_2_n_0 ),
-        .O(D[1]));
   (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h2)) 
+    \m_atarget_enc[1]_i_1 
+       (.I0(\m_atarget_hot[2]_i_2_n_0 ),
+        .I1(\m_atarget_hot[2]_i_3_n_0 ),
+        .O(any_error));
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  LUT2 #(
+    .INIT(4'h8)) 
+    \m_atarget_hot[0]_i_1 
+       (.I0(\m_atarget_hot[2]_i_3_n_0 ),
+        .I1(aa_grant_any),
+        .O(D[0]));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT2 #(
+    .INIT(4'h2)) 
+    \m_atarget_hot[1]_i_1 
+       (.I0(aa_grant_any),
+        .I1(\m_atarget_hot[2]_i_2_n_0 ),
+        .O(D[1]));
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  LUT3 #(
+    .INIT(8'h08)) 
     \m_atarget_hot[2]_i_1 
        (.I0(aa_grant_any),
         .I1(\m_atarget_hot[2]_i_2_n_0 ),
+        .I2(\m_atarget_hot[2]_i_3_n_0 ),
         .O(D[2]));
   LUT6 #(
-    .INIT(64'h0002000000000000)) 
+    .INIT(64'hFFFFFFFFFFFFFBFF)) 
     \m_atarget_hot[2]_i_2 
-       (.I0(\m_atarget_hot[2]_i_3_n_0 ),
-        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [19]),
-        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [18]),
-        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [17]),
-        .I4(\m_atarget_hot[2]_i_4_n_0 ),
-        .I5(\m_atarget_hot[2]_i_5_n_0 ),
+       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [22]),
+        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [21]),
+        .I2(\m_atarget_hot[2]_i_4_n_0 ),
+        .I3(\m_atarget_hot[2]_i_5_n_0 ),
+        .I4(\gen_no_arbiter.m_amesg_i_reg[48]_0 [23]),
+        .I5(\gen_no_arbiter.m_amesg_i_reg[48]_0 [25]),
         .O(\m_atarget_hot[2]_i_2_n_0 ));
-  LUT4 #(
-    .INIT(16'h0008)) 
+  LUT6 #(
+    .INIT(64'h0001000000000000)) 
     \m_atarget_hot[2]_i_3 
-       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [23]),
-        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [22]),
-        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [21]),
-        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [20]),
+       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [18]),
+        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [16]),
+        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [19]),
+        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [17]),
+        .I4(\m_atarget_hot[2]_i_6_n_0 ),
+        .I5(\m_atarget_hot[2]_i_5_n_0 ),
         .O(\m_atarget_hot[2]_i_3_n_0 ));
-  LUT4 #(
-    .INIT(16'h1000)) 
+  LUT6 #(
+    .INIT(64'hFFFFFFFFFFFFFFFD)) 
     \m_atarget_hot[2]_i_4 
-       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [27]),
-        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [26]),
-        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [25]),
-        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [24]),
+       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [24]),
+        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [20]),
+        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [17]),
+        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [19]),
+        .I4(\gen_no_arbiter.m_amesg_i_reg[48]_0 [16]),
+        .I5(\gen_no_arbiter.m_amesg_i_reg[48]_0 [18]),
         .O(\m_atarget_hot[2]_i_4_n_0 ));
-  LUT4 #(
-    .INIT(16'h0004)) 
+  LUT6 #(
+    .INIT(64'h0000000100000000)) 
     \m_atarget_hot[2]_i_5 
-       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [31]),
-        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [30]),
-        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [29]),
-        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [28]),
+       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [28]),
+        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [29]),
+        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [26]),
+        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [27]),
+        .I4(\gen_no_arbiter.m_amesg_i_reg[48]_0 [31]),
+        .I5(\gen_no_arbiter.m_amesg_i_reg[48]_0 [30]),
         .O(\m_atarget_hot[2]_i_5_n_0 ));
+  LUT6 #(
+    .INIT(64'h0008000000000000)) 
+    \m_atarget_hot[2]_i_6 
+       (.I0(\gen_no_arbiter.m_amesg_i_reg[48]_0 [22]),
+        .I1(\gen_no_arbiter.m_amesg_i_reg[48]_0 [23]),
+        .I2(\gen_no_arbiter.m_amesg_i_reg[48]_0 [20]),
+        .I3(\gen_no_arbiter.m_amesg_i_reg[48]_0 [21]),
+        .I4(\gen_no_arbiter.m_amesg_i_reg[48]_0 [25]),
+        .I5(\gen_no_arbiter.m_amesg_i_reg[48]_0 [24]),
+        .O(\m_atarget_hot[2]_i_6_n_0 ));
   (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h0080)) 
@@ -1241,6 +1257,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I2(m_valid_i),
         .I3(m_ready_d_0[2]),
         .O(m_axi_awvalid[1]));
+  (* SOFT_HLUTNM = "soft_lutpair4" *) 
   LUT5 #(
     .INIT(32'h00002000)) 
     \m_axi_bready[0]_INST_0 
@@ -1250,7 +1267,6 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I3(s_axi_bready),
         .I4(m_ready_d_0[0]),
         .O(m_axi_bready[0]));
-  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h00002000)) 
     \m_axi_bready[1]_INST_0 
@@ -1270,7 +1286,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I3(m_valid_i),
         .I4(aa_grant_rnw),
         .O(m_axi_wvalid[0]));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair2" *) 
   LUT5 #(
     .INIT(32'h00000800)) 
     \m_axi_wvalid[1]_INST_0 
@@ -1338,6 +1354,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I4(m_ready_d[0]),
         .I5(m_valid_i_reg_0),
         .O(m_valid_i_reg));
+  (* SOFT_HLUTNM = "soft_lutpair0" *) 
   LUT5 #(
     .INIT(32'hAAAA2AAA)) 
     m_valid_i_i_2
@@ -1382,20 +1399,21 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .D(\s_awvalid_reg[0]_i_1_n_0 ),
         .Q(s_awvalid_reg),
         .R(1'b0));
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \s_axi_arready[0]_INST_0 
        (.I0(aa_grant_rnw),
         .I1(s_ready_i),
         .O(s_axi_arready));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h2)) 
     \s_axi_awready[0]_INST_0 
        (.I0(s_ready_i),
         .I1(aa_grant_rnw),
         .O(s_axi_awready));
-  (* SOFT_HLUTNM = "soft_lutpair0" *) 
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
   LUT5 #(
     .INIT(32'h00000040)) 
     \s_axi_bvalid[0]_INST_0 
@@ -1429,7 +1447,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
         .I4(m_axi_wready[0]),
         .I5(mi_wready),
         .O(\m_atarget_enc_reg[0] ));
-  (* SOFT_HLUTNM = "soft_lutpair4" *) 
+  (* SOFT_HLUTNM = "soft_lutpair3" *) 
   LUT3 #(
     .INIT(8'hFB)) 
     \s_axi_wready[0]_INST_0_i_2 
@@ -1443,7 +1461,7 @@ endmodule
 (* C_AXI_BUSER_WIDTH = "1" *) (* C_AXI_DATA_WIDTH = "32" *) (* C_AXI_ID_WIDTH = "1" *) 
 (* C_AXI_PROTOCOL = "2" *) (* C_AXI_RUSER_WIDTH = "1" *) (* C_AXI_SUPPORTS_USER_SIGNALS = "0" *) 
 (* C_AXI_WUSER_WIDTH = "1" *) (* C_CONNECTIVITY_MODE = "0" *) (* C_DEBUG = "1" *) 
-(* C_FAMILY = "zynq" *) (* C_M_AXI_ADDR_WIDTH = "64'b0000000000000000000000000001000000000000000000000000000000010000" *) (* C_M_AXI_BASE_ADDR = "128'b00000000000000000000000000000000010000111100000100000000000000000000000000000000000000000000000001000011110000000000000000000000" *) 
+(* C_FAMILY = "zynq" *) (* C_M_AXI_ADDR_WIDTH = "64'b0000000000000000000000000001000000000000000000000000000000010000" *) (* C_M_AXI_BASE_ADDR = "128'b00000000000000000000000000000000010000010010000000000000000000000000000000000000000000000000000001000011110000000000000000000000" *) 
 (* C_M_AXI_READ_CONNECTIVITY = "64'b1111111111111111111111111111111111111111111111111111111111111111" *) (* C_M_AXI_READ_ISSUING = "64'b0000000000000000000000000000000100000000000000000000000000000001" *) (* C_M_AXI_SECURE = "64'b0000000000000000000000000000000000000000000000000000000000000000" *) 
 (* C_M_AXI_WRITE_CONNECTIVITY = "64'b1111111111111111111111111111111111111111111111111111111111111111" *) (* C_M_AXI_WRITE_ISSUING = "64'b0000000000000000000000000000000100000000000000000000000000000001" *) (* C_NUM_ADDR_RANGES = "1" *) 
 (* C_NUM_MASTER_SLOTS = "2" *) (* C_NUM_SLAVE_SLOTS = "1" *) (* C_R_REGISTER = "1" *) 
@@ -1933,7 +1951,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd
   wire addr_arbiter_inst_n_4;
   wire addr_arbiter_inst_n_5;
   wire addr_arbiter_inst_n_6;
-  wire addr_arbiter_inst_n_64;
+  wire addr_arbiter_inst_n_65;
   wire addr_arbiter_inst_n_66;
   wire any_error;
   wire aresetn;
@@ -1998,7 +2016,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd
         .aclk(aclk),
         .any_error(any_error),
         .aresetn_d(aresetn_d),
-        .aresetn_d_reg(addr_arbiter_inst_n_64),
+        .aresetn_d_reg(addr_arbiter_inst_n_65),
         .\gen_no_arbiter.grant_rnw_reg_0 (addr_arbiter_inst_n_3),
         .\gen_no_arbiter.grant_rnw_reg_1 (addr_arbiter_inst_n_4),
         .\gen_no_arbiter.grant_rnw_reg_2 (addr_arbiter_inst_n_6),
@@ -2079,7 +2097,7 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd
     \m_atarget_enc_reg[0] 
        (.C(aclk),
         .CE(1'b1),
-        .D(addr_arbiter_inst_n_64),
+        .D(addr_arbiter_inst_n_65),
         .Q(m_atarget_enc[0]),
         .R(1'b0));
   FDRE #(
@@ -2469,13 +2487,13 @@ module design_1_xbar_0_axi_crossbar_v2_1_19_splitter
         .I3(m_valid_i),
         .O(\m_ready_d_reg[2]_0 ));
   LUT6 #(
-    .INIT(64'h5001505155015551)) 
+    .INIT(64'h5010501555105515)) 
     \m_ready_d[2]_i_4 
        (.I0(m_ready_d[2]),
-        .I1(m_axi_awready[0]),
+        .I1(m_axi_awready[1]),
         .I2(m_atarget_enc[0]),
         .I3(m_atarget_enc[1]),
-        .I4(m_axi_awready[1]),
+        .I4(m_axi_awready[0]),
         .I5(mi_wready),
         .O(\m_ready_d[2]_i_4_n_0 ));
   FDRE #(
@@ -2653,7 +2671,7 @@ module design_1_xbar_0_axi_register_slice_v2_1_18_axic_register_slice
        (.I0(aa_rready),
         .I1(Q[0]),
         .O(m_axi_rready[0]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \m_axi_rready[1]_INST_0 
@@ -2681,14 +2699,14 @@ module design_1_xbar_0_axi_register_slice_v2_1_18_axic_register_slice
         .I5(m_atarget_enc[1]),
         .O(skid_buffer[11]));
   LUT6 #(
-    .INIT(64'h0AFACAFA0AFACA0A)) 
+    .INIT(64'h2F2CFFFF2F2C0000)) 
     \m_payload_i[12]_i_1 
-       (.I0(\skid_buffer_reg_n_0_[12] ),
-        .I1(m_axi_rdata[41]),
-        .I2(aa_rready),
-        .I3(m_atarget_enc[0]),
-        .I4(m_atarget_enc[1]),
-        .I5(m_axi_rdata[9]),
+       (.I0(m_axi_rdata[41]),
+        .I1(m_atarget_enc[1]),
+        .I2(m_atarget_enc[0]),
+        .I3(m_axi_rdata[9]),
+        .I4(aa_rready),
+        .I5(\skid_buffer_reg_n_0_[12] ),
         .O(skid_buffer[12]));
   LUT6 #(
     .INIT(64'h0AFACAFA0AFACA0A)) 
@@ -3236,7 +3254,7 @@ module design_1_xbar_0_axi_register_slice_v2_1_18_axic_register_slice
         .D(s_ready_i_i_1_n_0),
         .Q(aa_rready),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'h2EEE)) 
     \skid_buffer[0]_i_1 

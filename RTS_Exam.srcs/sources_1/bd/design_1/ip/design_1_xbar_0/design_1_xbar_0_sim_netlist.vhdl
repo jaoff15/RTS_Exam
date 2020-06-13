@@ -1,10 +1,10 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
--- Date        : Thu Jun 11 13:15:16 2020
+-- Date        : Sat Jun 13 16:31:40 2020
 -- Host        : JacobOffersen running 64-bit Ubuntu 19.10
 -- Command     : write_vhdl -force -mode funcsim
---               /home/jacoboffersen/eclipse-workspace/rts_exam_project/rts_exam_project.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_sim_netlist.vhdl
+--               /home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_xbar_0/design_1_xbar_0_sim_netlist.vhdl
 -- Design      : design_1_xbar_0
 -- Purpose     : This VHDL netlist is a functional simulation representation of the design and should not be modified or
 --               synthesized. This netlist cannot be used for SDF annotated simulation.
@@ -39,9 +39,9 @@ entity design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd is
     s_axi_arready : out STD_LOGIC_VECTOR ( 0 to 0 );
     s_axi_rvalid : out STD_LOGIC_VECTOR ( 0 to 0 );
     D : out STD_LOGIC_VECTOR ( 2 downto 0 );
+    any_error : out STD_LOGIC;
     \gen_no_arbiter.m_amesg_i_reg[48]_0\ : out STD_LOGIC_VECTOR ( 34 downto 0 );
     aresetn_d_reg : out STD_LOGIC;
-    any_error : out STD_LOGIC;
     \m_atarget_hot_reg[2]\ : out STD_LOGIC;
     aclk : in STD_LOGIC;
     \m_ready_d_reg[0]_0\ : in STD_LOGIC;
@@ -95,6 +95,7 @@ architecture STRUCTURE of design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
   signal \m_atarget_hot[2]_i_3_n_0\ : STD_LOGIC;
   signal \m_atarget_hot[2]_i_4_n_0\ : STD_LOGIC;
   signal \m_atarget_hot[2]_i_5_n_0\ : STD_LOGIC;
+  signal \m_atarget_hot[2]_i_6_n_0\ : STD_LOGIC;
   signal \m_ready_d[1]_i_3_n_0\ : STD_LOGIC;
   signal \^m_valid_i\ : STD_LOGIC;
   signal p_0_in1_in : STD_LOGIC;
@@ -110,30 +111,32 @@ architecture STRUCTURE of design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter_sasd
   signal \^s_ready_i_reg\ : STD_LOGIC;
   signal \splitter_aw/m_ready_d0\ : STD_LOGIC_VECTOR ( 1 to 1 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \gen_axilite.s_axi_awready_i_i_2\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \gen_axilite.s_axi_bvalid_i_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \gen_axilite.s_axi_awready_i_i_2\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \gen_axilite.s_axi_bvalid_i_i_2\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \gen_axilite.s_axi_rvalid_i_i_2\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_2\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_4\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \gen_no_arbiter.m_grant_hot_i[0]_i_5\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \gen_no_arbiter.s_ready_i[0]_i_1\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \m_atarget_enc[0]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \m_atarget_hot[0]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \m_atarget_hot[1]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \m_atarget_hot[2]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \m_atarget_enc[0]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \m_atarget_enc[1]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \m_atarget_hot[0]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \m_atarget_hot[1]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \m_atarget_hot[2]_i_1\ : label is "soft_lutpair9";
   attribute SOFT_HLUTNM of \m_axi_arvalid[0]_INST_0\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \m_axi_arvalid[1]_INST_0\ : label is "soft_lutpair6";
   attribute SOFT_HLUTNM of \m_axi_awvalid[0]_INST_0\ : label is "soft_lutpair7";
   attribute SOFT_HLUTNM of \m_axi_awvalid[1]_INST_0\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \m_axi_bready[1]_INST_0\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of \m_axi_bready[0]_INST_0\ : label is "soft_lutpair4";
   attribute SOFT_HLUTNM of \m_axi_wvalid[0]_INST_0\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \m_axi_wvalid[1]_INST_0\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \m_axi_wvalid[1]_INST_0\ : label is "soft_lutpair2";
+  attribute SOFT_HLUTNM of m_valid_i_i_2 : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \s_arvalid_reg[0]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \s_axi_awready[0]_INST_0\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \s_axi_bvalid[0]_INST_0\ : label is "soft_lutpair0";
+  attribute SOFT_HLUTNM of \s_axi_arready[0]_INST_0\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \s_axi_awready[0]_INST_0\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \s_axi_bvalid[0]_INST_0\ : label is "soft_lutpair1";
   attribute SOFT_HLUTNM of \s_axi_rvalid[0]_INST_0\ : label is "soft_lutpair11";
   attribute SOFT_HLUTNM of \s_axi_wready[0]_INST_0\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \s_axi_wready[0]_INST_0_i_2\ : label is "soft_lutpair4";
+  attribute SOFT_HLUTNM of \s_axi_wready[0]_INST_0_i_2\ : label is "soft_lutpair3";
 begin
   SR(0) <= \^sr\(0);
   aa_grant_rnw <= \^aa_grant_rnw\;
@@ -1002,98 +1005,116 @@ begin
       Q => s_ready_i,
       R => '0'
     );
-\m_atarget_enc[0]_i_1\: unisim.vcomponents.LUT3
+\m_atarget_enc[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"80"
+      INIT => X"2"
     )
         port map (
       I0 => aresetn_d,
-      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(16),
-      I2 => \m_atarget_hot[2]_i_2_n_0\,
+      I1 => \m_atarget_hot[2]_i_2_n_0\,
       O => aresetn_d_reg
     );
-\m_atarget_enc[1]_i_1\: unisim.vcomponents.LUT1
+\m_atarget_enc[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"1"
+      INIT => X"2"
     )
         port map (
       I0 => \m_atarget_hot[2]_i_2_n_0\,
+      I1 => \m_atarget_hot[2]_i_3_n_0\,
       O => any_error
     );
-\m_atarget_hot[0]_i_1\: unisim.vcomponents.LUT3
+\m_atarget_hot[0]_i_1\: unisim.vcomponents.LUT2
     generic map(
-      INIT => X"40"
+      INIT => X"8"
     )
         port map (
-      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(16),
+      I0 => \m_atarget_hot[2]_i_3_n_0\,
       I1 => aa_grant_any,
-      I2 => \m_atarget_hot[2]_i_2_n_0\,
       O => D(0)
     );
-\m_atarget_hot[1]_i_1\: unisim.vcomponents.LUT3
-    generic map(
-      INIT => X"80"
-    )
-        port map (
-      I0 => aa_grant_any,
-      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(16),
-      I2 => \m_atarget_hot[2]_i_2_n_0\,
-      O => D(1)
-    );
-\m_atarget_hot[2]_i_1\: unisim.vcomponents.LUT2
+\m_atarget_hot[1]_i_1\: unisim.vcomponents.LUT2
     generic map(
       INIT => X"2"
     )
         port map (
       I0 => aa_grant_any,
       I1 => \m_atarget_hot[2]_i_2_n_0\,
+      O => D(1)
+    );
+\m_atarget_hot[2]_i_1\: unisim.vcomponents.LUT3
+    generic map(
+      INIT => X"08"
+    )
+        port map (
+      I0 => aa_grant_any,
+      I1 => \m_atarget_hot[2]_i_2_n_0\,
+      I2 => \m_atarget_hot[2]_i_3_n_0\,
       O => D(2)
     );
 \m_atarget_hot[2]_i_2\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0002000000000000"
+      INIT => X"FFFFFFFFFFFFFBFF"
     )
         port map (
-      I0 => \m_atarget_hot[2]_i_3_n_0\,
-      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(19),
-      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(18),
-      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(17),
-      I4 => \m_atarget_hot[2]_i_4_n_0\,
-      I5 => \m_atarget_hot[2]_i_5_n_0\,
+      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(22),
+      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(21),
+      I2 => \m_atarget_hot[2]_i_4_n_0\,
+      I3 => \m_atarget_hot[2]_i_5_n_0\,
+      I4 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(23),
+      I5 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(25),
       O => \m_atarget_hot[2]_i_2_n_0\
     );
-\m_atarget_hot[2]_i_3\: unisim.vcomponents.LUT4
+\m_atarget_hot[2]_i_3\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0008"
+      INIT => X"0001000000000000"
     )
         port map (
-      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(23),
-      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(22),
-      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(21),
-      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(20),
+      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(18),
+      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(16),
+      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(19),
+      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(17),
+      I4 => \m_atarget_hot[2]_i_6_n_0\,
+      I5 => \m_atarget_hot[2]_i_5_n_0\,
       O => \m_atarget_hot[2]_i_3_n_0\
     );
-\m_atarget_hot[2]_i_4\: unisim.vcomponents.LUT4
+\m_atarget_hot[2]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"1000"
+      INIT => X"FFFFFFFFFFFFFFFD"
     )
         port map (
-      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(27),
-      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(26),
-      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(25),
-      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(24),
+      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(24),
+      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(20),
+      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(17),
+      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(19),
+      I4 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(16),
+      I5 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(18),
       O => \m_atarget_hot[2]_i_4_n_0\
     );
-\m_atarget_hot[2]_i_5\: unisim.vcomponents.LUT4
+\m_atarget_hot[2]_i_5\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0004"
+      INIT => X"0000000100000000"
     )
         port map (
-      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(31),
-      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(30),
-      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(29),
-      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(28),
+      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(28),
+      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(29),
+      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(26),
+      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(27),
+      I4 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(31),
+      I5 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(30),
       O => \m_atarget_hot[2]_i_5_n_0\
+    );
+\m_atarget_hot[2]_i_6\: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0008000000000000"
+    )
+        port map (
+      I0 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(22),
+      I1 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(23),
+      I2 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(20),
+      I3 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(21),
+      I4 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(25),
+      I5 => \^gen_no_arbiter.m_amesg_i_reg[48]_0\(24),
+      O => \m_atarget_hot[2]_i_6_n_0\
     );
 \m_axi_arvalid[0]_INST_0\: unisim.vcomponents.LUT4
     generic map(
@@ -1690,14 +1711,14 @@ begin
     );
 \m_ready_d[2]_i_4\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"5001505155015551"
+      INIT => X"5010501555105515"
     )
         port map (
       I0 => \^m_ready_d\(2),
-      I1 => m_axi_awready(0),
+      I1 => m_axi_awready(1),
       I2 => m_atarget_enc(0),
       I3 => m_atarget_enc(1),
-      I4 => m_axi_awready(1),
+      I4 => m_axi_awready(0),
       I5 => mi_wready(0),
       O => \m_ready_d[2]_i_4_n_0\
     );
@@ -1845,8 +1866,8 @@ architecture STRUCTURE of design_1_xbar_0_axi_register_slice_v2_1_18_axic_regist
   signal \skid_buffer_reg_n_0_[9]\ : STD_LOGIC;
   signal \^sr_rvalid\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \m_axi_rready[1]_INST_0\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \skid_buffer[0]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \m_axi_rready[1]_INST_0\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \skid_buffer[0]_i_1\ : label is "soft_lutpair13";
 begin
   aa_rready <= \^aa_rready\;
   sr_rvalid <= \^sr_rvalid\;
@@ -1918,15 +1939,15 @@ begin
     );
 \m_payload_i[12]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"0AFACAFA0AFACA0A"
+      INIT => X"2F2CFFFF2F2C0000"
     )
         port map (
-      I0 => \skid_buffer_reg_n_0_[12]\,
-      I1 => m_axi_rdata(41),
-      I2 => \^aa_rready\,
-      I3 => m_atarget_enc(0),
-      I4 => m_atarget_enc(1),
-      I5 => m_axi_rdata(9),
+      I0 => m_axi_rdata(41),
+      I1 => m_atarget_enc(1),
+      I2 => m_atarget_enc(0),
+      I3 => m_axi_rdata(9),
+      I4 => \^aa_rready\,
+      I5 => \skid_buffer_reg_n_0_[12]\,
       O => skid_buffer(12)
     );
 \m_payload_i[13]_i_1\: unisim.vcomponents.LUT6
@@ -2994,7 +3015,7 @@ architecture STRUCTURE of design_1_xbar_0_axi_crossbar_v2_1_19_crossbar_sasd is
   signal addr_arbiter_inst_n_4 : STD_LOGIC;
   signal addr_arbiter_inst_n_5 : STD_LOGIC;
   signal addr_arbiter_inst_n_6 : STD_LOGIC;
-  signal addr_arbiter_inst_n_64 : STD_LOGIC;
+  signal addr_arbiter_inst_n_65 : STD_LOGIC;
   signal addr_arbiter_inst_n_66 : STD_LOGIC;
   signal any_error : STD_LOGIC;
   signal aresetn_d : STD_LOGIC;
@@ -3030,7 +3051,7 @@ addr_arbiter_inst: entity work.design_1_xbar_0_axi_crossbar_v2_1_19_addr_arbiter
       aclk => aclk,
       any_error => any_error,
       aresetn_d => aresetn_d,
-      aresetn_d_reg => addr_arbiter_inst_n_64,
+      aresetn_d_reg => addr_arbiter_inst_n_65,
       \gen_no_arbiter.grant_rnw_reg_0\ => addr_arbiter_inst_n_3,
       \gen_no_arbiter.grant_rnw_reg_1\ => addr_arbiter_inst_n_4,
       \gen_no_arbiter.grant_rnw_reg_2\ => addr_arbiter_inst_n_6,
@@ -3119,7 +3140,7 @@ aresetn_d_reg: unisim.vcomponents.FDRE
         port map (
       C => aclk,
       CE => '1',
-      D => addr_arbiter_inst_n_64,
+      D => addr_arbiter_inst_n_65,
       Q => m_atarget_enc(0),
       R => '0'
     );
@@ -3365,7 +3386,7 @@ entity design_1_xbar_0_axi_crossbar_v2_1_19_axi_crossbar is
   attribute C_M_AXI_ADDR_WIDTH : string;
   attribute C_M_AXI_ADDR_WIDTH of design_1_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "64'b0000000000000000000000000001000000000000000000000000000000010000";
   attribute C_M_AXI_BASE_ADDR : string;
-  attribute C_M_AXI_BASE_ADDR of design_1_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "128'b00000000000000000000000000000000010000111100000100000000000000000000000000000000000000000000000001000011110000000000000000000000";
+  attribute C_M_AXI_BASE_ADDR of design_1_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "128'b00000000000000000000000000000000010000010010000000000000000000000000000000000000000000000000000001000011110000000000000000000000";
   attribute C_M_AXI_READ_CONNECTIVITY : string;
   attribute C_M_AXI_READ_CONNECTIVITY of design_1_xbar_0_axi_crossbar_v2_1_19_axi_crossbar : entity is "64'b1111111111111111111111111111111111111111111111111111111111111111";
   attribute C_M_AXI_READ_ISSUING : string;
@@ -3743,7 +3764,7 @@ architecture STRUCTURE of design_1_xbar_0 is
   attribute C_M_AXI_ADDR_WIDTH : string;
   attribute C_M_AXI_ADDR_WIDTH of inst : label is "64'b0000000000000000000000000001000000000000000000000000000000010000";
   attribute C_M_AXI_BASE_ADDR : string;
-  attribute C_M_AXI_BASE_ADDR of inst : label is "128'b00000000000000000000000000000000010000111100000100000000000000000000000000000000000000000000000001000011110000000000000000000000";
+  attribute C_M_AXI_BASE_ADDR of inst : label is "128'b00000000000000000000000000000000010000010010000000000000000000000000000000000000000000000000000001000011110000000000000000000000";
   attribute C_M_AXI_READ_CONNECTIVITY : string;
   attribute C_M_AXI_READ_CONNECTIVITY of inst : label is "64'b1111111111111111111111111111111111111111111111111111111111111111";
   attribute C_M_AXI_READ_ISSUING : string;
