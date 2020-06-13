@@ -1,0 +1,9 @@
+{
+	"version": "1.0",
+	"modules": {
+		"encrypt_clk": {
+			"proto_instances": {
+			}
+		}
+	}
+}

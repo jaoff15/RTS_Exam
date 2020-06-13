@@ -1,0 +1,10 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jacoboffersen/eclipse-workspace/rts_exam_project/rts_exam_project.sim/sim_1/synth/func/xsim/encrypt_tb_func_synth.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'clock_generator_clk_wiz_0_0_clock_generator_clk_wiz_0_0_clk_wiz'
+INFO: [VRFC 10-3107] analyzing entity 'clock_generator_processing_system7_0_0_processing_system7_v5_5_processing_system7'
+INFO: [VRFC 10-3107] analyzing entity 'clock_generator_clk_wiz_0_0'
+INFO: [VRFC 10-3107] analyzing entity 'clock_generator_processing_system7_0_0'
+INFO: [VRFC 10-3107] analyzing entity 'clock_generator'
+INFO: [VRFC 10-3107] analyzing entity 'clock_generator_wrapper'
+INFO: [VRFC 10-3107] analyzing entity 'encryption'
+INFO: [VRFC 10-163] Analyzing VHDL file "/home/jacoboffersen/eclipse-workspace/rts_exam_project/rts_exam_project.srcs/sim_1/new/encrypt_tb.vhd" into library xil_defaultlib
+INFO: [VRFC 10-3107] analyzing entity 'encrypt_tb'

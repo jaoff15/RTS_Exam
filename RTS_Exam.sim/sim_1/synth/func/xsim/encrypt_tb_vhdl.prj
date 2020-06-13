@@ -1,0 +1,7 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"encrypt_tb_func_synth.vhd" \
+"../../../../../rts_exam_project.srcs/sim_1/new/encrypt_tb.vhd" \
+
+# Do not sort compile order
+nosort
