@@ -19,8 +19,8 @@
         "m01_couplers": {}
       },
       "rst_ps7_0_100M": "",
-      "des_encryption_0": "",
-      "axi_gpio_0": ""
+      "axi_gpio_0": "",
+      "des_encryption_0": ""
     },
     "interface_ports": {
       "DDR": {
@@ -274,9 +274,6 @@
             "value": "0"
           },
           "PCW_I2C_RESET_ENABLE": {
-            "value": "1"
-          },
-          "PCW_IRQ_F2P_INTR": {
             "value": "1"
           },
           "PCW_IRQ_F2P_MODE": {
@@ -864,6 +861,9 @@
           "PCW_SMC_PERIPHERAL_CLKSRC": {
             "value": "IO PLL"
           },
+          "PCW_S_AXI_HP0_DATA_WIDTH": {
+            "value": "32"
+          },
           "PCW_TPIU_PERIPHERAL_CLKSRC": {
             "value": "External"
           },
@@ -1093,7 +1093,7 @@
             "value": "0"
           },
           "PCW_USE_FABRIC_INTERRUPT": {
-            "value": "1"
+            "value": "0"
           },
           "PCW_USE_M_AXI_GP0": {
             "value": "1"
@@ -1267,16 +1267,16 @@
               }
             },
             "interface_nets": {
-              "auto_pc_to_s00_couplers": {
-                "interface_ports": [
-                  "M_AXI",
-                  "auto_pc/M_AXI"
-                ]
-              },
               "s00_couplers_to_auto_pc": {
                 "interface_ports": [
                   "S_AXI",
                   "auto_pc/S_AXI"
+                ]
+              },
+              "auto_pc_to_s00_couplers": {
+                "interface_ports": [
+                  "M_AXI",
+                  "auto_pc/M_AXI"
                 ]
               }
             },
@@ -1405,22 +1405,10 @@
           }
         },
         "interface_nets": {
-          "xbar_to_m01_couplers": {
+          "m00_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
-              "xbar/M01_AXI",
-              "m01_couplers/S_AXI"
-            ]
-          },
-          "s00_couplers_to_xbar": {
-            "interface_ports": [
-              "s00_couplers/M_AXI",
-              "xbar/S00_AXI"
-            ]
-          },
-          "xbar_to_m00_couplers": {
-            "interface_ports": [
-              "xbar/M00_AXI",
-              "m00_couplers/S_AXI"
+              "M00_AXI",
+              "m00_couplers/M_AXI"
             ]
           },
           "ps7_0_axi_periph_to_s00_couplers": {
@@ -1429,16 +1417,28 @@
               "s00_couplers/S_AXI"
             ]
           },
-          "m00_couplers_to_ps7_0_axi_periph": {
+          "s00_couplers_to_xbar": {
             "interface_ports": [
-              "M00_AXI",
-              "m00_couplers/M_AXI"
+              "s00_couplers/M_AXI",
+              "xbar/S00_AXI"
+            ]
+          },
+          "xbar_to_m01_couplers": {
+            "interface_ports": [
+              "xbar/M01_AXI",
+              "m01_couplers/S_AXI"
             ]
           },
           "m01_couplers_to_ps7_0_axi_periph": {
             "interface_ports": [
               "M01_AXI",
               "m01_couplers/M_AXI"
+            ]
+          },
+          "xbar_to_m00_couplers": {
+            "interface_ports": [
+              "xbar/M00_AXI",
+              "m00_couplers/S_AXI"
             ]
           }
         },
@@ -1473,34 +1473,46 @@
         "vlnv": "xilinx.com:ip:proc_sys_reset:5.0",
         "xci_name": "design_1_rst_ps7_0_100M_0"
       },
-      "des_encryption_0": {
-        "vlnv": "user.org:user:des_encryption:1.0",
-        "xci_name": "design_1_des_encryption_0_0"
-      },
       "axi_gpio_0": {
         "vlnv": "xilinx.com:ip:axi_gpio:2.0",
         "xci_name": "design_1_axi_gpio_0_0",
         "parameters": {
+          "C_ALL_INPUTS_2": {
+            "value": "1"
+          },
           "C_ALL_OUTPUTS": {
+            "value": "1"
+          },
+          "C_GPIO2_WIDTH": {
             "value": "1"
           },
           "C_GPIO_WIDTH": {
             "value": "1"
+          },
+          "C_INTERRUPT_PRESENT": {
+            "value": "0"
+          },
+          "C_IS_DUAL": {
+            "value": "1"
           }
         }
+      },
+      "des_encryption_0": {
+        "vlnv": "user.org:user:des_encryption:1.0",
+        "xci_name": "design_1_des_encryption_0_0"
       }
     },
     "interface_nets": {
-      "processing_system7_0_DDR": {
-        "interface_ports": [
-          "DDR",
-          "processing_system7_0/DDR"
-        ]
-      },
       "processing_system7_0_FIXED_IO": {
         "interface_ports": [
           "FIXED_IO",
           "processing_system7_0/FIXED_IO"
+        ]
+      },
+      "ps7_0_axi_periph_M01_AXI": {
+        "interface_ports": [
+          "ps7_0_axi_periph/M01_AXI",
+          "axi_gpio_0/S_AXI"
         ]
       },
       "processing_system7_0_M_AXI_GP0": {
@@ -1515,10 +1527,10 @@
           "des_encryption_0/S00_AXI"
         ]
       },
-      "ps7_0_axi_periph_M01_AXI": {
+      "processing_system7_0_DDR": {
         "interface_ports": [
-          "ps7_0_axi_periph/M01_AXI",
-          "axi_gpio_0/S_AXI"
+          "DDR",
+          "processing_system7_0/DDR"
         ]
       }
     },
@@ -1531,9 +1543,9 @@
           "ps7_0_axi_periph/S00_ACLK",
           "rst_ps7_0_100M/slowest_sync_clk",
           "ps7_0_axi_periph/M00_ACLK",
-          "des_encryption_0/s00_axi_aclk",
           "axi_gpio_0/s_axi_aclk",
-          "ps7_0_axi_periph/M01_ACLK"
+          "ps7_0_axi_periph/M01_ACLK",
+          "des_encryption_0/s00_axi_aclk"
         ]
       },
       "processing_system7_0_FCLK_RESET0_N": {
@@ -1548,21 +1560,21 @@
           "ps7_0_axi_periph/S00_ARESETN",
           "ps7_0_axi_periph/M00_ARESETN",
           "ps7_0_axi_periph/ARESETN",
-          "des_encryption_0/s00_axi_aresetn",
           "axi_gpio_0/s_axi_aresetn",
-          "ps7_0_axi_periph/M01_ARESETN"
-        ]
-      },
-      "des_encryption_0_ENC_DONE": {
-        "ports": [
-          "des_encryption_0/ENC_DONE",
-          "processing_system7_0/IRQ_F2P"
+          "ps7_0_axi_periph/M01_ARESETN",
+          "des_encryption_0/s00_axi_aresetn"
         ]
       },
       "axi_gpio_0_gpio_io_o": {
         "ports": [
           "axi_gpio_0/gpio_io_o",
           "des_encryption_0/ENC_START"
+        ]
+      },
+      "des_encryption_0_ENC_DONE": {
+        "ports": [
+          "des_encryption_0/ENC_DONE",
+          "axi_gpio_0/gpio2_io_i"
         ]
       }
     },

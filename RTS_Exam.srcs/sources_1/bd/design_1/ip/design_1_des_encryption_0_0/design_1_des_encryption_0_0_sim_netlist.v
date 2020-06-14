@@ -1,7 +1,7 @@
 // Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 // --------------------------------------------------------------------------------
 // Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-// Date        : Sat Jun 13 16:28:26 2020
+// Date        : Sun Jun 14 14:21:26 2020
 // Host        : JacobOffersen running 64-bit Ubuntu 19.10
 // Command     : write_verilog -force -mode funcsim
 //               /home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_des_encryption_0_0/design_1_des_encryption_0_0_sim_netlist.v
@@ -40,7 +40,7 @@ module design_1_des_encryption_0_0
     s00_axi_aresetn);
   input ENC_START;
   output ENC_DONE;
-  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 6, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [4:0]s00_axi_awaddr;
+  (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR" *) (* x_interface_parameter = "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 6, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0" *) input [4:0]s00_axi_awaddr;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT" *) input [2:0]s00_axi_awprot;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWVALID" *) input s00_axi_awvalid;
   (* x_interface_info = "xilinx.com:interface:aximm:1.0 S00_AXI AWREADY" *) output s00_axi_awready;
@@ -382,7 +382,7 @@ module design_1_des_encryption_0_0_des_encryption_v1_0_S00_AXI
         .D(\axi_araddr[4]_i_1_n_0 ),
         .Q(sel0[2]),
         .S(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair370" *) 
+  (* SOFT_HLUTNM = "soft_lutpair371" *) 
   LUT2 #(
     .INIT(4'h2)) 
     axi_arready_i_1
@@ -448,7 +448,7 @@ module design_1_des_encryption_0_0_des_encryption_v1_0_S00_AXI
     axi_awready_i_1
        (.I0(s00_axi_aresetn),
         .O(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair369" *) 
+  (* SOFT_HLUTNM = "soft_lutpair370" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     axi_awready_i_2
@@ -1318,7 +1318,7 @@ module design_1_des_encryption_0_0_des_encryption_v1_0_S00_AXI
         .D(reg_data_out__0[9]),
         .Q(s00_axi_rdata[9]),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair370" *) 
+  (* SOFT_HLUTNM = "soft_lutpair371" *) 
   LUT4 #(
     .INIT(16'h08F8)) 
     axi_rvalid_i_1
@@ -1333,7 +1333,7 @@ module design_1_des_encryption_0_0_des_encryption_v1_0_S00_AXI
         .D(axi_rvalid_i_1_n_0),
         .Q(s00_axi_rvalid),
         .R(axi_awready_i_1_n_0));
-  (* SOFT_HLUTNM = "soft_lutpair369" *) 
+  (* SOFT_HLUTNM = "soft_lutpair370" *) 
   LUT4 #(
     .INIT(16'h0080)) 
     axi_wready_i_1
@@ -2376,6 +2376,8 @@ module design_1_des_encryption_0_0_encryption
   wire \nxt_data_out[8]_i_1_n_0 ;
   wire \nxt_data_out[9]_i_1_n_0 ;
   wire nxt_done;
+  wire nxt_done_i_1_n_0;
+  wire nxt_done_i_3_n_0;
   wire \nxt_left[0]_i_1_n_0 ;
   wire \nxt_left[10]_i_1_n_0 ;
   wire \nxt_left[11]_i_1_n_0 ;
@@ -2936,7 +2938,7 @@ module design_1_des_encryption_0_0_encryption
   wire [47:0]x8_out;
   wire [47:0]x9_out;
 
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT3 #(
     .INIT(8'h07)) 
     \FSM_sequential_nxt_state[0]_i_1 
@@ -2965,7 +2967,7 @@ module design_1_des_encryption_0_0_encryption
         .I1(state[4]),
         .I2(state[0]),
         .O(\FSM_sequential_nxt_state[1]_rep_i_1__0_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair29" *) 
+  (* SOFT_HLUTNM = "soft_lutpair30" *) 
   LUT4 #(
     .INIT(16'h006A)) 
     \FSM_sequential_nxt_state[2]_i_1 
@@ -3070,56 +3072,56 @@ module design_1_des_encryption_0_0_encryption
         .D(\FSM_sequential_nxt_state[4]_i_2_n_0 ),
         .Q(state[4]),
         .R(1'b0));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[0]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[63]),
         .O(\nxt_data_out[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[10]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[53]),
         .O(\nxt_data_out[10]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[11]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[52]),
         .O(\nxt_data_out[11]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[12]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[51]),
         .O(\nxt_data_out[12]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[13]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[50]),
         .O(\nxt_data_out[13]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[14]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[49]),
         .O(\nxt_data_out[14]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[15]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[48]),
         .O(\nxt_data_out[15]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[16]_i_1 
@@ -3133,161 +3135,161 @@ module design_1_des_encryption_0_0_encryption
        (.I0(state[4]),
         .I1(final_permutation[46]),
         .O(\nxt_data_out[17]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[18]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[45]),
         .O(\nxt_data_out[18]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[19]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[44]),
         .O(\nxt_data_out[19]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[1]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[62]),
         .O(\nxt_data_out[1]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[20]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[43]),
         .O(\nxt_data_out[20]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[21]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[42]),
         .O(\nxt_data_out[21]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[22]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[41]),
         .O(\nxt_data_out[22]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[23]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[40]),
         .O(\nxt_data_out[23]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[24]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[39]),
         .O(\nxt_data_out[24]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[25]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[38]),
         .O(\nxt_data_out[25]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[26]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[37]),
         .O(\nxt_data_out[26]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[27]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[36]),
         .O(\nxt_data_out[27]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[28]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[35]),
         .O(\nxt_data_out[28]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[29]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[34]),
         .O(\nxt_data_out[29]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[2]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[61]),
         .O(\nxt_data_out[2]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[30]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[33]),
         .O(\nxt_data_out[30]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[31]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[32]),
         .O(\nxt_data_out[31]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair95" *) 
+  (* SOFT_HLUTNM = "soft_lutpair96" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[32]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[31]),
         .O(\nxt_data_out[32]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[33]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[30]),
         .O(\nxt_data_out[33]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair94" *) 
+  (* SOFT_HLUTNM = "soft_lutpair95" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[34]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[29]),
         .O(\nxt_data_out[34]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[35]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[28]),
         .O(\nxt_data_out[35]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair93" *) 
+  (* SOFT_HLUTNM = "soft_lutpair94" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[36]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[27]),
         .O(\nxt_data_out[36]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[37]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[26]),
         .O(\nxt_data_out[37]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair92" *) 
+  (* SOFT_HLUTNM = "soft_lutpair93" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[38]_i_1 
@@ -3301,105 +3303,105 @@ module design_1_des_encryption_0_0_encryption
        (.I0(state[4]),
         .I1(final_permutation[24]),
         .O(\nxt_data_out[39]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[3]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[60]),
         .O(\nxt_data_out[3]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair91" *) 
+  (* SOFT_HLUTNM = "soft_lutpair92" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[40]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[23]),
         .O(\nxt_data_out[40]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[41]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[22]),
         .O(\nxt_data_out[41]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair90" *) 
+  (* SOFT_HLUTNM = "soft_lutpair91" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[42]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[21]),
         .O(\nxt_data_out[42]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[43]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[20]),
         .O(\nxt_data_out[43]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair89" *) 
+  (* SOFT_HLUTNM = "soft_lutpair90" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[44]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[19]),
         .O(\nxt_data_out[44]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[45]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[18]),
         .O(\nxt_data_out[45]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair88" *) 
+  (* SOFT_HLUTNM = "soft_lutpair89" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[46]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[17]),
         .O(\nxt_data_out[46]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[47]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[16]),
         .O(\nxt_data_out[47]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair87" *) 
+  (* SOFT_HLUTNM = "soft_lutpair88" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[48]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[15]),
         .O(\nxt_data_out[48]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[49]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[14]),
         .O(\nxt_data_out[49]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[4]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[59]),
         .O(\nxt_data_out[4]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair86" *) 
+  (* SOFT_HLUTNM = "soft_lutpair87" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[50]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[13]),
         .O(\nxt_data_out[50]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[51]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[12]),
         .O(\nxt_data_out[51]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair84" *) 
+  (* SOFT_HLUTNM = "soft_lutpair85" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[52]_i_1 
@@ -3413,35 +3415,35 @@ module design_1_des_encryption_0_0_encryption
        (.I0(state[4]),
         .I1(final_permutation[10]),
         .O(\nxt_data_out[53]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[54]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[9]),
         .O(\nxt_data_out[54]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[55]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[8]),
         .O(\nxt_data_out[55]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[56]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[7]),
         .O(\nxt_data_out[56]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[57]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[6]),
         .O(\nxt_data_out[57]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair76" *) 
+  (* SOFT_HLUTNM = "soft_lutpair77" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[58]_i_1 
@@ -3462,21 +3464,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(state[4]),
         .I1(final_permutation[58]),
         .O(\nxt_data_out[5]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair74" *) 
+  (* SOFT_HLUTNM = "soft_lutpair75" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[60]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[3]),
         .O(\nxt_data_out[60]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[61]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[2]),
         .O(\nxt_data_out[61]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair73" *) 
+  (* SOFT_HLUTNM = "soft_lutpair74" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[62]_i_1 
@@ -3493,35 +3495,35 @@ module design_1_des_encryption_0_0_encryption
         .I4(ENC_START),
         .I5(state[1]),
         .O(\nxt_data_out[63]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[63]_i_2 
        (.I0(state[4]),
         .I1(final_permutation[0]),
         .O(\nxt_data_out[63]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair77" *) 
+  (* SOFT_HLUTNM = "soft_lutpair78" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[6]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[57]),
         .O(\nxt_data_out[6]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[7]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[56]),
         .O(\nxt_data_out[7]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair83" *) 
+  (* SOFT_HLUTNM = "soft_lutpair84" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[8]_i_1 
        (.I0(state[4]),
         .I1(final_permutation[55]),
         .O(\nxt_data_out[8]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT2 #(
     .INIT(4'h8)) 
     \nxt_data_out[9]_i_1 
@@ -4040,342 +4042,360 @@ module design_1_des_encryption_0_0_encryption
         .D(\nxt_data_out[9]_i_1_n_0 ),
         .Q(DATA_O[9]),
         .R(1'b0));
-  LUT5 #(
-    .INIT(32'h00000020)) 
+  LUT6 #(
+    .INIT(64'h44444F4444444444)) 
     nxt_done_i_1
-       (.I0(state[1]),
-        .I1(state[2]),
-        .I2(state[4]),
-        .I3(state[3]),
-        .I4(state[0]),
+       (.I0(nxt_done),
+        .I1(ENC_DONE),
+        .I2(nxt_done_i_3_n_0),
+        .I3(state[4]),
+        .I4(state[2]),
+        .I5(state[1]),
+        .O(nxt_done_i_1_n_0));
+  LUT6 #(
+    .INIT(64'h0000000000000100)) 
+    nxt_done_i_2
+       (.I0(state[0]),
+        .I1(state[4]),
+        .I2(state[1]),
+        .I3(ENC_START),
+        .I4(state[3]),
+        .I5(state[2]),
         .O(nxt_done));
+  (* SOFT_HLUTNM = "soft_lutpair1" *) 
+  LUT2 #(
+    .INIT(4'hE)) 
+    nxt_done_i_3
+       (.I0(state[3]),
+        .I1(state[0]),
+        .O(nxt_done_i_3_n_0));
   FDRE #(
     .INIT(1'b0)) 
     nxt_done_reg
        (.C(s00_axi_aclk),
         .CE(1'b1),
-        .D(nxt_done),
+        .D(nxt_done_i_1_n_0),
         .Q(ENC_DONE),
         .R(1'b0));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[0]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [6]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[57]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[57]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [6]),
         .O(\nxt_left[0]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[10]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [20]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[43]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[43]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [20]),
         .O(\nxt_left[10]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[11]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [28]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[35]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[35]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [28]),
         .O(\nxt_left[11]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[12]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [4]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[27]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[27]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [4]),
         .O(\nxt_left[12]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[13]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [12]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[19]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[19]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [12]),
         .O(\nxt_left[13]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[14]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [20]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[11]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[11]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [20]),
         .O(\nxt_left[14]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[15]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [28]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[3]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[3]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [28]),
         .O(\nxt_left[15]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[16]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [2]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[61]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[61]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [2]),
         .O(\nxt_left[16]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[17]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [10]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[53]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[53]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [10]),
         .O(\nxt_left[17]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[18]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [18]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[45]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[45]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [18]),
         .O(\nxt_left[18]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[19]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [26]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[37]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[37]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [26]),
         .O(\nxt_left[19]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[1]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [14]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[49]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[49]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [14]),
         .O(\nxt_left[1]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[20]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [2]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[29]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[29]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [2]),
         .O(\nxt_left[20]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[21]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [10]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[21]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[21]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [10]),
         .O(\nxt_left[21]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[22]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [18]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[13]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[13]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [18]),
         .O(\nxt_left[22]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[23]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [26]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[5]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[5]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [26]),
         .O(\nxt_left[23]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[24]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [0]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[63]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[63]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [0]),
         .O(\nxt_left[24]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[25]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [8]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[55]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[55]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [8]),
         .O(\nxt_left[25]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[26]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [16]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[47]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[47]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [16]),
         .O(\nxt_left[26]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[27]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [24]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[39]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[39]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [24]),
         .O(\nxt_left[27]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[28]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [0]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[31]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[31]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [0]),
         .O(\nxt_left[28]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[29]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [8]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[23]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[23]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [8]),
         .O(\nxt_left[29]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[2]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [22]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[41]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[41]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [22]),
         .O(\nxt_left[2]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[30]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [16]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[15]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[15]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [16]),
         .O(\nxt_left[30]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[31]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [24]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[7]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[7]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [24]),
         .O(\nxt_left[31]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[3]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [30]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[33]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[33]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [30]),
         .O(\nxt_left[3]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[4]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [6]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[25]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[25]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [6]),
         .O(\nxt_left[4]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[5]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [14]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[17]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[17]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [14]),
         .O(\nxt_left[5]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[6]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [22]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[9]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[9]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [22]),
         .O(\nxt_left[6]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[7]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[7]_0 [30]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[1]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[1]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[7]_0 [30]),
         .O(\nxt_left[7]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[8]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [4]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[59]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[59]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [4]),
         .O(\nxt_left[8]_i_1_n_0 ));
   LUT6 #(
-    .INIT(64'hFFFFFFFE00000010)) 
+    .INIT(64'hFF00FF01FF00FE00)) 
     \nxt_left[9]_i_1 
        (.I0(state[4]),
-        .I1(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
-        .I2(\nxt_right_reg[3]_0 [12]),
-        .I3(state[2]),
-        .I4(state[3]),
-        .I5(final_permutation[51]),
+        .I1(state[2]),
+        .I2(state[3]),
+        .I3(final_permutation[51]),
+        .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
+        .I5(\nxt_right_reg[3]_0 [12]),
         .O(\nxt_left[9]_i_1_n_0 ));
   FDRE #(
     .INIT(1'b0)) 
@@ -4642,70 +4662,70 @@ module design_1_des_encryption_0_0_encryption
         .I3(state[2]),
         .I4(\FSM_sequential_nxt_state_reg[1]_rep_n_0 ),
         .O(\nxt_right[0]_i_1_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair177" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_100 
        (.I0(Q[5]),
         .I1(final_permutation[27]),
         .O(x11_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_101 
        (.I0(Q[6]),
         .I1(final_permutation[19]),
         .O(x11_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_102 
        (.I0(\nxt_right[5]_i_5_0 [10]),
         .I1(final_permutation[11]),
         .O(x11_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair163" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_103 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[3]),
         .O(x11_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair160" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_104 
        (.I0(Q[27]),
         .I1(final_permutation[61]),
         .O(x11_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair178" *) 
+  (* SOFT_HLUTNM = "soft_lutpair179" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_105 
        (.I0(Q[11]),
         .I1(final_permutation[35]),
         .O(x11_out[29]));
-  (* SOFT_HLUTNM = "soft_lutpair157" *) 
+  (* SOFT_HLUTNM = "soft_lutpair158" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_106 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[27]),
         .O(x12_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair156" *) 
+  (* SOFT_HLUTNM = "soft_lutpair157" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_107 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[19]),
         .O(x12_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair155" *) 
+  (* SOFT_HLUTNM = "soft_lutpair156" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_108 
        (.I0(Q[25]),
         .I1(final_permutation[11]),
         .O(x12_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair140" *) 
+  (* SOFT_HLUTNM = "soft_lutpair141" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_109 
@@ -4722,70 +4742,70 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[0]_i_33_n_0 ),
         .I5(final_permutation[56]),
         .O(\nxt_right[0]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair155" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_110 
        (.I0(Q[13]),
         .I1(final_permutation[61]),
         .O(x12_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair159" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_111 
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[35]),
         .O(x12_out[29]));
-  (* SOFT_HLUTNM = "soft_lutpair183" *) 
+  (* SOFT_HLUTNM = "soft_lutpair184" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_112 
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[27]),
         .O(x9_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair164" *) 
+  (* SOFT_HLUTNM = "soft_lutpair165" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_113 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[19]),
         .O(x9_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair211" *) 
+  (* SOFT_HLUTNM = "soft_lutpair212" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_114 
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[11]),
         .O(x9_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair210" *) 
+  (* SOFT_HLUTNM = "soft_lutpair211" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_115 
        (.I0(Q[18]),
         .I1(final_permutation[3]),
         .O(x9_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair209" *) 
+  (* SOFT_HLUTNM = "soft_lutpair210" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_116 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[61]),
         .O(x9_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair196" *) 
+  (* SOFT_HLUTNM = "soft_lutpair197" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_117 
        (.I0(Q[19]),
         .I1(final_permutation[27]),
         .O(x10_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_118 
        (.I0(Q[20]),
         .I1(final_permutation[19]),
         .O(x10_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair166" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_119 
@@ -4799,21 +4819,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[20]),
         .I1(final_permutation[27]),
         .O(x0_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair195" *) 
+  (* SOFT_HLUTNM = "soft_lutpair196" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_120 
        (.I0(Q[4]),
         .I1(final_permutation[3]),
         .O(x10_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair180" *) 
+  (* SOFT_HLUTNM = "soft_lutpair181" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_121 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[61]),
         .O(x10_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair155" *) 
+  (* SOFT_HLUTNM = "soft_lutpair156" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_122 
@@ -4826,7 +4846,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[19]),
         .O(\nxt_right[0]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair364" *) 
+  (* SOFT_HLUTNM = "soft_lutpair365" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_14 
@@ -4839,28 +4859,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[5]),
         .I1(final_permutation[3]),
         .O(\nxt_right[0]_i_15_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair331" *) 
+  (* SOFT_HLUTNM = "soft_lutpair333" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_16 
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[61]),
         .O(\nxt_right[0]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair365" *) 
+  (* SOFT_HLUTNM = "soft_lutpair366" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_17 
        (.I0(Q[26]),
         .I1(final_permutation[35]),
         .O(\nxt_right[0]_i_17_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair334" *) 
+  (* SOFT_HLUTNM = "soft_lutpair336" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_18 
        (.I0(Q[13]),
         .I1(final_permutation[27]),
         .O(x0_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair318" *) 
+  (* SOFT_HLUTNM = "soft_lutpair320" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_19 
@@ -4876,28 +4896,28 @@ module design_1_des_encryption_0_0_encryption
         .I3(state[3]),
         .I4(\nxt_right[0]_i_5_n_0 ),
         .O(\nxt_right[0]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair364" *) 
+  (* SOFT_HLUTNM = "soft_lutpair365" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_20 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[11]),
         .O(x0_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair352" *) 
+  (* SOFT_HLUTNM = "soft_lutpair353" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_21 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[3]),
         .O(x0_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair348" *) 
+  (* SOFT_HLUTNM = "soft_lutpair349" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_22 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[61]),
         .O(x0_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_23 
@@ -4924,7 +4944,6 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[24]),
         .I5(x6_out[29]),
         .O(permutate12_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[0]_i_26 
@@ -4953,6 +4972,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[24]),
         .I5(x2_out[29]),
         .O(permutate4_in[0]));
+  (* SOFT_HLUTNM = "soft_lutpair29" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[0]_i_29 
@@ -5007,42 +5027,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[0]_i_75_n_0 ),
         .I5(x4_out[31]),
         .O(\nxt_right[0]_i_33_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair251" *) 
+  (* SOFT_HLUTNM = "soft_lutpair252" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_34 
        (.I0(Q[25]),
         .I1(final_permutation[27]),
         .O(x5_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair282" *) 
+  (* SOFT_HLUTNM = "soft_lutpair283" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_35 
        (.I0(Q[26]),
         .I1(final_permutation[19]),
         .O(x5_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair250" *) 
+  (* SOFT_HLUTNM = "soft_lutpair251" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_36 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[11]),
         .O(x5_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair281" *) 
+  (* SOFT_HLUTNM = "soft_lutpair282" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_37 
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[3]),
         .O(x5_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair265" *) 
+  (* SOFT_HLUTNM = "soft_lutpair266" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_38 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[61]),
         .O(x5_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair176" *) 
+  (* SOFT_HLUTNM = "soft_lutpair177" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_39 
@@ -5056,35 +5076,35 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[11]),
         .I1(final_permutation[27]),
         .O(x7_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair252" *) 
+  (* SOFT_HLUTNM = "soft_lutpair253" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_41 
        (.I0(Q[12]),
         .I1(final_permutation[19]),
         .O(x6_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair262" *) 
+  (* SOFT_HLUTNM = "soft_lutpair263" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_42 
        (.I0(Q[20]),
         .I1(final_permutation[11]),
         .O(x6_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair256" *) 
+  (* SOFT_HLUTNM = "soft_lutpair257" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_43 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[3]),
         .O(x6_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair253" *) 
+  (* SOFT_HLUTNM = "soft_lutpair254" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_44 
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[61]),
         .O(x6_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair263" *) 
+  (* SOFT_HLUTNM = "soft_lutpair264" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_45 
@@ -5111,14 +5131,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(x8_out[24]),
         .I5(x13_out[31]),
         .O(permutate16_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair346" *) 
+  (* SOFT_HLUTNM = "soft_lutpair347" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_48 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[27]),
         .O(x1_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair299" *) 
+  (* SOFT_HLUTNM = "soft_lutpair300" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_49 
@@ -5134,70 +5154,70 @@ module design_1_des_encryption_0_0_encryption
         .I3(state[1]),
         .I4(\nxt_right[0]_i_11_n_0 ),
         .O(\nxt_right[0]_i_5_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair319" *) 
+  (* SOFT_HLUTNM = "soft_lutpair321" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_50 
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[11]),
         .O(x1_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair332" *) 
+  (* SOFT_HLUTNM = "soft_lutpair334" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_51 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[3]),
         .O(x1_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair345" *) 
+  (* SOFT_HLUTNM = "soft_lutpair346" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_52 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[61]),
         .O(x1_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_53 
        (.I0(Q[5]),
         .I1(final_permutation[35]),
         .O(x6_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair331" *) 
+  (* SOFT_HLUTNM = "soft_lutpair333" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_54 
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[27]),
         .O(x2_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair285" *) 
+  (* SOFT_HLUTNM = "soft_lutpair286" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_55 
        (.I0(Q[11]),
         .I1(final_permutation[19]),
         .O(x2_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair330" *) 
+  (* SOFT_HLUTNM = "soft_lutpair332" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_56 
        (.I0(Q[19]),
         .I1(final_permutation[11]),
         .O(x2_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair316" *) 
+  (* SOFT_HLUTNM = "soft_lutpair318" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_57 
        (.I0(Q[27]),
         .I1(final_permutation[3]),
         .O(x2_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair329" *) 
+  (* SOFT_HLUTNM = "soft_lutpair331" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_58 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[61]),
         .O(x2_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair298" *) 
+  (* SOFT_HLUTNM = "soft_lutpair299" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_59 
@@ -5274,28 +5294,28 @@ module design_1_des_encryption_0_0_encryption
         .I4(x10_out[24]),
         .I5(x10_out[29]),
         .O(permutate20_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_66 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[27]),
         .O(\nxt_right[0]_i_66_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair136" *) 
+  (* SOFT_HLUTNM = "soft_lutpair137" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_67 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[19]),
         .O(x13_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_68 
        (.I0(Q[11]),
         .I1(final_permutation[11]),
         .O(x13_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair135" *) 
+  (* SOFT_HLUTNM = "soft_lutpair136" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_69 
@@ -5312,42 +5332,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(x0_out[24]),
         .I5(x5_out[31]),
         .O(permutate0_in[0]));
-  (* SOFT_HLUTNM = "soft_lutpair134" *) 
+  (* SOFT_HLUTNM = "soft_lutpair135" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_70 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[61]),
         .O(x13_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair137" *) 
+  (* SOFT_HLUTNM = "soft_lutpair138" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_71 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[35]),
         .O(x13_out[29]));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_72 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[19]),
         .O(\nxt_right[0]_i_72_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_73 
        (.I0(Q[4]),
         .I1(final_permutation[11]),
         .O(\nxt_right[0]_i_73_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_74 
        (.I0(Q[12]),
         .I1(final_permutation[3]),
         .O(\nxt_right[0]_i_74_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_75 
@@ -5375,7 +5395,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[5]),
         .I1(final_permutation[19]),
         .O(x7_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair217" *) 
+  (* SOFT_HLUTNM = "soft_lutpair218" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_79 
@@ -5413,7 +5433,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[35]),
         .O(x12_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair199" *) 
+  (* SOFT_HLUTNM = "soft_lutpair200" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_83 
@@ -5427,35 +5447,35 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[19]),
         .O(x8_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair198" *) 
+  (* SOFT_HLUTNM = "soft_lutpair199" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_85 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[11]),
         .O(x8_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair215" *) 
+  (* SOFT_HLUTNM = "soft_lutpair216" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_86 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[3]),
         .O(x8_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair212" *) 
+  (* SOFT_HLUTNM = "soft_lutpair213" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_87 
        (.I0(Q[12]),
         .I1(final_permutation[61]),
         .O(x8_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair286" *) 
+  (* SOFT_HLUTNM = "soft_lutpair287" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_88 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[27]),
         .O(x3_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair268" *) 
+  (* SOFT_HLUTNM = "soft_lutpair269" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_89 
@@ -5472,70 +5492,70 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[0]_i_29_n_0 ),
         .O(\nxt_right[0]_i_9_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair311" *) 
+  (* SOFT_HLUTNM = "soft_lutpair313" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_90 
        (.I0(Q[5]),
         .I1(final_permutation[11]),
         .O(x3_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair303" *) 
+  (* SOFT_HLUTNM = "soft_lutpair304" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_91 
        (.I0(Q[13]),
         .I1(final_permutation[3]),
         .O(x3_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair300" *) 
+  (* SOFT_HLUTNM = "soft_lutpair301" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_92 
        (.I0(Q[18]),
         .I1(final_permutation[61]),
         .O(x3_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair312" *) 
+  (* SOFT_HLUTNM = "soft_lutpair314" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_93 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[35]),
         .O(x3_out[29]));
-  (* SOFT_HLUTNM = "soft_lutpair269" *) 
+  (* SOFT_HLUTNM = "soft_lutpair270" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_94 
        (.I0(\nxt_right[5]_i_5_0 [10]),
         .I1(final_permutation[27]),
         .O(x4_out[28]));
-  (* SOFT_HLUTNM = "soft_lutpair299" *) 
+  (* SOFT_HLUTNM = "soft_lutpair300" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_95 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[19]),
         .O(x4_out[27]));
-  (* SOFT_HLUTNM = "soft_lutpair298" *) 
+  (* SOFT_HLUTNM = "soft_lutpair299" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_96 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[11]),
         .O(x4_out[26]));
-  (* SOFT_HLUTNM = "soft_lutpair297" *) 
+  (* SOFT_HLUTNM = "soft_lutpair298" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[3]),
         .O(x4_out[25]));
-  (* SOFT_HLUTNM = "soft_lutpair283" *) 
+  (* SOFT_HLUTNM = "soft_lutpair284" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_98 
        (.I0(Q[4]),
         .I1(final_permutation[61]),
         .O(x4_out[24]));
-  (* SOFT_HLUTNM = "soft_lutpair262" *) 
+  (* SOFT_HLUTNM = "soft_lutpair263" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[0]_i_99 
@@ -5609,7 +5629,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[12]),
         .I5(x2_out[17]),
         .O(permutate4_in[10]));
-  (* SOFT_HLUTNM = "soft_lutpair15" *) 
+  (* SOFT_HLUTNM = "soft_lutpair16" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[10]_i_16 
@@ -5832,7 +5852,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[11]),
         .I5(x6_out[6]),
         .O(permutate12_in[11]));
-  (* SOFT_HLUTNM = "soft_lutpair24" *) 
+  (* SOFT_HLUTNM = "soft_lutpair25" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[11]_i_13 
@@ -6111,7 +6131,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[41]),
         .I5(x7_out[34]),
         .O(permutate4_in[12]));
-  (* SOFT_HLUTNM = "soft_lutpair10" *) 
+  (* SOFT_HLUTNM = "soft_lutpair11" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[12]_i_16 
@@ -6334,7 +6354,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x13_out[16]),
         .I5(x6_out[23]),
         .O(permutate12_in[13]));
-  (* SOFT_HLUTNM = "soft_lutpair33" *) 
+  (* SOFT_HLUTNM = "soft_lutpair34" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[13]_i_13 
@@ -6864,7 +6884,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[30]),
         .I5(x2_out[35]),
         .O(permutate4_in[15]));
-  (* SOFT_HLUTNM = "soft_lutpair9" *) 
+  (* SOFT_HLUTNM = "soft_lutpair10" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[15]_i_16 
@@ -7115,7 +7135,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[47]),
         .I5(\nxt_right[1]_i_11_n_0 ),
         .O(permutate4_in[16]));
-  (* SOFT_HLUTNM = "soft_lutpair22" *) 
+  (* SOFT_HLUTNM = "soft_lutpair23" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[16]_i_16 
@@ -7366,7 +7386,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x7_out[34]),
         .I5(x2_out[41]),
         .O(permutate4_in[17]));
-  (* SOFT_HLUTNM = "soft_lutpair8" *) 
+  (* SOFT_HLUTNM = "soft_lutpair9" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[17]_i_16 
@@ -7617,7 +7637,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[12]),
         .I5(x2_out[17]),
         .O(permutate4_in[18]));
-  (* SOFT_HLUTNM = "soft_lutpair16" *) 
+  (* SOFT_HLUTNM = "soft_lutpair17" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[18]_i_16 
@@ -7840,7 +7860,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[25]),
         .I5(x6_out[29]),
         .O(permutate12_in[19]));
-  (* SOFT_HLUTNM = "soft_lutpair27" *) 
+  (* SOFT_HLUTNM = "soft_lutpair24" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[19]_i_13 
@@ -8071,105 +8091,105 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[1]_i_32_n_0 ),
         .I5(final_permutation[48]),
         .O(\nxt_right[1]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair163" *) 
+  (* SOFT_HLUTNM = "soft_lutpair164" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_100 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[17]),
         .O(x12_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair162" *) 
+  (* SOFT_HLUTNM = "soft_lutpair163" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_101 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[9]),
         .O(x12_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_102 
        (.I0(Q[20]),
         .I1(final_permutation[33]),
         .O(x12_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair216" *) 
+  (* SOFT_HLUTNM = "soft_lutpair217" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_103 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[25]),
         .O(x9_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair215" *) 
+  (* SOFT_HLUTNM = "soft_lutpair216" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_104 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[17]),
         .O(x9_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair214" *) 
+  (* SOFT_HLUTNM = "soft_lutpair215" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_105 
        (.I0(Q[26]),
         .I1(final_permutation[9]),
         .O(x9_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_106 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[1]),
         .O(x10_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair54" *) 
+  (* SOFT_HLUTNM = "soft_lutpair55" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_107 
        (.I0(Q[5]),
         .I1(final_permutation[33]),
         .O(x9_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair197" *) 
+  (* SOFT_HLUTNM = "soft_lutpair198" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_108 
        (.I0(Q[27]),
         .I1(final_permutation[25]),
         .O(x10_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair184" *) 
+  (* SOFT_HLUTNM = "soft_lutpair185" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_109 
        (.I0(Q[18]),
         .I1(final_permutation[17]),
         .O(x10_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair82" *) 
+  (* SOFT_HLUTNM = "soft_lutpair83" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_11 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[25]),
         .O(\nxt_right[1]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair179" *) 
+  (* SOFT_HLUTNM = "soft_lutpair180" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_110 
        (.I0(Q[12]),
         .I1(final_permutation[9]),
         .O(x10_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_111 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[1]),
         .O(x11_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_112 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[33]),
         .O(x10_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair330" *) 
+  (* SOFT_HLUTNM = "soft_lutpair332" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_12 
@@ -8182,42 +8202,42 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[13]),
         .I1(final_permutation[9]),
         .O(\nxt_right[1]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair162" *) 
+  (* SOFT_HLUTNM = "soft_lutpair163" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_14 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[59]),
         .O(x4_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair353" *) 
+  (* SOFT_HLUTNM = "soft_lutpair354" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_15 
        (.I0(Q[4]),
         .I1(final_permutation[1]),
         .O(\nxt_right[1]_i_15_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair85" *) 
+  (* SOFT_HLUTNM = "soft_lutpair86" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_16 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[33]),
         .O(\nxt_right[1]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair345" *) 
+  (* SOFT_HLUTNM = "soft_lutpair346" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_17 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[25]),
         .O(x0_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair355" *) 
+  (* SOFT_HLUTNM = "soft_lutpair356" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_18 
        (.I0(Q[12]),
         .I1(final_permutation[17]),
         .O(x0_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair347" *) 
+  (* SOFT_HLUTNM = "soft_lutpair348" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_19 
@@ -8234,21 +8254,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[1]),
         .I5(final_permutation[48]),
         .O(\nxt_right[1]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair349" *) 
+  (* SOFT_HLUTNM = "soft_lutpair350" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_20 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[59]),
         .O(x0_out[36]));
-  (* SOFT_HLUTNM = "soft_lutpair158" *) 
+  (* SOFT_HLUTNM = "soft_lutpair159" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_21 
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[1]),
         .O(x1_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_22 
@@ -8303,7 +8323,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x3_out[35]),
         .I5(x2_out[41]),
         .O(permutate4_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair11" *) 
+  (* SOFT_HLUTNM = "soft_lutpair12" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[1]_i_28 
@@ -8355,42 +8375,42 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[25]),
         .O(x5_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair270" *) 
+  (* SOFT_HLUTNM = "soft_lutpair271" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_34 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[17]),
         .O(x5_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair264" *) 
+  (* SOFT_HLUTNM = "soft_lutpair265" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_35 
        (.I0(Q[18]),
         .I1(final_permutation[9]),
         .O(x5_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair218" *) 
+  (* SOFT_HLUTNM = "soft_lutpair219" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_36 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[59]),
         .O(x10_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair138" *) 
+  (* SOFT_HLUTNM = "soft_lutpair139" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_37 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[1]),
         .O(x6_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_38 
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[33]),
         .O(x5_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_39 
@@ -8406,7 +8426,7 @@ module design_1_des_encryption_0_0_encryption
         .I3(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I4(\nxt_right[1]_i_10_n_0 ),
         .O(\nxt_right[1]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair211" *) 
+  (* SOFT_HLUTNM = "soft_lutpair212" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_40 
@@ -8420,7 +8440,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[4]),
         .I1(final_permutation[9]),
         .O(x6_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair200" *) 
+  (* SOFT_HLUTNM = "soft_lutpair201" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_42 
@@ -8461,21 +8481,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(x9_out[35]),
         .I5(x8_out[41]),
         .O(permutate16_in[1]));
-  (* SOFT_HLUTNM = "soft_lutpair329" *) 
+  (* SOFT_HLUTNM = "soft_lutpair331" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_47 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[25]),
         .O(x1_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair352" *) 
+  (* SOFT_HLUTNM = "soft_lutpair353" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_48 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[17]),
         .O(x1_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair351" *) 
+  (* SOFT_HLUTNM = "soft_lutpair352" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_49 
@@ -8492,7 +8512,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[1]_i_15_n_0 ),
         .I5(\nxt_right[1]_i_16_n_0 ),
         .O(permutate[1]));
-  (* SOFT_HLUTNM = "soft_lutpair350" *) 
+  (* SOFT_HLUTNM = "soft_lutpair351" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_50 
@@ -8506,35 +8526,35 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[1]),
         .O(x2_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair333" *) 
+  (* SOFT_HLUTNM = "soft_lutpair335" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_52 
        (.I0(Q[18]),
         .I1(final_permutation[25]),
         .O(x2_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair332" *) 
+  (* SOFT_HLUTNM = "soft_lutpair334" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_53 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[17]),
         .O(x2_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair313" *) 
+  (* SOFT_HLUTNM = "soft_lutpair315" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_54 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[9]),
         .O(x2_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_55 
        (.I0(Q[6]),
         .I1(final_permutation[59]),
         .O(x7_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_56 
@@ -8625,7 +8645,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[25]),
         .O(x13_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair140" *) 
+  (* SOFT_HLUTNM = "soft_lutpair141" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_65 
@@ -8639,7 +8659,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[27]),
         .I1(final_permutation[9]),
         .O(x13_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair159" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_67 
@@ -8653,7 +8673,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[6]),
         .I1(final_permutation[33]),
         .O(x13_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair116" *) 
+  (* SOFT_HLUTNM = "soft_lutpair117" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_69 
@@ -8670,7 +8690,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[1]_i_25_n_0 ),
         .O(\nxt_right[1]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair115" *) 
+  (* SOFT_HLUTNM = "soft_lutpair116" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_70 
@@ -8684,21 +8704,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[20]),
         .I1(final_permutation[9]),
         .O(\nxt_right[1]_i_71_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair47" *) 
+  (* SOFT_HLUTNM = "soft_lutpair48" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_72 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[59]),
         .O(\nxt_right[1]_i_72_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_73 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[33]),
         .O(\nxt_right[1]_i_73_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair252" *) 
+  (* SOFT_HLUTNM = "soft_lutpair253" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_74 
@@ -8719,21 +8739,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[9]),
         .O(x7_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair251" *) 
+  (* SOFT_HLUTNM = "soft_lutpair252" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_77 
        (.I0(Q[25]),
         .I1(final_permutation[59]),
         .O(x7_out[36]));
-  (* SOFT_HLUTNM = "soft_lutpair35" *) 
+  (* SOFT_HLUTNM = "soft_lutpair36" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_78 
        (.I0(Q[20]),
         .I1(final_permutation[1]),
         .O(x8_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair253" *) 
+  (* SOFT_HLUTNM = "soft_lutpair254" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_79 
@@ -8750,7 +8770,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[1]_i_28_n_0 ),
         .O(\nxt_right[1]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair209" *) 
+  (* SOFT_HLUTNM = "soft_lutpair210" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_80 
@@ -8771,7 +8791,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[9]),
         .O(x8_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair213" *) 
+  (* SOFT_HLUTNM = "soft_lutpair214" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_83 
@@ -8785,42 +8805,42 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[6]),
         .I1(final_permutation[1]),
         .O(x9_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair58" *) 
+  (* SOFT_HLUTNM = "soft_lutpair59" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_85 
        (.I0(Q[19]),
         .I1(final_permutation[33]),
         .O(x8_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair317" *) 
+  (* SOFT_HLUTNM = "soft_lutpair319" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_86 
        (.I0(Q[4]),
         .I1(final_permutation[25]),
         .O(x3_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair316" *) 
+  (* SOFT_HLUTNM = "soft_lutpair318" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_87 
        (.I0(Q[27]),
         .I1(final_permutation[17]),
         .O(x3_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair315" *) 
+  (* SOFT_HLUTNM = "soft_lutpair317" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_88 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[9]),
         .O(x3_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair109" *) 
+  (* SOFT_HLUTNM = "soft_lutpair110" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_89 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[59]),
         .O(x8_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair110" *) 
+  (* SOFT_HLUTNM = "soft_lutpair111" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_90 
@@ -8834,56 +8854,56 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[25]),
         .O(x4_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair303" *) 
+  (* SOFT_HLUTNM = "soft_lutpair304" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_92 
        (.I0(Q[13]),
         .I1(final_permutation[17]),
         .O(x4_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair302" *) 
+  (* SOFT_HLUTNM = "soft_lutpair303" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_93 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[9]),
         .O(x4_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair136" *) 
+  (* SOFT_HLUTNM = "soft_lutpair137" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_94 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[59]),
         .O(x9_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair75" *) 
+  (* SOFT_HLUTNM = "soft_lutpair76" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_95 
        (.I0(Q[11]),
         .I1(final_permutation[33]),
         .O(x4_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair166" *) 
+  (* SOFT_HLUTNM = "soft_lutpair167" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_96 
        (.I0(Q[4]),
         .I1(final_permutation[17]),
         .O(x11_out[39]));
-  (* SOFT_HLUTNM = "soft_lutpair182" *) 
+  (* SOFT_HLUTNM = "soft_lutpair183" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[9]),
         .O(x11_out[38]));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_98 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[1]),
         .O(x12_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair71" *) 
+  (* SOFT_HLUTNM = "soft_lutpair73" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[1]_i_99 
@@ -8958,6 +8978,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[0]),
         .I5(x2_out[5]),
         .O(permutate4_in[20]));
+  (* SOFT_HLUTNM = "soft_lutpair6" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[20]_i_16 
@@ -9180,7 +9201,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[6]),
         .I5(x6_out[11]),
         .O(permutate12_in[21]));
-  (* SOFT_HLUTNM = "soft_lutpair21" *) 
+  (* SOFT_HLUTNM = "soft_lutpair22" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[21]_i_13 
@@ -9459,7 +9480,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[47]),
         .I5(\nxt_right[1]_i_11_n_0 ),
         .O(permutate4_in[22]));
-  (* SOFT_HLUTNM = "soft_lutpair18" *) 
+  (* SOFT_HLUTNM = "soft_lutpair19" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[22]_i_16 
@@ -9933,7 +9954,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x13_out[16]),
         .I5(x6_out[23]),
         .O(permutate12_in[24]));
-  (* SOFT_HLUTNM = "soft_lutpair30" *) 
+  (* SOFT_HLUTNM = "soft_lutpair31" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[24]_i_13 
@@ -10184,7 +10205,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[24]),
         .I5(x6_out[29]),
         .O(permutate12_in[25]));
-  (* SOFT_HLUTNM = "soft_lutpair23" *) 
+  (* SOFT_HLUTNM = "soft_lutpair20" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[25]_i_13 
@@ -10714,7 +10735,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[41]),
         .I5(x7_out[34]),
         .O(permutate4_in[27]));
-  (* SOFT_HLUTNM = "soft_lutpair7" *) 
+  (* SOFT_HLUTNM = "soft_lutpair8" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[27]_i_16 
@@ -10965,7 +10986,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[17]),
         .I5(x2_out[12]),
         .O(permutate4_in[28]));
-  (* SOFT_HLUTNM = "soft_lutpair14" *) 
+  (* SOFT_HLUTNM = "soft_lutpair15" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[28]_i_16 
@@ -11216,7 +11237,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[35]),
         .I5(x2_out[30]),
         .O(permutate4_in[29]));
-  (* SOFT_HLUTNM = "soft_lutpair12" *) 
+  (* SOFT_HLUTNM = "soft_lutpair13" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[29]_i_16 
@@ -11419,56 +11440,56 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[2]_i_32_n_0 ),
         .I5(final_permutation[40]),
         .O(\nxt_right[2]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_100 
        (.I0(Q[15]),
         .I1(final_permutation[45]),
         .O(x11_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_101 
        (.I0(Q[0]),
         .I1(final_permutation[29]),
         .O(x3_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair128" *) 
+  (* SOFT_HLUTNM = "soft_lutpair129" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_102 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[3]),
         .O(x11_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair153" *) 
+  (* SOFT_HLUTNM = "soft_lutpair154" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_103 
        (.I0(Q[24]),
         .I1(final_permutation[61]),
         .O(x12_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair153" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_104 
        (.I0(Q[14]),
         .I1(final_permutation[53]),
         .O(x12_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair125" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_105 
        (.I0(Q[1]),
         .I1(final_permutation[45]),
         .O(x12_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_106 
        (.I0(Q[16]),
         .I1(final_permutation[37]),
         .O(x3_out[17]));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_107 
@@ -11482,7 +11503,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[3]),
         .O(x12_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair207" *) 
+  (* SOFT_HLUTNM = "soft_lutpair208" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_109 
@@ -11495,56 +11516,56 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[23]),
         .I1(final_permutation[61]),
         .O(\nxt_right[2]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair206" *) 
+  (* SOFT_HLUTNM = "soft_lutpair207" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_110 
        (.I0(Q[1]),
         .I1(final_permutation[53]),
         .O(x9_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair190" *) 
+  (* SOFT_HLUTNM = "soft_lutpair191" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_111 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[45]),
         .O(x9_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair208" *) 
+  (* SOFT_HLUTNM = "soft_lutpair209" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_112 
        (.I0(Q[16]),
         .I1(final_permutation[3]),
         .O(x9_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair150" *) 
+  (* SOFT_HLUTNM = "soft_lutpair151" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_113 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[61]),
         .O(x10_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair194" *) 
+  (* SOFT_HLUTNM = "soft_lutpair195" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_114 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[53]),
         .O(x10_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair171" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_115 
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[45]),
         .O(x10_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair151" *) 
+  (* SOFT_HLUTNM = "soft_lutpair152" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_116 
        (.I0(Q[2]),
         .I1(final_permutation[3]),
         .O(x10_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair356" *) 
+  (* SOFT_HLUTNM = "soft_lutpair357" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_12 
@@ -11557,7 +11578,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[45]),
         .O(\nxt_right[2]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_14 
@@ -11571,28 +11592,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[17]),
         .I1(final_permutation[29]),
         .O(x6_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair358" *) 
+  (* SOFT_HLUTNM = "soft_lutpair359" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_16 
        (.I0(Q[1]),
         .I1(final_permutation[3]),
         .O(\nxt_right[2]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair324" *) 
+  (* SOFT_HLUTNM = "soft_lutpair326" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_17 
        (.I0(Q[16]),
         .I1(final_permutation[61]),
         .O(x0_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair362" *) 
+  (* SOFT_HLUTNM = "soft_lutpair363" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_18 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[53]),
         .O(x0_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair361" *) 
+  (* SOFT_HLUTNM = "soft_lutpair362" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_19 
@@ -11609,21 +11630,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[2]),
         .I5(final_permutation[40]),
         .O(\nxt_right[2]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair340" *) 
+  (* SOFT_HLUTNM = "soft_lutpair341" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_20 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[37]),
         .O(x0_out[19]));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_21 
        (.I0(Q[10]),
         .I1(final_permutation[29]),
         .O(x7_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair363" *) 
+  (* SOFT_HLUTNM = "soft_lutpair364" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_22 
@@ -11650,7 +11671,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x13_out[16]),
         .I5(x6_out[23]),
         .O(permutate12_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair31" *) 
+  (* SOFT_HLUTNM = "soft_lutpair32" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[2]_i_25 
@@ -11723,21 +11744,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[2]_i_75_n_0 ),
         .I5(\nxt_right[2]_i_76_n_0 ),
         .O(\nxt_right[2]_i_32_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair280" *) 
+  (* SOFT_HLUTNM = "soft_lutpair281" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_33 
        (.I0(Q[1]),
         .I1(final_permutation[61]),
         .O(x5_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair279" *) 
+  (* SOFT_HLUTNM = "soft_lutpair280" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_34 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[53]),
         .O(x5_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair278" *) 
+  (* SOFT_HLUTNM = "soft_lutpair279" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_35 
@@ -11751,21 +11772,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[21]),
         .I1(final_permutation[37]),
         .O(x11_out[17]));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_37 
        (.I0(Q[22]),
         .I1(final_permutation[29]),
         .O(x12_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair221" *) 
+  (* SOFT_HLUTNM = "soft_lutpair222" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_38 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[3]),
         .O(x5_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair261" *) 
+  (* SOFT_HLUTNM = "soft_lutpair262" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_39 
@@ -11788,21 +11809,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[53]),
         .O(x6_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair170" *) 
+  (* SOFT_HLUTNM = "soft_lutpair171" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_41 
        (.I0(Q[23]),
         .I1(final_permutation[45]),
         .O(x6_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_42 
        (.I0(Q[7]),
         .I1(final_permutation[37]),
         .O(x12_out[17]));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_43 
@@ -11836,21 +11857,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(x0_out[16]),
         .I5(x8_out[23]),
         .O(permutate16_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair307" *) 
+  (* SOFT_HLUTNM = "soft_lutpair309" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_47 
        (.I0(Q[2]),
         .I1(final_permutation[61]),
         .O(x1_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair343" *) 
+  (* SOFT_HLUTNM = "soft_lutpair344" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_48 
        (.I0(Q[24]),
         .I1(final_permutation[53]),
         .O(x1_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair342" *) 
+  (* SOFT_HLUTNM = "soft_lutpair343" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_49 
@@ -11867,63 +11888,63 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[16]),
         .I5(\nxt_right[2]_i_16_n_0 ),
         .O(permutate[2]));
-  (* SOFT_HLUTNM = "soft_lutpair42" *) 
+  (* SOFT_HLUTNM = "soft_lutpair39" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_50 
        (.I0(Q[22]),
         .I1(final_permutation[37]),
         .O(x7_out[17]));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_51 
        (.I0(Q[23]),
         .I1(final_permutation[29]),
         .O(x8_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair344" *) 
+  (* SOFT_HLUTNM = "soft_lutpair345" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_52 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[3]),
         .O(x1_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair289" *) 
+  (* SOFT_HLUTNM = "soft_lutpair290" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_53 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[61]),
         .O(x2_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair278" *) 
+  (* SOFT_HLUTNM = "soft_lutpair279" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_54 
        (.I0(Q[10]),
         .I1(final_permutation[53]),
         .O(x2_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair327" *) 
+  (* SOFT_HLUTNM = "soft_lutpair329" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_55 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[45]),
         .O(x2_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair46" *) 
+  (* SOFT_HLUTNM = "soft_lutpair47" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_56 
        (.I0(Q[8]),
         .I1(final_permutation[37]),
         .O(x8_out[17]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_57 
        (.I0(Q[9]),
         .I1(final_permutation[29]),
         .O(x9_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair328" *) 
+  (* SOFT_HLUTNM = "soft_lutpair330" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_58 
@@ -12000,21 +12021,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[16]),
         .I5(x10_out[23]),
         .O(permutate20_in[2]));
-  (* SOFT_HLUTNM = "soft_lutpair132" *) 
+  (* SOFT_HLUTNM = "soft_lutpair133" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_65 
        (.I0(Q[10]),
         .I1(final_permutation[61]),
         .O(x13_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair131" *) 
+  (* SOFT_HLUTNM = "soft_lutpair132" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_66 
        (.I0(Q[0]),
         .I1(final_permutation[53]),
         .O(x13_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair130" *) 
+  (* SOFT_HLUTNM = "soft_lutpair131" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_67 
@@ -12045,49 +12066,49 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[2]_i_25_n_0 ),
         .O(\nxt_right[2]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair133" *) 
+  (* SOFT_HLUTNM = "soft_lutpair134" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_70 
        (.I0(Q[15]),
         .I1(final_permutation[3]),
         .O(x13_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_71 
        (.I0(Q[3]),
         .I1(final_permutation[61]),
         .O(\nxt_right[2]_i_71_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_72 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[53]),
         .O(\nxt_right[2]_i_72_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_73 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[45]),
         .O(\nxt_right[2]_i_73_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_74 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[37]),
         .O(\nxt_right[2]_i_74_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_75 
        (.I0(Q[24]),
         .I1(final_permutation[29]),
         .O(\nxt_right[2]_i_75_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_76 
@@ -12125,7 +12146,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[2]_i_28_n_0 ),
         .O(\nxt_right[2]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair222" *) 
+  (* SOFT_HLUTNM = "soft_lutpair223" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_80 
@@ -12146,42 +12167,42 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[21]),
         .I1(final_permutation[61]),
         .O(x8_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair174" *) 
+  (* SOFT_HLUTNM = "soft_lutpair175" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_83 
        (.I0(Q[15]),
         .I1(final_permutation[53]),
         .O(x8_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair204" *) 
+  (* SOFT_HLUTNM = "soft_lutpair205" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_84 
        (.I0(Q[2]),
         .I1(final_permutation[45]),
         .O(x8_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair192" *) 
+  (* SOFT_HLUTNM = "soft_lutpair193" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_85 
        (.I0(Q[3]),
         .I1(final_permutation[3]),
         .O(x8_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair274" *) 
+  (* SOFT_HLUTNM = "soft_lutpair275" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_86 
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[61]),
         .O(x3_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair309" *) 
+  (* SOFT_HLUTNM = "soft_lutpair311" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_87 
        (.I0(Q[23]),
         .I1(final_permutation[53]),
         .O(x3_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair290" *) 
+  (* SOFT_HLUTNM = "soft_lutpair291" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_88 
@@ -12202,63 +12223,63 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[29]),
         .O(x10_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair310" *) 
+  (* SOFT_HLUTNM = "soft_lutpair312" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_91 
        (.I0(Q[7]),
         .I1(final_permutation[3]),
         .O(x3_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair295" *) 
+  (* SOFT_HLUTNM = "soft_lutpair296" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_92 
        (.I0(Q[15]),
         .I1(final_permutation[61]),
         .O(x4_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair294" *) 
+  (* SOFT_HLUTNM = "soft_lutpair295" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_93 
        (.I0(Q[9]),
         .I1(final_permutation[53]),
         .O(x4_out[21]));
-  (* SOFT_HLUTNM = "soft_lutpair275" *) 
+  (* SOFT_HLUTNM = "soft_lutpair276" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_94 
        (.I0(Q[24]),
         .I1(final_permutation[45]),
         .O(x4_out[20]));
-  (* SOFT_HLUTNM = "soft_lutpair48" *) 
+  (* SOFT_HLUTNM = "soft_lutpair46" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_95 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[37]),
         .O(x10_out[17]));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_96 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[29]),
         .O(x11_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair296" *) 
+  (* SOFT_HLUTNM = "soft_lutpair297" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[3]),
         .O(x4_out[23]));
-  (* SOFT_HLUTNM = "soft_lutpair143" *) 
+  (* SOFT_HLUTNM = "soft_lutpair126" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_98 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[61]),
         .O(x11_out[22]));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair176" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[2]_i_99 
@@ -12332,7 +12353,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[1]_i_11_n_0 ),
         .I5(x2_out[47]),
         .O(permutate4_in[30]));
-  (* SOFT_HLUTNM = "soft_lutpair26" *) 
+  (* SOFT_HLUTNM = "soft_lutpair27" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[30]_i_16 
@@ -12555,7 +12576,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[6]),
         .I5(x6_out[11]),
         .O(permutate12_in[31]));
-  (* SOFT_HLUTNM = "soft_lutpair25" *) 
+  (* SOFT_HLUTNM = "soft_lutpair26" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[31]_i_13 
@@ -12786,63 +12807,63 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[3]_i_32_n_0 ),
         .I5(final_permutation[32]),
         .O(\nxt_right[3]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair363" *) 
+  (* SOFT_HLUTNM = "soft_lutpair364" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_11 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[29]),
         .O(\nxt_right[3]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair360" *) 
+  (* SOFT_HLUTNM = "soft_lutpair361" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_12 
        (.I0(Q[16]),
         .I1(final_permutation[21]),
         .O(\nxt_right[3]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair341" *) 
+  (* SOFT_HLUTNM = "soft_lutpair342" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_13 
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[13]),
         .O(\nxt_right[3]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair131" *) 
+  (* SOFT_HLUTNM = "soft_lutpair132" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_14 
        (.I0(Q[0]),
         .I1(final_permutation[5]),
         .O(\nxt_right[3]_i_14_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair105" *) 
+  (* SOFT_HLUTNM = "soft_lutpair106" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_15 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[63]),
         .O(\nxt_right[3]_i_15_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair362" *) 
+  (* SOFT_HLUTNM = "soft_lutpair363" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_16 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[37]),
         .O(\nxt_right[3]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_17 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[29]),
         .O(x0_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair360" *) 
+  (* SOFT_HLUTNM = "soft_lutpair361" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_18 
        (.I0(Q[9]),
         .I1(final_permutation[21]),
         .O(x0_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair325" *) 
+  (* SOFT_HLUTNM = "soft_lutpair327" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_19 
@@ -12859,14 +12880,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[3]),
         .I5(final_permutation[32]),
         .O(\nxt_right[3]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair327" *) 
+  (* SOFT_HLUTNM = "soft_lutpair329" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_20 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[5]),
         .O(x0_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair338" *) 
+  (* SOFT_HLUTNM = "soft_lutpair339" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_21 
@@ -12928,7 +12949,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[12]),
         .I5(x2_out[17]),
         .O(permutate4_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair13" *) 
+  (* SOFT_HLUTNM = "soft_lutpair14" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[3]_i_28 
@@ -12973,7 +12994,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[6]_i_11_n_0 ),
         .I5(\nxt_right[3]_i_71_n_0 ),
         .O(\nxt_right[3]_i_32_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair258" *) 
+  (* SOFT_HLUTNM = "soft_lutpair259" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_33 
@@ -12987,14 +13008,14 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[7]),
         .I1(final_permutation[13]),
         .O(x5_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair149" *) 
+  (* SOFT_HLUTNM = "soft_lutpair150" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_35 
        (.I0(Q[9]),
         .I1(final_permutation[5]),
         .O(x5_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair277" *) 
+  (* SOFT_HLUTNM = "soft_lutpair278" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_36 
@@ -13031,7 +13052,7 @@ module design_1_des_encryption_0_0_encryption
         .I3(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I4(\nxt_right[3]_i_10_n_0 ),
         .O(\nxt_right[3]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_40 
@@ -13072,28 +13093,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[29]),
         .O(x1_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair287" *) 
+  (* SOFT_HLUTNM = "soft_lutpair288" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_45 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[21]),
         .O(x1_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair341" *) 
+  (* SOFT_HLUTNM = "soft_lutpair342" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_46 
        (.I0(Q[8]),
         .I1(final_permutation[13]),
         .O(x1_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_47 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[5]),
         .O(x1_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair322" *) 
+  (* SOFT_HLUTNM = "soft_lutpair324" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_48 
@@ -13117,42 +13138,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[3]_i_15_n_0 ),
         .I5(\nxt_right[3]_i_16_n_0 ),
         .O(permutate[3]));
-  (* SOFT_HLUTNM = "soft_lutpair152" *) 
+  (* SOFT_HLUTNM = "soft_lutpair153" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_50 
        (.I0(Q[14]),
         .I1(final_permutation[29]),
         .O(x2_out[16]));
-  (* SOFT_HLUTNM = "soft_lutpair272" *) 
+  (* SOFT_HLUTNM = "soft_lutpair273" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_51 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[21]),
         .O(x2_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair291" *) 
+  (* SOFT_HLUTNM = "soft_lutpair292" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_52 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[13]),
         .O(x2_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair104" *) 
+  (* SOFT_HLUTNM = "soft_lutpair105" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_53 
        (.I0(Q[24]),
         .I1(final_permutation[5]),
         .O(x2_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair326" *) 
+  (* SOFT_HLUTNM = "soft_lutpair328" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_54 
        (.I0(Q[15]),
         .I1(final_permutation[63]),
         .O(x2_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair107" *) 
+  (* SOFT_HLUTNM = "soft_lutpair108" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_55 
@@ -13229,35 +13250,35 @@ module design_1_des_encryption_0_0_encryption
         .I4(x10_out[12]),
         .I5(x10_out[17]),
         .O(permutate20_in[3]));
-  (* SOFT_HLUTNM = "soft_lutpair129" *) 
+  (* SOFT_HLUTNM = "soft_lutpair130" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_62 
        (.I0(Q[3]),
         .I1(final_permutation[21]),
         .O(x13_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair128" *) 
+  (* SOFT_HLUTNM = "soft_lutpair129" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_63 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[13]),
         .O(x13_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair40" *) 
+  (* SOFT_HLUTNM = "soft_lutpair41" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_64 
        (.I0(Q[14]),
         .I1(final_permutation[5]),
         .O(x13_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair39" *) 
+  (* SOFT_HLUTNM = "soft_lutpair40" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_65 
        (.I0(Q[9]),
         .I1(final_permutation[63]),
         .O(x13_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair106" *) 
+  (* SOFT_HLUTNM = "soft_lutpair107" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_66 
@@ -13271,14 +13292,14 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[1]),
         .I1(final_permutation[29]),
         .O(\nxt_right[3]_i_67_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_68 
        (.I0(Q[23]),
         .I1(final_permutation[21]),
         .O(\nxt_right[3]_i_68_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_69 
@@ -13295,14 +13316,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[3]_i_25_n_0 ),
         .O(\nxt_right[3]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair37" *) 
+  (* SOFT_HLUTNM = "soft_lutpair38" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_70 
        (.I0(Q[7]),
         .I1(final_permutation[5]),
         .O(\nxt_right[3]_i_70_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair50" *) 
+  (* SOFT_HLUTNM = "soft_lutpair51" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_71 
@@ -13344,21 +13365,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[14]),
         .I1(final_permutation[21]),
         .O(x8_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair223" *) 
+  (* SOFT_HLUTNM = "soft_lutpair307" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_77 
        (.I0(\nxt_right[5]_i_5_0 [0]),
         .I1(final_permutation[13]),
         .O(x8_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair202" *) 
+  (* SOFT_HLUTNM = "soft_lutpair203" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_78 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[63]),
         .O(x8_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair257" *) 
+  (* SOFT_HLUTNM = "soft_lutpair258" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_79 
@@ -13375,84 +13396,84 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[3]_i_28_n_0 ),
         .O(\nxt_right[3]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair276" *) 
+  (* SOFT_HLUTNM = "soft_lutpair277" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_80 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[13]),
         .O(x3_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair60" *) 
+  (* SOFT_HLUTNM = "soft_lutpair58" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_81 
        (.I0(Q[10]),
         .I1(final_permutation[5]),
         .O(x3_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair308" *) 
+  (* SOFT_HLUTNM = "soft_lutpair310" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_82 
        (.I0(Q[1]),
         .I1(final_permutation[63]),
         .O(x3_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair293" *) 
+  (* SOFT_HLUTNM = "soft_lutpair294" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_83 
        (.I0(Q[8]),
         .I1(final_permutation[21]),
         .O(x4_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair260" *) 
+  (* SOFT_HLUTNM = "soft_lutpair261" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_84 
        (.I0(Q[21]),
         .I1(final_permutation[13]),
         .O(x4_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair55" *) 
+  (* SOFT_HLUTNM = "soft_lutpair54" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_85 
        (.I0(Q[23]),
         .I1(final_permutation[5]),
         .O(x4_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair292" *) 
+  (* SOFT_HLUTNM = "soft_lutpair293" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_86 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[63]),
         .O(x4_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_87 
        (.I0(\nxt_right[5]_i_5_0 [0]),
         .I1(final_permutation[21]),
         .O(x11_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair126" *) 
+  (* SOFT_HLUTNM = "soft_lutpair127" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_88 
        (.I0(Q[16]),
         .I1(final_permutation[13]),
         .O(x11_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair148" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_89 
        (.I0(Q[10]),
         .I1(final_permutation[63]),
         .O(x11_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+  (* SOFT_HLUTNM = "soft_lutpair125" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_90 
        (.I0(Q[17]),
         .I1(final_permutation[21]),
         .O(x12_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair151" *) 
+  (* SOFT_HLUTNM = "soft_lutpair152" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_91 
@@ -13466,49 +13487,49 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[5]),
         .O(x12_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+  (* SOFT_HLUTNM = "soft_lutpair124" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_93 
        (.I0(Q[23]),
         .I1(final_permutation[63]),
         .O(x12_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair205" *) 
+  (* SOFT_HLUTNM = "soft_lutpair206" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_94 
        (.I0(Q[0]),
         .I1(final_permutation[21]),
         .O(x9_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair172" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_95 
        (.I0(Q[17]),
         .I1(final_permutation[13]),
         .O(x9_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair188" *) 
+  (* SOFT_HLUTNM = "soft_lutpair189" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_96 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[63]),
         .O(x9_out[12]));
-  (* SOFT_HLUTNM = "soft_lutpair193" *) 
+  (* SOFT_HLUTNM = "soft_lutpair194" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [14]),
         .I1(final_permutation[21]),
         .O(x10_out[15]));
-  (* SOFT_HLUTNM = "soft_lutpair192" *) 
+  (* SOFT_HLUTNM = "soft_lutpair193" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_98 
        (.I0(Q[3]),
         .I1(final_permutation[13]),
         .O(x10_out[14]));
-  (* SOFT_HLUTNM = "soft_lutpair191" *) 
+  (* SOFT_HLUTNM = "soft_lutpair192" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[3]_i_99 
@@ -13534,203 +13555,203 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[4]_i_32_n_0 ),
         .I5(final_permutation[24]),
         .O(\nxt_right[4]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair169" *) 
+  (* SOFT_HLUTNM = "soft_lutpair170" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_100 
        (.I0(Q[8]),
         .I1(final_permutation[15]),
         .O(x11_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair168" *) 
+  (* SOFT_HLUTNM = "soft_lutpair169" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_101 
        (.I0(Q[14]),
         .I1(final_permutation[7]),
         .O(x11_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair170" *) 
+  (* SOFT_HLUTNM = "soft_lutpair171" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_102 
        (.I0(Q[23]),
         .I1(final_permutation[39]),
         .O(x11_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair168" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_103 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[57]),
         .O(x11_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair102" *) 
+  (* SOFT_HLUTNM = "soft_lutpair103" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_104 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[31]),
         .O(x3_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair148" *) 
+  (* SOFT_HLUTNM = "soft_lutpair149" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_105 
        (.I0(Q[10]),
         .I1(final_permutation[23]),
         .O(x12_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair147" *) 
+  (* SOFT_HLUTNM = "soft_lutpair148" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_106 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[15]),
         .O(x12_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair146" *) 
+  (* SOFT_HLUTNM = "soft_lutpair147" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_107 
        (.I0(Q[0]),
         .I1(final_permutation[7]),
         .O(x12_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair149" *) 
+  (* SOFT_HLUTNM = "soft_lutpair150" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_108 
        (.I0(Q[9]),
         .I1(final_permutation[39]),
         .O(x12_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_109 
        (.I0(Q[21]),
         .I1(final_permutation[57]),
         .O(x12_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair108" *) 
+  (* SOFT_HLUTNM = "soft_lutpair109" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_11 
        (.I0(Q[8]),
         .I1(final_permutation[31]),
         .O(x5_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair202" *) 
+  (* SOFT_HLUTNM = "soft_lutpair203" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_110 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[23]),
         .O(x9_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair127" *) 
+  (* SOFT_HLUTNM = "soft_lutpair128" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_111 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[15]),
         .O(x9_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair194" *) 
+  (* SOFT_HLUTNM = "soft_lutpair195" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_112 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[7]),
         .O(x9_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair191" *) 
+  (* SOFT_HLUTNM = "soft_lutpair192" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_113 
        (.I0(Q[24]),
         .I1(final_permutation[39]),
         .O(x9_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair201" *) 
+  (* SOFT_HLUTNM = "soft_lutpair202" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_114 
        (.I0(Q[8]),
         .I1(final_permutation[57]),
         .O(x9_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair188" *) 
+  (* SOFT_HLUTNM = "soft_lutpair189" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_115 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[23]),
         .O(x10_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair187" *) 
+  (* SOFT_HLUTNM = "soft_lutpair188" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_116 
        (.I0(Q[22]),
         .I1(final_permutation[15]),
         .O(x10_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair175" *) 
+  (* SOFT_HLUTNM = "soft_lutpair176" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_117 
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[7]),
         .O(x10_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair189" *) 
+  (* SOFT_HLUTNM = "soft_lutpair190" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_118 
        (.I0(Q[10]),
         .I1(final_permutation[39]),
         .O(x10_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair186" *) 
+  (* SOFT_HLUTNM = "soft_lutpair187" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_119 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[57]),
         .O(x10_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair357" *) 
+  (* SOFT_HLUTNM = "soft_lutpair358" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_12 
        (.I0(Q[9]),
         .I1(final_permutation[23]),
         .O(\nxt_right[4]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair361" *) 
+  (* SOFT_HLUTNM = "soft_lutpair362" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_13 
        (.I0(Q[21]),
         .I1(final_permutation[15]),
         .O(\nxt_right[4]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair368" *) 
+  (* SOFT_HLUTNM = "soft_lutpair369" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_14 
        (.I0(\nxt_right[5]_i_5_0 [0]),
         .I1(final_permutation[7]),
         .O(\nxt_right[4]_i_14_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair34" *) 
+  (* SOFT_HLUTNM = "soft_lutpair35" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_15 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[39]),
         .O(x8_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair367" *) 
+  (* SOFT_HLUTNM = "soft_lutpair368" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_16 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[57]),
         .O(\nxt_right[4]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair358" *) 
+  (* SOFT_HLUTNM = "soft_lutpair359" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_17 
        (.I0(Q[1]),
         .I1(final_permutation[31]),
         .O(x0_out[4]));
-  (* SOFT_HLUTNM = "soft_lutpair357" *) 
+  (* SOFT_HLUTNM = "soft_lutpair358" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_18 
        (.I0(Q[2]),
         .I1(final_permutation[23]),
         .O(x0_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair337" *) 
+  (* SOFT_HLUTNM = "soft_lutpair338" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_19 
@@ -13747,7 +13768,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[4]),
         .I5(final_permutation[24]),
         .O(\nxt_right[4]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair343" *) 
+  (* SOFT_HLUTNM = "soft_lutpair344" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_20 
@@ -13760,7 +13781,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[39]),
         .O(x0_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair356" *) 
+  (* SOFT_HLUTNM = "soft_lutpair357" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_22 
@@ -13860,14 +13881,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[4]_i_74_n_0 ),
         .I5(\nxt_right[4]_i_75_n_0 ),
         .O(\nxt_right[4]_i_32_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+  (* SOFT_HLUTNM = "soft_lutpair122" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_33 
        (.I0(\nxt_right[5]_i_5_0 [14]),
         .I1(final_permutation[31]),
         .O(x11_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair261" *) 
+  (* SOFT_HLUTNM = "soft_lutpair262" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_34 
@@ -13881,28 +13902,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[3]),
         .I1(final_permutation[15]),
         .O(x5_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair272" *) 
+  (* SOFT_HLUTNM = "soft_lutpair273" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_36 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[7]),
         .O(x5_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair168" *) 
+  (* SOFT_HLUTNM = "soft_lutpair169" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_37 
        (.I0(Q[14]),
         .I1(final_permutation[39]),
         .O(\nxt_right[4]_i_37_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair259" *) 
+  (* SOFT_HLUTNM = "soft_lutpair260" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_38 
        (.I0(Q[2]),
         .I1(final_permutation[57]),
         .O(x5_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_39 
@@ -13932,7 +13953,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[16]),
         .I1(final_permutation[15]),
         .O(x6_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair257" *) 
+  (* SOFT_HLUTNM = "soft_lutpair258" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_42 
@@ -13966,28 +13987,28 @@ module design_1_des_encryption_0_0_encryption
         .I4(x8_out[5]),
         .I5(x8_out[0]),
         .O(permutate16_in[4]));
-  (* SOFT_HLUTNM = "soft_lutpair130" *) 
+  (* SOFT_HLUTNM = "soft_lutpair131" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_46 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[31]),
         .O(x7_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair338" *) 
+  (* SOFT_HLUTNM = "soft_lutpair339" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_47 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[23]),
         .O(x1_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair337" *) 
+  (* SOFT_HLUTNM = "soft_lutpair338" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_48 
        (.I0(Q[0]),
         .I1(final_permutation[15]),
         .O(x1_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair336" *) 
+  (* SOFT_HLUTNM = "soft_lutpair337" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_49 
@@ -14004,56 +14025,56 @@ module design_1_des_encryption_0_0_encryption
         .I4(x8_out[7]),
         .I5(\nxt_right[4]_i_16_n_0 ),
         .O(permutate[4]));
-  (* SOFT_HLUTNM = "soft_lutpair326" *) 
+  (* SOFT_HLUTNM = "soft_lutpair328" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_50 
        (.I0(Q[15]),
         .I1(final_permutation[39]),
         .O(x1_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair323" *) 
+  (* SOFT_HLUTNM = "soft_lutpair325" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_51 
        (.I0(\nxt_right[5]_i_5_0 [0]),
         .I1(final_permutation[57]),
         .O(x1_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_52 
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[31]),
         .O(x8_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair322" *) 
+  (* SOFT_HLUTNM = "soft_lutpair324" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_53 
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[23]),
         .O(x2_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair321" *) 
+  (* SOFT_HLUTNM = "soft_lutpair323" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_54 
        (.I0(\nxt_right[5]_i_5_0 [14]),
         .I1(final_permutation[15]),
         .O(x2_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair309" *) 
+  (* SOFT_HLUTNM = "soft_lutpair311" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_55 
        (.I0(Q[23]),
         .I1(final_permutation[7]),
         .O(x2_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair308" *) 
+  (* SOFT_HLUTNM = "soft_lutpair310" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_56 
        (.I0(Q[1]),
         .I1(final_permutation[39]),
         .O(x2_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair306" *) 
+  (* SOFT_HLUTNM = "soft_lutpair308" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_57 
@@ -14130,42 +14151,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(x10_out[5]),
         .I5(x10_out[0]),
         .O(permutate20_in[4]));
-  (* SOFT_HLUTNM = "soft_lutpair187" *) 
+  (* SOFT_HLUTNM = "soft_lutpair188" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_64 
        (.I0(Q[22]),
         .I1(final_permutation[31]),
         .O(x4_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair123" *) 
+  (* SOFT_HLUTNM = "soft_lutpair124" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_65 
        (.I0(Q[23]),
         .I1(final_permutation[23]),
         .O(x13_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
+  (* SOFT_HLUTNM = "soft_lutpair123" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_66 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[15]),
         .O(x13_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair121" *) 
+  (* SOFT_HLUTNM = "soft_lutpair122" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_67 
        (.I0(\nxt_right[5]_i_5_0 [14]),
         .I1(final_permutation[7]),
         .O(x13_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair220" *) 
+  (* SOFT_HLUTNM = "soft_lutpair221" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_68 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[39]),
         .O(x7_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
+  (* SOFT_HLUTNM = "soft_lutpair121" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_69 
@@ -14182,42 +14203,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[4]_i_25_n_0 ),
         .O(\nxt_right[4]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_70 
        (.I0(Q[15]),
         .I1(final_permutation[31]),
         .O(\nxt_right[4]_i_70_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair99" *) 
+  (* SOFT_HLUTNM = "soft_lutpair100" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_71 
        (.I0(Q[16]),
         .I1(final_permutation[23]),
         .O(\nxt_right[4]_i_71_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair98" *) 
+  (* SOFT_HLUTNM = "soft_lutpair99" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_72 
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[15]),
         .O(\nxt_right[4]_i_72_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair97" *) 
+  (* SOFT_HLUTNM = "soft_lutpair98" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_73 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[7]),
         .O(\nxt_right[4]_i_73_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair100" *) 
+  (* SOFT_HLUTNM = "soft_lutpair101" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_74 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[39]),
         .O(\nxt_right[4]_i_74_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair96" *) 
+  (* SOFT_HLUTNM = "soft_lutpair97" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_75 
@@ -14276,35 +14297,35 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[57]),
         .O(x7_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair207" *) 
+  (* SOFT_HLUTNM = "soft_lutpair208" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_82 
        (.I0(Q[7]),
         .I1(final_permutation[23]),
         .O(x8_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair220" *) 
+  (* SOFT_HLUTNM = "soft_lutpair221" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_83 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[15]),
         .O(x8_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair206" *) 
+  (* SOFT_HLUTNM = "soft_lutpair207" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_84 
        (.I0(Q[1]),
         .I1(final_permutation[7]),
         .O(x8_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair221" *) 
+  (* SOFT_HLUTNM = "soft_lutpair222" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_85 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[39]),
         .O(x8_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair203" *) 
+  (* SOFT_HLUTNM = "soft_lutpair204" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_86 
@@ -14318,49 +14339,49 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[14]),
         .I1(final_permutation[31]),
         .O(x9_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair295" *) 
+  (* SOFT_HLUTNM = "soft_lutpair296" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_88 
        (.I0(Q[15]),
         .I1(final_permutation[23]),
         .O(x3_out[3]));
-  (* SOFT_HLUTNM = "soft_lutpair223" *) 
+  (* SOFT_HLUTNM = "soft_lutpair307" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_89 
        (.I0(\nxt_right[5]_i_5_0 [0]),
         .I1(final_permutation[15]),
         .O(x3_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair294" *) 
+  (* SOFT_HLUTNM = "soft_lutpair295" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_90 
        (.I0(Q[9]),
         .I1(final_permutation[7]),
         .O(x3_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair292" *) 
+  (* SOFT_HLUTNM = "soft_lutpair293" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_91 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[39]),
         .O(x3_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair288" *) 
+  (* SOFT_HLUTNM = "soft_lutpair289" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_92 
        (.I0(Q[3]),
         .I1(final_permutation[57]),
         .O(x3_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair146" *) 
+  (* SOFT_HLUTNM = "soft_lutpair147" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_93 
        (.I0(Q[0]),
         .I1(final_permutation[31]),
         .O(x10_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair280" *) 
+  (* SOFT_HLUTNM = "soft_lutpair281" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_94 
@@ -14374,28 +14395,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[17]),
         .I1(final_permutation[15]),
         .O(x4_out[2]));
-  (* SOFT_HLUTNM = "soft_lutpair287" *) 
+  (* SOFT_HLUTNM = "soft_lutpair288" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_96 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[7]),
         .O(x4_out[1]));
-  (* SOFT_HLUTNM = "soft_lutpair277" *) 
+  (* SOFT_HLUTNM = "soft_lutpair278" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [1]),
         .I1(final_permutation[39]),
         .O(x4_out[5]));
-  (* SOFT_HLUTNM = "soft_lutpair273" *) 
+  (* SOFT_HLUTNM = "soft_lutpair274" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_98 
        (.I0(Q[16]),
         .I1(final_permutation[57]),
         .O(x4_out[0]));
-  (* SOFT_HLUTNM = "soft_lutpair153" *) 
+  (* SOFT_HLUTNM = "soft_lutpair154" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[4]_i_99 
@@ -14421,14 +14442,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[5]_i_31_n_0 ),
         .I5(final_permutation[16]),
         .O(\nxt_right[5]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair162" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_100 
        (.I0(Q[26]),
         .I1(final_permutation[27]),
         .O(x10_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair350" *) 
+  (* SOFT_HLUTNM = "soft_lutpair351" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_11 
@@ -14441,7 +14462,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[51]),
         .O(\nxt_right[5]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair346" *) 
+  (* SOFT_HLUTNM = "soft_lutpair347" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_13 
@@ -14469,21 +14490,21 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[27]),
         .I1(final_permutation[27]),
         .O(\nxt_right[5]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+  (* SOFT_HLUTNM = "soft_lutpair120" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_17 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[59]),
         .O(x0_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair366" *) 
+  (* SOFT_HLUTNM = "soft_lutpair367" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_18 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[51]),
         .O(x0_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair351" *) 
+  (* SOFT_HLUTNM = "soft_lutpair352" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_19 
@@ -14500,7 +14521,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[5]),
         .I5(final_permutation[16]),
         .O(\nxt_right[5]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair365" *) 
+  (* SOFT_HLUTNM = "soft_lutpair366" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_20 
@@ -14562,7 +14583,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[35]),
         .I5(x2_out[30]),
         .O(permutate4_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair6" *) 
+  (* SOFT_HLUTNM = "soft_lutpair7" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[5]_i_27 
@@ -14607,56 +14628,56 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[5]_i_69_n_0 ),
         .I5(\nxt_right[0]_i_66_n_0 ),
         .O(\nxt_right[5]_i_31_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair284" *) 
+  (* SOFT_HLUTNM = "soft_lutpair285" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_32 
        (.I0(Q[27]),
         .I1(final_permutation[59]),
         .O(x5_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair271" *) 
+  (* SOFT_HLUTNM = "soft_lutpair272" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_33 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[51]),
         .O(x5_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair283" *) 
+  (* SOFT_HLUTNM = "soft_lutpair284" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_34 
        (.I0(Q[4]),
         .I1(final_permutation[43]),
         .O(x5_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_35 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[1]),
         .O(x5_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair255" *) 
+  (* SOFT_HLUTNM = "soft_lutpair256" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_36 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[27]),
         .O(x5_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair267" *) 
+  (* SOFT_HLUTNM = "soft_lutpair268" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_37 
        (.I0(Q[13]),
         .I1(final_permutation[59]),
         .O(x6_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair266" *) 
+  (* SOFT_HLUTNM = "soft_lutpair267" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_38 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[51]),
         .O(x6_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair265" *) 
+  (* SOFT_HLUTNM = "soft_lutpair266" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_39 
@@ -14672,7 +14693,7 @@ module design_1_des_encryption_0_0_encryption
         .I3(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I4(\nxt_right[5]_i_10_n_0 ),
         .O(\nxt_right[5]_i_4_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair264" *) 
+  (* SOFT_HLUTNM = "soft_lutpair265" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_40 
@@ -14699,49 +14720,49 @@ module design_1_des_encryption_0_0_encryption
         .I4(x8_out[35]),
         .I5(x8_out[30]),
         .O(permutate16_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair144" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_43 
        (.I0(Q[26]),
         .I1(final_permutation[59]),
         .O(x1_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair349" *) 
+  (* SOFT_HLUTNM = "soft_lutpair350" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_44 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[51]),
         .O(x1_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair348" *) 
+  (* SOFT_HLUTNM = "soft_lutpair349" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_45 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[43]),
         .O(x1_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair333" *) 
+  (* SOFT_HLUTNM = "soft_lutpair335" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_46 
        (.I0(Q[18]),
         .I1(final_permutation[35]),
         .O(x1_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair347" *) 
+  (* SOFT_HLUTNM = "soft_lutpair348" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_47 
        (.I0(Q[6]),
         .I1(final_permutation[27]),
         .O(x1_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair139" *) 
+  (* SOFT_HLUTNM = "soft_lutpair140" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_48 
        (.I0(Q[12]),
         .I1(final_permutation[59]),
         .O(x2_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair320" *) 
+  (* SOFT_HLUTNM = "soft_lutpair322" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_49 
@@ -14758,21 +14779,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[5]_i_15_n_0 ),
         .I5(\nxt_right[5]_i_16_n_0 ),
         .O(permutate[5]));
-  (* SOFT_HLUTNM = "soft_lutpair315" *) 
+  (* SOFT_HLUTNM = "soft_lutpair317" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_50 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[43]),
         .O(x2_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair317" *) 
+  (* SOFT_HLUTNM = "soft_lutpair319" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_51 
        (.I0(Q[4]),
         .I1(final_permutation[35]),
         .O(x2_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair301" *) 
+  (* SOFT_HLUTNM = "soft_lutpair302" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_52 
@@ -14839,7 +14860,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x10_out[35]),
         .I5(x10_out[30]),
         .O(permutate20_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair111" *) 
+  (* SOFT_HLUTNM = "soft_lutpair112" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_59 
@@ -14856,70 +14877,70 @@ module design_1_des_encryption_0_0_encryption
         .I4(x0_out[35]),
         .I5(x0_out[30]),
         .O(permutate0_in[5]));
-  (* SOFT_HLUTNM = "soft_lutpair139" *) 
+  (* SOFT_HLUTNM = "soft_lutpair140" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_60 
        (.I0(Q[12]),
         .I1(final_permutation[51]),
         .O(x13_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_61 
        (.I0(Q[13]),
         .I1(final_permutation[43]),
         .O(x13_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_62 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[35]),
         .O(x13_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_63 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[1]),
         .O(x13_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair138" *) 
+  (* SOFT_HLUTNM = "soft_lutpair139" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_64 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[27]),
         .O(x13_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair79" *) 
+  (* SOFT_HLUTNM = "soft_lutpair80" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_65 
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[59]),
         .O(\nxt_right[5]_i_65_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_66 
        (.I0(Q[5]),
         .I1(final_permutation[51]),
         .O(\nxt_right[5]_i_66_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair113" *) 
+  (* SOFT_HLUTNM = "soft_lutpair114" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_67 
        (.I0(Q[6]),
         .I1(final_permutation[43]),
         .O(\nxt_right[5]_i_67_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair112" *) 
+  (* SOFT_HLUTNM = "soft_lutpair113" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_68 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[35]),
         .O(\nxt_right[5]_i_68_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_69 
@@ -14950,35 +14971,35 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[43]),
         .O(x7_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair335" *) 
+  (* SOFT_HLUTNM = "soft_lutpair250" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_72 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[35]),
         .O(x7_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair250" *) 
+  (* SOFT_HLUTNM = "soft_lutpair251" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_73 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[1]),
         .O(x7_out[35]));
-  (* SOFT_HLUTNM = "soft_lutpair219" *) 
+  (* SOFT_HLUTNM = "soft_lutpair220" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_74 
        (.I0(Q[25]),
         .I1(final_permutation[51]),
         .O(x8_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair214" *) 
+  (* SOFT_HLUTNM = "soft_lutpair215" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_75 
        (.I0(Q[26]),
         .I1(final_permutation[43]),
         .O(x8_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair216" *) 
+  (* SOFT_HLUTNM = "soft_lutpair217" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_76 
@@ -14992,14 +15013,14 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[27]),
         .O(x8_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair305" *) 
+  (* SOFT_HLUTNM = "soft_lutpair306" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_78 
        (.I0(Q[6]),
         .I1(final_permutation[51]),
         .O(x3_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair302" *) 
+  (* SOFT_HLUTNM = "soft_lutpair303" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_79 
@@ -15016,63 +15037,63 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[5]_i_27_n_0 ),
         .O(\nxt_right[5]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair314" *) 
+  (* SOFT_HLUTNM = "soft_lutpair316" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_80 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[35]),
         .O(x3_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair313" *) 
+  (* SOFT_HLUTNM = "soft_lutpair315" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_81 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[27]),
         .O(x3_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair301" *) 
+  (* SOFT_HLUTNM = "soft_lutpair302" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_82 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[51]),
         .O(x4_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair300" *) 
+  (* SOFT_HLUTNM = "soft_lutpair301" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_83 
        (.I0(Q[18]),
         .I1(final_permutation[43]),
         .O(x4_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair266" *) 
+  (* SOFT_HLUTNM = "soft_lutpair267" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_84 
        (.I0(\nxt_right[5]_i_5_0 [17]),
         .I1(final_permutation[27]),
         .O(x4_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair181" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_85 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[51]),
         .O(x11_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair180" *) 
+  (* SOFT_HLUTNM = "soft_lutpair181" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_86 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[43]),
         .O(x11_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair134" *) 
+  (* SOFT_HLUTNM = "soft_lutpair135" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_87 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[35]),
         .O(x11_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair179" *) 
+  (* SOFT_HLUTNM = "soft_lutpair180" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_88 
@@ -15086,70 +15107,70 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[18]),
         .I1(final_permutation[59]),
         .O(x12_out[34]));
-  (* SOFT_HLUTNM = "soft_lutpair161" *) 
+  (* SOFT_HLUTNM = "soft_lutpair162" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_90 
        (.I0(Q[26]),
         .I1(final_permutation[51]),
         .O(x12_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair160" *) 
+  (* SOFT_HLUTNM = "soft_lutpair161" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_91 
        (.I0(Q[27]),
         .I1(final_permutation[43]),
         .O(x12_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair159" *) 
+  (* SOFT_HLUTNM = "soft_lutpair160" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_92 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[27]),
         .O(x12_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair213" *) 
+  (* SOFT_HLUTNM = "soft_lutpair214" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_93 
        (.I0(Q[11]),
         .I1(final_permutation[51]),
         .O(x9_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair212" *) 
+  (* SOFT_HLUTNM = "soft_lutpair213" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_94 
        (.I0(Q[12]),
         .I1(final_permutation[43]),
         .O(x9_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair197" *) 
+  (* SOFT_HLUTNM = "soft_lutpair198" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_95 
        (.I0(Q[27]),
         .I1(final_permutation[35]),
         .O(x9_out[31]));
-  (* SOFT_HLUTNM = "soft_lutpair181" *) 
+  (* SOFT_HLUTNM = "soft_lutpair182" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_96 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[27]),
         .O(x9_out[30]));
-  (* SOFT_HLUTNM = "soft_lutpair185" *) 
+  (* SOFT_HLUTNM = "soft_lutpair186" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[51]),
         .O(x10_out[33]));
-  (* SOFT_HLUTNM = "soft_lutpair182" *) 
+  (* SOFT_HLUTNM = "soft_lutpair183" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_98 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[43]),
         .O(x10_out[32]));
-  (* SOFT_HLUTNM = "soft_lutpair154" *) 
+  (* SOFT_HLUTNM = "soft_lutpair155" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[5]_i_99 
@@ -15175,7 +15196,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[6]_i_31_n_0 ),
         .I5(final_permutation[8]),
         .O(\nxt_right[6]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair169" *) 
+  (* SOFT_HLUTNM = "soft_lutpair170" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_100 
@@ -15195,14 +15216,14 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[55]),
         .O(\nxt_right[6]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair359" *) 
+  (* SOFT_HLUTNM = "soft_lutpair360" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_13 
        (.I0(Q[24]),
         .I1(final_permutation[47]),
         .O(\nxt_right[6]_i_13_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair339" *) 
+  (* SOFT_HLUTNM = "soft_lutpair340" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_14 
@@ -15215,28 +15236,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[22]),
         .I1(final_permutation[5]),
         .O(\nxt_right[6]_i_15_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair342" *) 
+  (* SOFT_HLUTNM = "soft_lutpair343" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_16 
        (.I0(Q[7]),
         .I1(final_permutation[39]),
         .O(\nxt_right[6]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair344" *) 
+  (* SOFT_HLUTNM = "soft_lutpair345" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_17 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[55]),
         .O(x0_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair359" *) 
+  (* SOFT_HLUTNM = "soft_lutpair360" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_18 
        (.I0(Q[17]),
         .I1(final_permutation[47]),
         .O(x0_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair103" *) 
+  (* SOFT_HLUTNM = "soft_lutpair104" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_19 
@@ -15253,14 +15274,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[6]),
         .I5(final_permutation[8]),
         .O(\nxt_right[6]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair51" *) 
+  (* SOFT_HLUTNM = "soft_lutpair50" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_20 
        (.I0(Q[15]),
         .I1(final_permutation[5]),
         .O(x9_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair205" *) 
+  (* SOFT_HLUTNM = "soft_lutpair206" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_21 
@@ -15287,7 +15308,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[11]),
         .I5(x6_out[7]),
         .O(permutate12_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair20" *) 
+  (* SOFT_HLUTNM = "soft_lutpair21" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[6]_i_24 
@@ -15360,42 +15381,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(x8_out[13]),
         .I5(\nxt_right[4]_i_37_n_0 ),
         .O(\nxt_right[6]_i_31_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair276" *) 
+  (* SOFT_HLUTNM = "soft_lutpair277" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_32 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[63]),
         .O(x5_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair275" *) 
+  (* SOFT_HLUTNM = "soft_lutpair276" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_33 
        (.I0(Q[24]),
         .I1(final_permutation[55]),
         .O(x5_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair274" *) 
+  (* SOFT_HLUTNM = "soft_lutpair275" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_34 
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[47]),
         .O(x5_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair273" *) 
+  (* SOFT_HLUTNM = "soft_lutpair274" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_35 
        (.I0(Q[16]),
         .I1(final_permutation[39]),
         .O(x5_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair260" *) 
+  (* SOFT_HLUTNM = "soft_lutpair261" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_36 
        (.I0(Q[21]),
         .I1(final_permutation[63]),
         .O(x6_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair189" *) 
+  (* SOFT_HLUTNM = "soft_lutpair190" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_37 
@@ -15409,7 +15430,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[15]),
         .I1(final_permutation[47]),
         .O(x6_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair258" *) 
+  (* SOFT_HLUTNM = "soft_lutpair259" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_39 
@@ -15432,7 +15453,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [14]),
         .I1(final_permutation[5]),
         .O(x6_out[11]));
-  (* SOFT_HLUTNM = "soft_lutpair259" *) 
+  (* SOFT_HLUTNM = "soft_lutpair260" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_41 
@@ -15459,21 +15480,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(x2_out[13]),
         .I5(x8_out[7]),
         .O(permutate16_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair340" *) 
+  (* SOFT_HLUTNM = "soft_lutpair341" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_44 
        (.I0(\nxt_right[5]_i_5_0 [9]),
         .I1(final_permutation[63]),
         .O(x1_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair328" *) 
+  (* SOFT_HLUTNM = "soft_lutpair330" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_45 
        (.I0(Q[21]),
         .I1(final_permutation[55]),
         .O(x1_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair339" *) 
+  (* SOFT_HLUTNM = "soft_lutpair340" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_46 
@@ -15494,7 +15515,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[1]),
         .I1(final_permutation[5]),
         .O(x10_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair321" *) 
+  (* SOFT_HLUTNM = "soft_lutpair323" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_49 
@@ -15511,42 +15532,42 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[6]_i_15_n_0 ),
         .I5(\nxt_right[6]_i_16_n_0 ),
         .O(permutate[6]));
-  (* SOFT_HLUTNM = "soft_lutpair325" *) 
+  (* SOFT_HLUTNM = "soft_lutpair327" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_50 
        (.I0(Q[22]),
         .I1(final_permutation[63]),
         .O(x2_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair310" *) 
+  (* SOFT_HLUTNM = "soft_lutpair312" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_51 
        (.I0(Q[7]),
         .I1(final_permutation[55]),
         .O(x2_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair324" *) 
+  (* SOFT_HLUTNM = "soft_lutpair326" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_52 
        (.I0(Q[16]),
         .I1(final_permutation[47]),
         .O(x2_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair279" *) 
+  (* SOFT_HLUTNM = "soft_lutpair280" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_53 
        (.I0(\nxt_right[5]_i_5_0 [23]),
         .I1(final_permutation[31]),
         .O(x2_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair36" *) 
+  (* SOFT_HLUTNM = "soft_lutpair37" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_54 
        (.I0(\nxt_right[5]_i_5_0 [15]),
         .I1(final_permutation[5]),
         .O(x11_out[13]));
-  (* SOFT_HLUTNM = "soft_lutpair323" *) 
+  (* SOFT_HLUTNM = "soft_lutpair325" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_55 
@@ -15623,35 +15644,35 @@ module design_1_des_encryption_0_0_encryption
         .I4(x4_out[13]),
         .I5(x10_out[7]),
         .O(permutate20_in[6]));
-  (* SOFT_HLUTNM = "soft_lutpair126" *) 
+  (* SOFT_HLUTNM = "soft_lutpair127" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_62 
        (.I0(Q[16]),
         .I1(final_permutation[63]),
         .O(x13_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair125" *) 
+  (* SOFT_HLUTNM = "soft_lutpair144" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_63 
        (.I0(Q[1]),
         .I1(final_permutation[55]),
         .O(x13_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair143" *) 
+  (* SOFT_HLUTNM = "soft_lutpair126" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_64 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[47]),
         .O(x13_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair124" *) 
+  (* SOFT_HLUTNM = "soft_lutpair125" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_65 
        (.I0(Q[17]),
         .I1(final_permutation[31]),
         .O(x13_out[6]));
-  (* SOFT_HLUTNM = "soft_lutpair127" *) 
+  (* SOFT_HLUTNM = "soft_lutpair128" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_66 
@@ -15672,7 +15693,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[55]),
         .O(\nxt_right[6]_i_68_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair101" *) 
+  (* SOFT_HLUTNM = "soft_lutpair102" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_69 
@@ -15689,7 +15710,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[6]_i_24_n_0 ),
         .O(\nxt_right[6]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair132" *) 
+  (* SOFT_HLUTNM = "soft_lutpair133" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_70 
@@ -15710,49 +15731,49 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[3]),
         .I1(final_permutation[55]),
         .O(x7_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair201" *) 
+  (* SOFT_HLUTNM = "soft_lutpair202" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_73 
        (.I0(Q[8]),
         .I1(final_permutation[47]),
         .O(x7_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair222" *) 
+  (* SOFT_HLUTNM = "soft_lutpair223" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_74 
        (.I0(Q[0]),
         .I1(final_permutation[63]),
         .O(x8_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair208" *) 
+  (* SOFT_HLUTNM = "soft_lutpair209" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_75 
        (.I0(Q[16]),
         .I1(final_permutation[55]),
         .O(x8_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair186" *) 
+  (* SOFT_HLUTNM = "soft_lutpair187" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_76 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[47]),
         .O(x8_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair293" *) 
+  (* SOFT_HLUTNM = "soft_lutpair294" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_77 
        (.I0(Q[8]),
         .I1(final_permutation[63]),
         .O(x3_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair296" *) 
+  (* SOFT_HLUTNM = "soft_lutpair297" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_78 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[55]),
         .O(x3_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair307" *) 
+  (* SOFT_HLUTNM = "soft_lutpair309" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_79 
@@ -15769,140 +15790,140 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[6]_i_27_n_0 ),
         .O(\nxt_right[6]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair306" *) 
+  (* SOFT_HLUTNM = "soft_lutpair308" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_80 
        (.I0(Q[17]),
         .I1(final_permutation[39]),
         .O(x3_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair291" *) 
+  (* SOFT_HLUTNM = "soft_lutpair292" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_81 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[63]),
         .O(x4_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair290" *) 
+  (* SOFT_HLUTNM = "soft_lutpair291" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_82 
        (.I0(\nxt_right[5]_i_5_0 [7]),
         .I1(final_permutation[55]),
         .O(x4_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair289" *) 
+  (* SOFT_HLUTNM = "soft_lutpair290" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_83 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[47]),
         .O(x4_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair288" *) 
+  (* SOFT_HLUTNM = "soft_lutpair289" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_84 
        (.I0(Q[3]),
         .I1(final_permutation[39]),
         .O(x4_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair172" *) 
+  (* SOFT_HLUTNM = "soft_lutpair173" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_85 
        (.I0(Q[17]),
         .I1(final_permutation[63]),
         .O(x11_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair171" *) 
+  (* SOFT_HLUTNM = "soft_lutpair172" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_86 
        (.I0(\nxt_right[5]_i_5_0 [2]),
         .I1(final_permutation[55]),
         .O(x11_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair120" *) 
+  (* SOFT_HLUTNM = "soft_lutpair121" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_87 
        (.I0(Q[7]),
         .I1(final_permutation[47]),
         .O(x11_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair147" *) 
+  (* SOFT_HLUTNM = "soft_lutpair148" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_88 
        (.I0(\nxt_right[5]_i_5_0 [22]),
         .I1(final_permutation[39]),
         .O(x11_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair129" *) 
+  (* SOFT_HLUTNM = "soft_lutpair130" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_89 
        (.I0(Q[3]),
         .I1(final_permutation[63]),
         .O(x12_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair133" *) 
+  (* SOFT_HLUTNM = "soft_lutpair134" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_90 
        (.I0(Q[15]),
         .I1(final_permutation[55]),
         .O(x12_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair150" *) 
+  (* SOFT_HLUTNM = "soft_lutpair151" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_91 
        (.I0(\nxt_right[5]_i_5_0 [21]),
         .I1(final_permutation[47]),
         .O(x12_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair122" *) 
+  (* SOFT_HLUTNM = "soft_lutpair123" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_92 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[39]),
         .O(x12_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair193" *) 
+  (* SOFT_HLUTNM = "soft_lutpair194" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_93 
        (.I0(\nxt_right[5]_i_5_0 [14]),
         .I1(final_permutation[63]),
         .O(x9_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair204" *) 
+  (* SOFT_HLUTNM = "soft_lutpair205" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_94 
        (.I0(Q[2]),
         .I1(final_permutation[55]),
         .O(x9_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair167" *) 
+  (* SOFT_HLUTNM = "soft_lutpair168" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_95 
        (.I0(\nxt_right[5]_i_5_0 [8]),
         .I1(final_permutation[47]),
         .O(x9_out[8]));
-  (* SOFT_HLUTNM = "soft_lutpair203" *) 
+  (* SOFT_HLUTNM = "soft_lutpair204" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_96 
        (.I0(Q[22]),
         .I1(final_permutation[39]),
         .O(x9_out[7]));
-  (* SOFT_HLUTNM = "soft_lutpair173" *) 
+  (* SOFT_HLUTNM = "soft_lutpair174" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [0]),
         .I1(final_permutation[63]),
         .O(x10_out[10]));
-  (* SOFT_HLUTNM = "soft_lutpair190" *) 
+  (* SOFT_HLUTNM = "soft_lutpair191" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_98 
        (.I0(\nxt_right[5]_i_5_0 [16]),
         .I1(final_permutation[55]),
         .O(x10_out[9]));
-  (* SOFT_HLUTNM = "soft_lutpair145" *) 
+  (* SOFT_HLUTNM = "soft_lutpair146" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[6]_i_99 
@@ -15948,7 +15969,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x12_out[17]),
         .I5(x13_out[16]),
         .O(permutate12_in[7]));
-  (* SOFT_HLUTNM = "soft_lutpair32" *) 
+  (* SOFT_HLUTNM = "soft_lutpair33" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[7]_i_13 
@@ -16179,77 +16200,77 @@ module design_1_des_encryption_0_0_encryption
         .I4(\l[0]_0 [3]),
         .I5(final_permutation[58]),
         .O(\nxt_right[8]_i_10_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair195" *) 
+  (* SOFT_HLUTNM = "soft_lutpair196" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_100 
        (.I0(Q[4]),
         .I1(final_permutation[49]),
         .O(x9_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair217" *) 
+  (* SOFT_HLUTNM = "soft_lutpair218" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_101 
        (.I0(Q[13]),
         .I1(final_permutation[41]),
         .O(x9_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair219" *) 
+  (* SOFT_HLUTNM = "soft_lutpair220" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_102 
        (.I0(Q[25]),
         .I1(final_permutation[7]),
         .O(x9_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair200" *) 
+  (* SOFT_HLUTNM = "soft_lutpair201" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_103 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[57]),
         .O(x10_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair199" *) 
+  (* SOFT_HLUTNM = "soft_lutpair200" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_104 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[49]),
         .O(x10_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair198" *) 
+  (* SOFT_HLUTNM = "soft_lutpair199" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_105 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[41]),
         .O(x10_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair178" *) 
+  (* SOFT_HLUTNM = "soft_lutpair179" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_106 
        (.I0(Q[11]),
         .I1(final_permutation[7]),
         .O(x10_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair177" *) 
+  (* SOFT_HLUTNM = "soft_lutpair178" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_107 
        (.I0(Q[5]),
         .I1(final_permutation[25]),
         .O(x10_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair367" *) 
+  (* SOFT_HLUTNM = "soft_lutpair368" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_11 
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[57]),
         .O(\nxt_right[8]_i_11_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair366" *) 
+  (* SOFT_HLUTNM = "soft_lutpair367" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_12 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[49]),
         .O(\nxt_right[8]_i_12_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair304" *) 
+  (* SOFT_HLUTNM = "soft_lutpair305" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_13 
@@ -16262,7 +16283,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[33]),
         .O(\nxt_right[8]_i_14_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair368" *) 
+  (* SOFT_HLUTNM = "soft_lutpair369" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_15 
@@ -16275,14 +16296,14 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[6]),
         .I1(final_permutation[25]),
         .O(\nxt_right[8]_i_16_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair282" *) 
+  (* SOFT_HLUTNM = "soft_lutpair283" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_17 
        (.I0(Q[26]),
         .I1(final_permutation[57]),
         .O(x0_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair354" *) 
+  (* SOFT_HLUTNM = "soft_lutpair355" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_18 
@@ -16305,21 +16326,21 @@ module design_1_des_encryption_0_0_encryption
         .I4(permutate0_in[8]),
         .I5(final_permutation[58]),
         .O(\nxt_right[8]_i_2_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair80" *) 
+  (* SOFT_HLUTNM = "soft_lutpair81" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_20 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[33]),
         .O(x1_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair311" *) 
+  (* SOFT_HLUTNM = "soft_lutpair313" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_21 
        (.I0(Q[5]),
         .I1(final_permutation[7]),
         .O(x0_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair41" *) 
+  (* SOFT_HLUTNM = "soft_lutpair42" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_22 
@@ -16419,14 +16440,14 @@ module design_1_des_encryption_0_0_encryption
         .I4(x[0]),
         .I5(x11_out[40]),
         .O(\l[0]_0 [3]));
-  (* SOFT_HLUTNM = "soft_lutpair267" *) 
+  (* SOFT_HLUTNM = "soft_lutpair268" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_33 
        (.I0(Q[13]),
         .I1(final_permutation[57]),
         .O(x5_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair286" *) 
+  (* SOFT_HLUTNM = "soft_lutpair287" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_34 
@@ -16440,28 +16461,28 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[5]),
         .I1(final_permutation[41]),
         .O(x5_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair263" *) 
+  (* SOFT_HLUTNM = "soft_lutpair264" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_36 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[7]),
         .O(x5_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair285" *) 
+  (* SOFT_HLUTNM = "soft_lutpair286" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_37 
        (.I0(Q[11]),
         .I1(final_permutation[25]),
         .O(x5_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair270" *) 
+  (* SOFT_HLUTNM = "soft_lutpair271" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_38 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[57]),
         .O(x6_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair269" *) 
+  (* SOFT_HLUTNM = "soft_lutpair270" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_39 
@@ -16491,14 +16512,14 @@ module design_1_des_encryption_0_0_encryption
        (.I0(Q[26]),
         .I1(final_permutation[33]),
         .O(x6_out[43]));
-  (* SOFT_HLUTNM = "soft_lutpair271" *) 
+  (* SOFT_HLUTNM = "soft_lutpair272" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_42 
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[7]),
         .O(x6_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair268" *) 
+  (* SOFT_HLUTNM = "soft_lutpair269" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_43 
@@ -16525,28 +16546,28 @@ module design_1_des_encryption_0_0_encryption
         .I4(x8_out[47]),
         .I5(x5_out[40]),
         .O(permutate16_in[8]));
-  (* SOFT_HLUTNM = "soft_lutpair355" *) 
+  (* SOFT_HLUTNM = "soft_lutpair356" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_46 
        (.I0(Q[12]),
         .I1(final_permutation[57]),
         .O(x1_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair354" *) 
+  (* SOFT_HLUTNM = "soft_lutpair355" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_47 
        (.I0(Q[27]),
         .I1(final_permutation[49]),
         .O(x1_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair353" *) 
+  (* SOFT_HLUTNM = "soft_lutpair354" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_48 
        (.I0(Q[4]),
         .I1(final_permutation[41]),
         .O(x1_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair336" *) 
+  (* SOFT_HLUTNM = "soft_lutpair337" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_49 
@@ -16563,35 +16584,35 @@ module design_1_des_encryption_0_0_encryption
         .I4(\nxt_right[8]_i_15_n_0 ),
         .I5(\nxt_right[8]_i_16_n_0 ),
         .O(permutate[8]));
-  (* SOFT_HLUTNM = "soft_lutpair335" *) 
+  (* SOFT_HLUTNM = "soft_lutpair250" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_50 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[57]),
         .O(x2_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair334" *) 
+  (* SOFT_HLUTNM = "soft_lutpair336" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_51 
        (.I0(Q[13]),
         .I1(final_permutation[49]),
         .O(x2_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair314" *) 
+  (* SOFT_HLUTNM = "soft_lutpair316" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_52 
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[41]),
         .O(x2_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair78" *) 
+  (* SOFT_HLUTNM = "soft_lutpair79" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_53 
        (.I0(Q[25]),
         .I1(final_permutation[33]),
         .O(x3_out[41]));
-  (* SOFT_HLUTNM = "soft_lutpair312" *) 
+  (* SOFT_HLUTNM = "soft_lutpair314" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_54 
@@ -16675,56 +16696,56 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [18]),
         .I1(final_permutation[57]),
         .O(x13_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair114" *) 
+  (* SOFT_HLUTNM = "soft_lutpair115" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_62 
        (.I0(Q[5]),
         .I1(final_permutation[49]),
         .O(x13_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair142" *) 
+  (* SOFT_HLUTNM = "soft_lutpair143" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_63 
        (.I0(\nxt_right[5]_i_5_0 [10]),
         .I1(final_permutation[41]),
         .O(x13_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair144" *) 
+  (* SOFT_HLUTNM = "soft_lutpair145" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_64 
        (.I0(Q[26]),
         .I1(final_permutation[7]),
         .O(x13_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair141" *) 
+  (* SOFT_HLUTNM = "soft_lutpair142" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_65 
        (.I0(Q[20]),
         .I1(final_permutation[25]),
         .O(x13_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair119" *) 
+  (* SOFT_HLUTNM = "soft_lutpair120" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_66 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[57]),
         .O(x[1]));
-  (* SOFT_HLUTNM = "soft_lutpair118" *) 
+  (* SOFT_HLUTNM = "soft_lutpair119" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_67 
        (.I0(\nxt_right[5]_i_5_0 [26]),
         .I1(final_permutation[49]),
         .O(x[2]));
-  (* SOFT_HLUTNM = "soft_lutpair117" *) 
+  (* SOFT_HLUTNM = "soft_lutpair118" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_68 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[41]),
         .O(x[3]));
-  (* SOFT_HLUTNM = "soft_lutpair59" *) 
+  (* SOFT_HLUTNM = "soft_lutpair60" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_69 
@@ -16741,35 +16762,35 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[8]_i_25_n_0 ),
         .O(\nxt_right[8]_i_7_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair38" *) 
+  (* SOFT_HLUTNM = "soft_lutpair71" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_70 
        (.I0(Q[13]),
         .I1(final_permutation[25]),
         .O(x11_out[40]));
-  (* SOFT_HLUTNM = "soft_lutpair156" *) 
+  (* SOFT_HLUTNM = "soft_lutpair157" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_71 
        (.I0(\nxt_right[5]_i_5_0 [20]),
         .I1(final_permutation[57]),
         .O(x7_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair255" *) 
+  (* SOFT_HLUTNM = "soft_lutpair256" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_72 
        (.I0(\nxt_right[5]_i_5_0 [3]),
         .I1(final_permutation[49]),
         .O(x7_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair254" *) 
+  (* SOFT_HLUTNM = "soft_lutpair255" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_73 
        (.I0(\nxt_right[5]_i_5_0 [12]),
         .I1(final_permutation[41]),
         .O(x7_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair256" *) 
+  (* SOFT_HLUTNM = "soft_lutpair257" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_74 
@@ -16783,7 +16804,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [6]),
         .I1(final_permutation[57]),
         .O(x8_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair210" *) 
+  (* SOFT_HLUTNM = "soft_lutpair211" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_76 
@@ -16804,7 +16825,7 @@ module design_1_des_encryption_0_0_encryption
        (.I0(\nxt_right[5]_i_5_0 [10]),
         .I1(final_permutation[7]),
         .O(x8_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair254" *) 
+  (* SOFT_HLUTNM = "soft_lutpair255" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_79 
@@ -16821,140 +16842,140 @@ module design_1_des_encryption_0_0_encryption
         .I4(\FSM_sequential_nxt_state_reg[1]_rep__0_n_0 ),
         .I5(\nxt_right[8]_i_28_n_0 ),
         .O(\nxt_right[8]_i_8_n_0 ));
-  (* SOFT_HLUTNM = "soft_lutpair297" *) 
+  (* SOFT_HLUTNM = "soft_lutpair298" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_80 
        (.I0(\nxt_right[5]_i_5_0 [27]),
         .I1(final_permutation[49]),
         .O(x3_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair319" *) 
+  (* SOFT_HLUTNM = "soft_lutpair321" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_81 
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[41]),
         .O(x3_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair320" *) 
+  (* SOFT_HLUTNM = "soft_lutpair322" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_82 
        (.I0(Q[20]),
         .I1(final_permutation[7]),
         .O(x3_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair318" *) 
+  (* SOFT_HLUTNM = "soft_lutpair320" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_83 
        (.I0(\nxt_right[5]_i_5_0 [10]),
         .I1(final_permutation[25]),
         .O(x3_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair284" *) 
+  (* SOFT_HLUTNM = "soft_lutpair285" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_84 
        (.I0(Q[27]),
         .I1(final_permutation[57]),
         .O(x4_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair281" *) 
+  (* SOFT_HLUTNM = "soft_lutpair282" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_85 
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[49]),
         .O(x4_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair196" *) 
+  (* SOFT_HLUTNM = "soft_lutpair197" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_86 
        (.I0(Q[19]),
         .I1(final_permutation[41]),
         .O(x4_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair305" *) 
+  (* SOFT_HLUTNM = "soft_lutpair306" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_87 
        (.I0(Q[6]),
         .I1(final_permutation[7]),
         .O(x4_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair304" *) 
+  (* SOFT_HLUTNM = "soft_lutpair305" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_88 
        (.I0(Q[25]),
         .I1(final_permutation[25]),
         .O(x4_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair184" *) 
+  (* SOFT_HLUTNM = "soft_lutpair185" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_89 
        (.I0(Q[18]),
         .I1(final_permutation[57]),
         .O(x11_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair183" *) 
+  (* SOFT_HLUTNM = "soft_lutpair184" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_90 
        (.I0(\nxt_right[5]_i_5_0 [4]),
         .I1(final_permutation[49]),
         .O(x11_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair81" *) 
+  (* SOFT_HLUTNM = "soft_lutpair82" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_91 
        (.I0(\nxt_right[5]_i_5_0 [13]),
         .I1(final_permutation[41]),
         .O(x11_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair185" *) 
+  (* SOFT_HLUTNM = "soft_lutpair186" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_92 
        (.I0(\nxt_right[5]_i_5_0 [25]),
         .I1(final_permutation[7]),
         .O(x11_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair157" *) 
+  (* SOFT_HLUTNM = "soft_lutpair158" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_93 
        (.I0(\nxt_right[5]_i_5_0 [19]),
         .I1(final_permutation[25]),
         .O(x11_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair166" *) 
+  (* SOFT_HLUTNM = "soft_lutpair167" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_94 
        (.I0(Q[4]),
         .I1(final_permutation[57]),
         .O(x12_out[46]));
-  (* SOFT_HLUTNM = "soft_lutpair135" *) 
+  (* SOFT_HLUTNM = "soft_lutpair136" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_95 
        (.I0(Q[19]),
         .I1(final_permutation[49]),
         .O(x12_out[45]));
-  (* SOFT_HLUTNM = "soft_lutpair165" *) 
+  (* SOFT_HLUTNM = "soft_lutpair166" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_96 
        (.I0(\nxt_right[5]_i_5_0 [24]),
         .I1(final_permutation[41]),
         .O(x12_out[44]));
-  (* SOFT_HLUTNM = "soft_lutpair137" *) 
+  (* SOFT_HLUTNM = "soft_lutpair138" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_97 
        (.I0(\nxt_right[5]_i_5_0 [11]),
         .I1(final_permutation[7]),
         .O(x12_out[47]));
-  (* SOFT_HLUTNM = "soft_lutpair164" *) 
+  (* SOFT_HLUTNM = "soft_lutpair165" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_98 
        (.I0(\nxt_right[5]_i_5_0 [5]),
         .I1(final_permutation[25]),
         .O(x12_out[42]));
-  (* SOFT_HLUTNM = "soft_lutpair218" *) 
+  (* SOFT_HLUTNM = "soft_lutpair219" *) 
   LUT2 #(
     .INIT(4'h6)) 
     \nxt_right[8]_i_99 
@@ -17000,7 +17021,7 @@ module design_1_des_encryption_0_0_encryption
         .I4(x6_out[29]),
         .I5(x6_out[24]),
         .O(permutate12_in[9]));
-  (* SOFT_HLUTNM = "soft_lutpair19" *) 
+  (* SOFT_HLUTNM = "soft_lutpair18" *) 
   LUT4 #(
     .INIT(16'h47B8)) 
     \nxt_right[9]_i_13 

@@ -1,7 +1,7 @@
 Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
-| Date             : Sat Jun 13 16:33:30 2020
+| Date             : Sun Jun 14 14:23:10 2020
 | Host             : JacobOffersen running 64-bit Ubuntu 19.10
 | Command          : report_power -file design_1_wrapper_power_routed.rpt -pb design_1_wrapper_power_summary_routed.pb -rpx design_1_wrapper_power_routed.rpx
 | Design           : design_1_wrapper
@@ -53,14 +53,14 @@ Table of Contents
 | On-Chip                 | Power (W) | Used     | Available | Utilization (%) |
 +-------------------------+-----------+----------+-----------+-----------------+
 | Clocks                  |     0.005 |        3 |       --- |             --- |
-| Slice Logic             |     0.018 |     3697 |       --- |             --- |
-|   LUT as Logic          |     0.018 |     1795 |     53200 |            3.37 |
+| Slice Logic             |     0.018 |     3712 |       --- |             --- |
+|   LUT as Logic          |     0.018 |     1803 |     53200 |            3.39 |
 |   F7/F8 Muxes           |    <0.001 |       64 |     53200 |            0.12 |
-|   Register              |    <0.001 |     1028 |    106400 |            0.97 |
+|   Register              |    <0.001 |     1035 |    106400 |            0.97 |
 |   CARRY4                |    <0.001 |       18 |     13300 |            0.14 |
 |   LUT as Shift Register |    <0.001 |       62 |     17400 |            0.36 |
-|   Others                |     0.000 |      204 |       --- |             --- |
-| Signals                 |     0.019 |     3009 |       --- |             --- |
+|   Others                |     0.000 |      206 |       --- |             --- |
+| Signals                 |     0.019 |     3014 |       --- |             --- |
 | PS7                     |     1.400 |        1 |       --- |             --- |
 | Static Power            |     0.138 |          |           |                 |
 | Total                   |     1.580 |          |           |                 |

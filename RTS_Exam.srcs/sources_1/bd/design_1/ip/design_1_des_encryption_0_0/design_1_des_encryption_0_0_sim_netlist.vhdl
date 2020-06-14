@@ -1,7 +1,7 @@
 -- Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
 -- --------------------------------------------------------------------------------
 -- Tool Version: Vivado v.2018.3 (lin64) Build 2405991 Thu Dec  6 23:36:41 MST 2018
--- Date        : Sat Jun 13 16:28:26 2020
+-- Date        : Sun Jun 14 14:21:26 2020
 -- Host        : JacobOffersen running 64-bit Ubuntu 19.10
 -- Command     : write_vhdl -force -mode funcsim
 --               /home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_des_encryption_0_0/design_1_des_encryption_0_0_sim_netlist.vhdl
@@ -30,6 +30,7 @@ entity design_1_des_encryption_0_0_encryption is
 end design_1_des_encryption_0_0_encryption;
 
 architecture STRUCTURE of design_1_des_encryption_0_0_encryption is
+  signal \^enc_done\ : STD_LOGIC;
   signal \FSM_sequential_nxt_state[1]_rep_i_1__0_n_0\ : STD_LOGIC;
   signal \FSM_sequential_nxt_state[1]_rep_i_1_n_0\ : STD_LOGIC;
   signal \FSM_sequential_nxt_state[4]_i_1_n_0\ : STD_LOGIC;
@@ -104,6 +105,8 @@ architecture STRUCTURE of design_1_des_encryption_0_0_encryption is
   signal \nxt_data_out[8]_i_1_n_0\ : STD_LOGIC;
   signal \nxt_data_out[9]_i_1_n_0\ : STD_LOGIC;
   signal nxt_done : STD_LOGIC;
+  signal nxt_done_i_1_n_0 : STD_LOGIC;
+  signal nxt_done_i_3_n_0 : STD_LOGIC;
   signal \nxt_left[0]_i_1_n_0\ : STD_LOGIC;
   signal \nxt_left[10]_i_1_n_0\ : STD_LOGIC;
   signal \nxt_left[11]_i_1_n_0\ : STD_LOGIC;
@@ -660,8 +663,8 @@ architecture STRUCTURE of design_1_des_encryption_0_0_encryption is
   signal x8_out : STD_LOGIC_VECTOR ( 47 downto 0 );
   signal x9_out : STD_LOGIC_VECTOR ( 47 downto 0 );
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of \FSM_sequential_nxt_state[0]_i_1\ : label is "soft_lutpair29";
-  attribute SOFT_HLUTNM of \FSM_sequential_nxt_state[2]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \FSM_sequential_nxt_state[0]_i_1\ : label is "soft_lutpair30";
+  attribute SOFT_HLUTNM of \FSM_sequential_nxt_state[2]_i_1\ : label is "soft_lutpair30";
   attribute SOFT_HLUTNM of \FSM_sequential_nxt_state[3]_i_1\ : label is "soft_lutpair0";
   attribute SOFT_HLUTNM of \FSM_sequential_nxt_state[4]_i_2\ : label is "soft_lutpair0";
   attribute FSM_ENCODED_STATES : string;
@@ -676,741 +679,744 @@ architecture STRUCTURE of design_1_des_encryption_0_0_encryption is
   attribute FSM_ENCODED_STATES of \FSM_sequential_nxt_state_reg[2]\ : label is "s_r13:01110,s_r12:01101,s_r11:01100,s_return:10010,s_r2:00011,s_r16:10001,s_r1:00010,s_r15:10000,s_init:00001,s_r10:01011,s_idle:00000,s_r9:01010,s_r6:00111,s_r5:00110,s_r8:01001,s_r7:01000,s_r4:00101,s_r3:00100,s_r14:01111";
   attribute FSM_ENCODED_STATES of \FSM_sequential_nxt_state_reg[3]\ : label is "s_r13:01110,s_r12:01101,s_r11:01100,s_return:10010,s_r2:00011,s_r16:10001,s_r1:00010,s_r15:10000,s_init:00001,s_r10:01011,s_idle:00000,s_r9:01010,s_r6:00111,s_r5:00110,s_r8:01001,s_r7:01000,s_r4:00101,s_r3:00100,s_r14:01111";
   attribute FSM_ENCODED_STATES of \FSM_sequential_nxt_state_reg[4]\ : label is "s_r13:01110,s_r12:01101,s_r11:01100,s_return:10010,s_r2:00011,s_r16:10001,s_r1:00010,s_r15:10000,s_init:00001,s_r10:01011,s_idle:00000,s_r9:01010,s_r6:00111,s_r5:00110,s_r8:01001,s_r7:01000,s_r4:00101,s_r3:00100,s_r14:01111";
-  attribute SOFT_HLUTNM of \nxt_data_out[0]_i_1\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \nxt_data_out[10]_i_1\ : label is "soft_lutpair84";
-  attribute SOFT_HLUTNM of \nxt_data_out[11]_i_1\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \nxt_data_out[12]_i_1\ : label is "soft_lutpair86";
-  attribute SOFT_HLUTNM of \nxt_data_out[13]_i_1\ : label is "soft_lutpair19";
-  attribute SOFT_HLUTNM of \nxt_data_out[14]_i_1\ : label is "soft_lutpair87";
-  attribute SOFT_HLUTNM of \nxt_data_out[15]_i_1\ : label is "soft_lutpair11";
-  attribute SOFT_HLUTNM of \nxt_data_out[16]_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \nxt_data_out[0]_i_1\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \nxt_data_out[10]_i_1\ : label is "soft_lutpair85";
+  attribute SOFT_HLUTNM of \nxt_data_out[11]_i_1\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \nxt_data_out[12]_i_1\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \nxt_data_out[13]_i_1\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \nxt_data_out[14]_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \nxt_data_out[15]_i_1\ : label is "soft_lutpair12";
+  attribute SOFT_HLUTNM of \nxt_data_out[16]_i_1\ : label is "soft_lutpair89";
   attribute SOFT_HLUTNM of \nxt_data_out[17]_i_1\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \nxt_data_out[18]_i_1\ : label is "soft_lutpair89";
-  attribute SOFT_HLUTNM of \nxt_data_out[19]_i_1\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \nxt_data_out[1]_i_1\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \nxt_data_out[20]_i_1\ : label is "soft_lutpair90";
-  attribute SOFT_HLUTNM of \nxt_data_out[21]_i_1\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \nxt_data_out[22]_i_1\ : label is "soft_lutpair91";
-  attribute SOFT_HLUTNM of \nxt_data_out[23]_i_1\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \nxt_data_out[24]_i_1\ : label is "soft_lutpair92";
-  attribute SOFT_HLUTNM of \nxt_data_out[25]_i_1\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \nxt_data_out[26]_i_1\ : label is "soft_lutpair93";
-  attribute SOFT_HLUTNM of \nxt_data_out[27]_i_1\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \nxt_data_out[28]_i_1\ : label is "soft_lutpair94";
-  attribute SOFT_HLUTNM of \nxt_data_out[29]_i_1\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \nxt_data_out[2]_i_1\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \nxt_data_out[30]_i_1\ : label is "soft_lutpair95";
-  attribute SOFT_HLUTNM of \nxt_data_out[31]_i_1\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \nxt_data_out[32]_i_1\ : label is "soft_lutpair95";
-  attribute SOFT_HLUTNM of \nxt_data_out[33]_i_1\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \nxt_data_out[34]_i_1\ : label is "soft_lutpair94";
-  attribute SOFT_HLUTNM of \nxt_data_out[35]_i_1\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \nxt_data_out[36]_i_1\ : label is "soft_lutpair93";
-  attribute SOFT_HLUTNM of \nxt_data_out[37]_i_1\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \nxt_data_out[38]_i_1\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \nxt_data_out[18]_i_1\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \nxt_data_out[19]_i_1\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \nxt_data_out[1]_i_1\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \nxt_data_out[20]_i_1\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \nxt_data_out[21]_i_1\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \nxt_data_out[22]_i_1\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \nxt_data_out[23]_i_1\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \nxt_data_out[24]_i_1\ : label is "soft_lutpair93";
+  attribute SOFT_HLUTNM of \nxt_data_out[25]_i_1\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \nxt_data_out[26]_i_1\ : label is "soft_lutpair94";
+  attribute SOFT_HLUTNM of \nxt_data_out[27]_i_1\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \nxt_data_out[28]_i_1\ : label is "soft_lutpair95";
+  attribute SOFT_HLUTNM of \nxt_data_out[29]_i_1\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \nxt_data_out[2]_i_1\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \nxt_data_out[30]_i_1\ : label is "soft_lutpair96";
+  attribute SOFT_HLUTNM of \nxt_data_out[31]_i_1\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \nxt_data_out[32]_i_1\ : label is "soft_lutpair96";
+  attribute SOFT_HLUTNM of \nxt_data_out[33]_i_1\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \nxt_data_out[34]_i_1\ : label is "soft_lutpair95";
+  attribute SOFT_HLUTNM of \nxt_data_out[35]_i_1\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \nxt_data_out[36]_i_1\ : label is "soft_lutpair94";
+  attribute SOFT_HLUTNM of \nxt_data_out[37]_i_1\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \nxt_data_out[38]_i_1\ : label is "soft_lutpair93";
   attribute SOFT_HLUTNM of \nxt_data_out[39]_i_1\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \nxt_data_out[3]_i_1\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \nxt_data_out[40]_i_1\ : label is "soft_lutpair91";
-  attribute SOFT_HLUTNM of \nxt_data_out[41]_i_1\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \nxt_data_out[42]_i_1\ : label is "soft_lutpair90";
-  attribute SOFT_HLUTNM of \nxt_data_out[43]_i_1\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \nxt_data_out[44]_i_1\ : label is "soft_lutpair89";
-  attribute SOFT_HLUTNM of \nxt_data_out[45]_i_1\ : label is "soft_lutpair33";
-  attribute SOFT_HLUTNM of \nxt_data_out[46]_i_1\ : label is "soft_lutpair88";
-  attribute SOFT_HLUTNM of \nxt_data_out[47]_i_1\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \nxt_data_out[48]_i_1\ : label is "soft_lutpair87";
-  attribute SOFT_HLUTNM of \nxt_data_out[49]_i_1\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \nxt_data_out[4]_i_1\ : label is "soft_lutpair76";
-  attribute SOFT_HLUTNM of \nxt_data_out[50]_i_1\ : label is "soft_lutpair86";
-  attribute SOFT_HLUTNM of \nxt_data_out[51]_i_1\ : label is "soft_lutpair18";
-  attribute SOFT_HLUTNM of \nxt_data_out[52]_i_1\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \nxt_data_out[3]_i_1\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \nxt_data_out[40]_i_1\ : label is "soft_lutpair92";
+  attribute SOFT_HLUTNM of \nxt_data_out[41]_i_1\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \nxt_data_out[42]_i_1\ : label is "soft_lutpair91";
+  attribute SOFT_HLUTNM of \nxt_data_out[43]_i_1\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \nxt_data_out[44]_i_1\ : label is "soft_lutpair90";
+  attribute SOFT_HLUTNM of \nxt_data_out[45]_i_1\ : label is "soft_lutpair34";
+  attribute SOFT_HLUTNM of \nxt_data_out[46]_i_1\ : label is "soft_lutpair89";
+  attribute SOFT_HLUTNM of \nxt_data_out[47]_i_1\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \nxt_data_out[48]_i_1\ : label is "soft_lutpair88";
+  attribute SOFT_HLUTNM of \nxt_data_out[49]_i_1\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \nxt_data_out[4]_i_1\ : label is "soft_lutpair77";
+  attribute SOFT_HLUTNM of \nxt_data_out[50]_i_1\ : label is "soft_lutpair87";
+  attribute SOFT_HLUTNM of \nxt_data_out[51]_i_1\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \nxt_data_out[52]_i_1\ : label is "soft_lutpair85";
   attribute SOFT_HLUTNM of \nxt_data_out[53]_i_1\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \nxt_data_out[54]_i_1\ : label is "soft_lutpair83";
-  attribute SOFT_HLUTNM of \nxt_data_out[55]_i_1\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \nxt_data_out[56]_i_1\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \nxt_data_out[57]_i_1\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \nxt_data_out[58]_i_1\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \nxt_data_out[54]_i_1\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \nxt_data_out[55]_i_1\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \nxt_data_out[56]_i_1\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \nxt_data_out[57]_i_1\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \nxt_data_out[58]_i_1\ : label is "soft_lutpair77";
   attribute SOFT_HLUTNM of \nxt_data_out[59]_i_1\ : label is "soft_lutpair5";
   attribute SOFT_HLUTNM of \nxt_data_out[5]_i_1\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \nxt_data_out[60]_i_1\ : label is "soft_lutpair74";
-  attribute SOFT_HLUTNM of \nxt_data_out[61]_i_1\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \nxt_data_out[62]_i_1\ : label is "soft_lutpair73";
-  attribute SOFT_HLUTNM of \nxt_data_out[63]_i_2\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \nxt_data_out[6]_i_1\ : label is "soft_lutpair77";
-  attribute SOFT_HLUTNM of \nxt_data_out[7]_i_1\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \nxt_data_out[8]_i_1\ : label is "soft_lutpair83";
-  attribute SOFT_HLUTNM of \nxt_data_out[9]_i_1\ : label is "soft_lutpair23";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_100\ : label is "soft_lutpair177";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_101\ : label is "soft_lutpair176";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_102\ : label is "soft_lutpair142";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_103\ : label is "soft_lutpair163";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_104\ : label is "soft_lutpair160";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_105\ : label is "soft_lutpair178";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_106\ : label is "soft_lutpair157";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_107\ : label is "soft_lutpair156";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_108\ : label is "soft_lutpair155";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_109\ : label is "soft_lutpair140";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_110\ : label is "soft_lutpair154";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_111\ : label is "soft_lutpair158";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_112\ : label is "soft_lutpair183";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_113\ : label is "soft_lutpair164";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_114\ : label is "soft_lutpair211";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_115\ : label is "soft_lutpair210";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_116\ : label is "soft_lutpair209";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_117\ : label is "soft_lutpair196";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_118\ : label is "soft_lutpair141";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_119\ : label is "soft_lutpair165";
+  attribute SOFT_HLUTNM of \nxt_data_out[60]_i_1\ : label is "soft_lutpair75";
+  attribute SOFT_HLUTNM of \nxt_data_out[61]_i_1\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \nxt_data_out[62]_i_1\ : label is "soft_lutpair74";
+  attribute SOFT_HLUTNM of \nxt_data_out[63]_i_2\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \nxt_data_out[6]_i_1\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \nxt_data_out[7]_i_1\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \nxt_data_out[8]_i_1\ : label is "soft_lutpair84";
+  attribute SOFT_HLUTNM of \nxt_data_out[9]_i_1\ : label is "soft_lutpair20";
+  attribute SOFT_HLUTNM of nxt_done_i_3 : label is "soft_lutpair1";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_100\ : label is "soft_lutpair178";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_101\ : label is "soft_lutpair177";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_102\ : label is "soft_lutpair143";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_103\ : label is "soft_lutpair164";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_104\ : label is "soft_lutpair161";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_105\ : label is "soft_lutpair179";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_106\ : label is "soft_lutpair158";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_107\ : label is "soft_lutpair157";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_108\ : label is "soft_lutpair156";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_109\ : label is "soft_lutpair141";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_110\ : label is "soft_lutpair155";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_111\ : label is "soft_lutpair159";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_112\ : label is "soft_lutpair184";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_113\ : label is "soft_lutpair165";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_114\ : label is "soft_lutpair212";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_115\ : label is "soft_lutpair211";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_116\ : label is "soft_lutpair210";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_117\ : label is "soft_lutpair197";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_118\ : label is "soft_lutpair142";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_119\ : label is "soft_lutpair166";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_12\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_120\ : label is "soft_lutpair195";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_121\ : label is "soft_lutpair180";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_122\ : label is "soft_lutpair155";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_14\ : label is "soft_lutpair364";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_16\ : label is "soft_lutpair331";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_17\ : label is "soft_lutpair365";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_18\ : label is "soft_lutpair334";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_19\ : label is "soft_lutpair318";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_20\ : label is "soft_lutpair364";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_21\ : label is "soft_lutpair352";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_22\ : label is "soft_lutpair348";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_23\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_26\ : label is "soft_lutpair17";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_34\ : label is "soft_lutpair251";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_35\ : label is "soft_lutpair282";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_36\ : label is "soft_lutpair250";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_37\ : label is "soft_lutpair281";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_38\ : label is "soft_lutpair265";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_39\ : label is "soft_lutpair176";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_120\ : label is "soft_lutpair196";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_121\ : label is "soft_lutpair181";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_122\ : label is "soft_lutpair156";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_14\ : label is "soft_lutpair365";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_16\ : label is "soft_lutpair333";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_17\ : label is "soft_lutpair366";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_18\ : label is "soft_lutpair336";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_19\ : label is "soft_lutpair320";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_20\ : label is "soft_lutpair365";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_21\ : label is "soft_lutpair353";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_22\ : label is "soft_lutpair349";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_23\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_29\ : label is "soft_lutpair29";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_34\ : label is "soft_lutpair252";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_35\ : label is "soft_lutpair283";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_36\ : label is "soft_lutpair251";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_37\ : label is "soft_lutpair282";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_38\ : label is "soft_lutpair266";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_39\ : label is "soft_lutpair177";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_40\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_41\ : label is "soft_lutpair252";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_42\ : label is "soft_lutpair262";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_43\ : label is "soft_lutpair256";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_44\ : label is "soft_lutpair253";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_45\ : label is "soft_lutpair263";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_48\ : label is "soft_lutpair346";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_49\ : label is "soft_lutpair299";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_50\ : label is "soft_lutpair319";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_51\ : label is "soft_lutpair332";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_52\ : label is "soft_lutpair345";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_53\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_54\ : label is "soft_lutpair331";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_55\ : label is "soft_lutpair285";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_56\ : label is "soft_lutpair330";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_57\ : label is "soft_lutpair316";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_58\ : label is "soft_lutpair329";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_59\ : label is "soft_lutpair298";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_66\ : label is "soft_lutpair71";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_67\ : label is "soft_lutpair136";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_68\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_69\ : label is "soft_lutpair135";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_70\ : label is "soft_lutpair134";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_71\ : label is "soft_lutpair137";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_72\ : label is "soft_lutpair82";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_73\ : label is "soft_lutpair111";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_74\ : label is "soft_lutpair110";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_75\ : label is "soft_lutpair109";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_41\ : label is "soft_lutpair253";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_42\ : label is "soft_lutpair263";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_43\ : label is "soft_lutpair257";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_44\ : label is "soft_lutpair254";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_45\ : label is "soft_lutpair264";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_48\ : label is "soft_lutpair347";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_49\ : label is "soft_lutpair300";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_50\ : label is "soft_lutpair321";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_51\ : label is "soft_lutpair334";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_52\ : label is "soft_lutpair346";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_53\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_54\ : label is "soft_lutpair333";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_55\ : label is "soft_lutpair286";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_56\ : label is "soft_lutpair332";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_57\ : label is "soft_lutpair318";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_58\ : label is "soft_lutpair331";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_59\ : label is "soft_lutpair299";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_66\ : label is "soft_lutpair73";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_67\ : label is "soft_lutpair137";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_68\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_69\ : label is "soft_lutpair136";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_70\ : label is "soft_lutpair135";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_71\ : label is "soft_lutpair138";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_72\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_73\ : label is "soft_lutpair112";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_74\ : label is "soft_lutpair111";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_75\ : label is "soft_lutpair110";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_76\ : label is "soft_lutpair64";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_77\ : label is "soft_lutpair249";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_78\ : label is "soft_lutpair248";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_79\ : label is "soft_lutpair217";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_79\ : label is "soft_lutpair218";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_80\ : label is "soft_lutpair229";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_81\ : label is "soft_lutpair247";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_82\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_83\ : label is "soft_lutpair199";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_83\ : label is "soft_lutpair200";
   attribute SOFT_HLUTNM of \nxt_right[0]_i_84\ : label is "soft_lutpair226";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_85\ : label is "soft_lutpair198";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_86\ : label is "soft_lutpair215";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_87\ : label is "soft_lutpair212";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_88\ : label is "soft_lutpair286";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_89\ : label is "soft_lutpair268";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_90\ : label is "soft_lutpair311";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_91\ : label is "soft_lutpair303";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_92\ : label is "soft_lutpair300";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_93\ : label is "soft_lutpair312";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_94\ : label is "soft_lutpair269";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_95\ : label is "soft_lutpair299";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_96\ : label is "soft_lutpair298";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_97\ : label is "soft_lutpair297";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_98\ : label is "soft_lutpair283";
-  attribute SOFT_HLUTNM of \nxt_right[0]_i_99\ : label is "soft_lutpair262";
-  attribute SOFT_HLUTNM of \nxt_right[10]_i_16\ : label is "soft_lutpair15";
-  attribute SOFT_HLUTNM of \nxt_right[11]_i_13\ : label is "soft_lutpair24";
-  attribute SOFT_HLUTNM of \nxt_right[12]_i_16\ : label is "soft_lutpair10";
-  attribute SOFT_HLUTNM of \nxt_right[13]_i_13\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_85\ : label is "soft_lutpair199";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_86\ : label is "soft_lutpair216";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_87\ : label is "soft_lutpair213";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_88\ : label is "soft_lutpair287";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_89\ : label is "soft_lutpair269";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_90\ : label is "soft_lutpair313";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_91\ : label is "soft_lutpair304";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_92\ : label is "soft_lutpair301";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_93\ : label is "soft_lutpair314";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_94\ : label is "soft_lutpair270";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_95\ : label is "soft_lutpair300";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_96\ : label is "soft_lutpair299";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_97\ : label is "soft_lutpair298";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_98\ : label is "soft_lutpair284";
+  attribute SOFT_HLUTNM of \nxt_right[0]_i_99\ : label is "soft_lutpair263";
+  attribute SOFT_HLUTNM of \nxt_right[10]_i_16\ : label is "soft_lutpair16";
+  attribute SOFT_HLUTNM of \nxt_right[11]_i_13\ : label is "soft_lutpair25";
+  attribute SOFT_HLUTNM of \nxt_right[12]_i_16\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \nxt_right[13]_i_13\ : label is "soft_lutpair34";
   attribute SOFT_HLUTNM of \nxt_right[14]_i_13\ : label is "soft_lutpair4";
-  attribute SOFT_HLUTNM of \nxt_right[15]_i_16\ : label is "soft_lutpair9";
-  attribute SOFT_HLUTNM of \nxt_right[16]_i_16\ : label is "soft_lutpair22";
-  attribute SOFT_HLUTNM of \nxt_right[17]_i_16\ : label is "soft_lutpair8";
-  attribute SOFT_HLUTNM of \nxt_right[18]_i_16\ : label is "soft_lutpair16";
-  attribute SOFT_HLUTNM of \nxt_right[19]_i_13\ : label is "soft_lutpair27";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_100\ : label is "soft_lutpair163";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_101\ : label is "soft_lutpair162";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_102\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_103\ : label is "soft_lutpair216";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_104\ : label is "soft_lutpair215";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_105\ : label is "soft_lutpair214";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_106\ : label is "soft_lutpair85";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_107\ : label is "soft_lutpair54";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_108\ : label is "soft_lutpair197";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_109\ : label is "soft_lutpair184";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_11\ : label is "soft_lutpair82";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_110\ : label is "soft_lutpair179";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_111\ : label is "soft_lutpair116";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_112\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_12\ : label is "soft_lutpair330";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_14\ : label is "soft_lutpair162";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_15\ : label is "soft_lutpair353";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_16\ : label is "soft_lutpair85";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_17\ : label is "soft_lutpair345";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_18\ : label is "soft_lutpair355";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_19\ : label is "soft_lutpair347";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_20\ : label is "soft_lutpair349";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_21\ : label is "soft_lutpair158";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_22\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_28\ : label is "soft_lutpair11";
+  attribute SOFT_HLUTNM of \nxt_right[15]_i_16\ : label is "soft_lutpair10";
+  attribute SOFT_HLUTNM of \nxt_right[16]_i_16\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \nxt_right[17]_i_16\ : label is "soft_lutpair9";
+  attribute SOFT_HLUTNM of \nxt_right[18]_i_16\ : label is "soft_lutpair17";
+  attribute SOFT_HLUTNM of \nxt_right[19]_i_13\ : label is "soft_lutpair24";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_100\ : label is "soft_lutpair164";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_101\ : label is "soft_lutpair163";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_102\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_103\ : label is "soft_lutpair217";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_104\ : label is "soft_lutpair216";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_105\ : label is "soft_lutpair215";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_106\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_107\ : label is "soft_lutpair55";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_108\ : label is "soft_lutpair198";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_109\ : label is "soft_lutpair185";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_11\ : label is "soft_lutpair83";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_110\ : label is "soft_lutpair180";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_111\ : label is "soft_lutpair117";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_112\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_12\ : label is "soft_lutpair332";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_14\ : label is "soft_lutpair163";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_15\ : label is "soft_lutpair354";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_16\ : label is "soft_lutpair86";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_17\ : label is "soft_lutpair346";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_18\ : label is "soft_lutpair356";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_19\ : label is "soft_lutpair348";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_20\ : label is "soft_lutpair350";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_21\ : label is "soft_lutpair159";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_22\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_28\ : label is "soft_lutpair12";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_33\ : label is "soft_lutpair64";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_34\ : label is "soft_lutpair270";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_35\ : label is "soft_lutpair264";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_36\ : label is "soft_lutpair218";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_37\ : label is "soft_lutpair138";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_38\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_39\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_40\ : label is "soft_lutpair211";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_34\ : label is "soft_lutpair271";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_35\ : label is "soft_lutpair265";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_36\ : label is "soft_lutpair219";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_37\ : label is "soft_lutpair139";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_38\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_39\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_40\ : label is "soft_lutpair212";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_41\ : label is "soft_lutpair249";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_42\ : label is "soft_lutpair200";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_42\ : label is "soft_lutpair201";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_43\ : label is "soft_lutpair230";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_44\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_47\ : label is "soft_lutpair329";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_48\ : label is "soft_lutpair352";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_49\ : label is "soft_lutpair351";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_50\ : label is "soft_lutpair350";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_47\ : label is "soft_lutpair331";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_48\ : label is "soft_lutpair353";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_49\ : label is "soft_lutpair352";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_50\ : label is "soft_lutpair351";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_51\ : label is "soft_lutpair63";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_52\ : label is "soft_lutpair333";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_53\ : label is "soft_lutpair332";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_54\ : label is "soft_lutpair313";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_55\ : label is "soft_lutpair113";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_56\ : label is "soft_lutpair115";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_52\ : label is "soft_lutpair335";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_53\ : label is "soft_lutpair334";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_54\ : label is "soft_lutpair315";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_55\ : label is "soft_lutpair114";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_56\ : label is "soft_lutpair116";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_57\ : label is "soft_lutpair65";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_64\ : label is "soft_lutpair56";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_65\ : label is "soft_lutpair140";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_65\ : label is "soft_lutpair141";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_66\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_67\ : label is "soft_lutpair159";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_67\ : label is "soft_lutpair160";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_68\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_69\ : label is "soft_lutpair116";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_70\ : label is "soft_lutpair115";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_69\ : label is "soft_lutpair117";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_70\ : label is "soft_lutpair116";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_71\ : label is "soft_lutpair67";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_72\ : label is "soft_lutpair47";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_73\ : label is "soft_lutpair41";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_74\ : label is "soft_lutpair252";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_72\ : label is "soft_lutpair48";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_73\ : label is "soft_lutpair42";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_74\ : label is "soft_lutpair253";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_75\ : label is "soft_lutpair231";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_76\ : label is "soft_lutpair227";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_77\ : label is "soft_lutpair251";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_78\ : label is "soft_lutpair35";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_79\ : label is "soft_lutpair253";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_80\ : label is "soft_lutpair209";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_77\ : label is "soft_lutpair252";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_78\ : label is "soft_lutpair36";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_79\ : label is "soft_lutpair254";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_80\ : label is "soft_lutpair210";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_81\ : label is "soft_lutpair229";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_82\ : label is "soft_lutpair228";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_83\ : label is "soft_lutpair213";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_83\ : label is "soft_lutpair214";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_84\ : label is "soft_lutpair53";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_85\ : label is "soft_lutpair58";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_86\ : label is "soft_lutpair317";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_87\ : label is "soft_lutpair316";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_88\ : label is "soft_lutpair315";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_89\ : label is "soft_lutpair109";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_90\ : label is "soft_lutpair110";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_85\ : label is "soft_lutpair59";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_86\ : label is "soft_lutpair319";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_87\ : label is "soft_lutpair318";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_88\ : label is "soft_lutpair317";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_89\ : label is "soft_lutpair110";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_90\ : label is "soft_lutpair111";
   attribute SOFT_HLUTNM of \nxt_right[1]_i_91\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_92\ : label is "soft_lutpair303";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_93\ : label is "soft_lutpair302";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_94\ : label is "soft_lutpair136";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_95\ : label is "soft_lutpair75";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_96\ : label is "soft_lutpair166";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_97\ : label is "soft_lutpair182";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_98\ : label is "soft_lutpair112";
-  attribute SOFT_HLUTNM of \nxt_right[1]_i_99\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_92\ : label is "soft_lutpair304";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_93\ : label is "soft_lutpair303";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_94\ : label is "soft_lutpair137";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_95\ : label is "soft_lutpair76";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_96\ : label is "soft_lutpair167";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_97\ : label is "soft_lutpair183";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_98\ : label is "soft_lutpair113";
+  attribute SOFT_HLUTNM of \nxt_right[1]_i_99\ : label is "soft_lutpair73";
   attribute SOFT_HLUTNM of \nxt_right[20]_i_13\ : label is "soft_lutpair1";
-  attribute SOFT_HLUTNM of \nxt_right[21]_i_13\ : label is "soft_lutpair21";
-  attribute SOFT_HLUTNM of \nxt_right[22]_i_16\ : label is "soft_lutpair18";
+  attribute SOFT_HLUTNM of \nxt_right[20]_i_16\ : label is "soft_lutpair6";
+  attribute SOFT_HLUTNM of \nxt_right[21]_i_13\ : label is "soft_lutpair22";
+  attribute SOFT_HLUTNM of \nxt_right[22]_i_16\ : label is "soft_lutpair19";
   attribute SOFT_HLUTNM of \nxt_right[23]_i_16\ : label is "soft_lutpair5";
-  attribute SOFT_HLUTNM of \nxt_right[24]_i_13\ : label is "soft_lutpair30";
-  attribute SOFT_HLUTNM of \nxt_right[25]_i_13\ : label is "soft_lutpair23";
+  attribute SOFT_HLUTNM of \nxt_right[24]_i_13\ : label is "soft_lutpair31";
+  attribute SOFT_HLUTNM of \nxt_right[25]_i_13\ : label is "soft_lutpair20";
   attribute SOFT_HLUTNM of \nxt_right[26]_i_16\ : label is "soft_lutpair2";
-  attribute SOFT_HLUTNM of \nxt_right[27]_i_16\ : label is "soft_lutpair7";
-  attribute SOFT_HLUTNM of \nxt_right[28]_i_16\ : label is "soft_lutpair14";
-  attribute SOFT_HLUTNM of \nxt_right[29]_i_16\ : label is "soft_lutpair12";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_100\ : label is "soft_lutpair174";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_101\ : label is "soft_lutpair96";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_102\ : label is "soft_lutpair128";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_103\ : label is "soft_lutpair153";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_104\ : label is "soft_lutpair152";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_105\ : label is "soft_lutpair125";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_106\ : label is "soft_lutpair99";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_107\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \nxt_right[27]_i_16\ : label is "soft_lutpair8";
+  attribute SOFT_HLUTNM of \nxt_right[28]_i_16\ : label is "soft_lutpair15";
+  attribute SOFT_HLUTNM of \nxt_right[29]_i_16\ : label is "soft_lutpair13";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_100\ : label is "soft_lutpair175";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_101\ : label is "soft_lutpair97";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_102\ : label is "soft_lutpair129";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_103\ : label is "soft_lutpair154";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_104\ : label is "soft_lutpair153";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_105\ : label is "soft_lutpair144";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_106\ : label is "soft_lutpair100";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_107\ : label is "soft_lutpair51";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_108\ : label is "soft_lutpair57";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_109\ : label is "soft_lutpair207";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_110\ : label is "soft_lutpair206";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_111\ : label is "soft_lutpair190";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_112\ : label is "soft_lutpair208";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_113\ : label is "soft_lutpair150";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_114\ : label is "soft_lutpair194";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_115\ : label is "soft_lutpair171";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_116\ : label is "soft_lutpair151";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_12\ : label is "soft_lutpair356";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_14\ : label is "soft_lutpair100";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_109\ : label is "soft_lutpair208";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_110\ : label is "soft_lutpair207";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_111\ : label is "soft_lutpair191";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_112\ : label is "soft_lutpair209";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_113\ : label is "soft_lutpair151";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_114\ : label is "soft_lutpair195";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_115\ : label is "soft_lutpair172";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_116\ : label is "soft_lutpair152";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_12\ : label is "soft_lutpair357";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_14\ : label is "soft_lutpair101";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_15\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_16\ : label is "soft_lutpair358";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_17\ : label is "soft_lutpair324";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_18\ : label is "soft_lutpair362";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_19\ : label is "soft_lutpair361";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_20\ : label is "soft_lutpair340";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_21\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_22\ : label is "soft_lutpair363";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_25\ : label is "soft_lutpair31";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_33\ : label is "soft_lutpair280";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_34\ : label is "soft_lutpair279";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_35\ : label is "soft_lutpair278";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_16\ : label is "soft_lutpair359";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_17\ : label is "soft_lutpair326";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_18\ : label is "soft_lutpair363";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_19\ : label is "soft_lutpair362";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_20\ : label is "soft_lutpair341";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_21\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_22\ : label is "soft_lutpair364";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_25\ : label is "soft_lutpair32";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_33\ : label is "soft_lutpair281";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_34\ : label is "soft_lutpair280";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_35\ : label is "soft_lutpair279";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_36\ : label is "soft_lutpair43";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_37\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_38\ : label is "soft_lutpair221";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_39\ : label is "soft_lutpair261";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_37\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_38\ : label is "soft_lutpair222";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_39\ : label is "soft_lutpair262";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_40\ : label is "soft_lutpair233";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_41\ : label is "soft_lutpair170";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_42\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_43\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_41\ : label is "soft_lutpair171";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_42\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_43\ : label is "soft_lutpair47";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_44\ : label is "soft_lutpair236";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_47\ : label is "soft_lutpair307";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_48\ : label is "soft_lutpair343";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_49\ : label is "soft_lutpair342";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_50\ : label is "soft_lutpair42";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_51\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_52\ : label is "soft_lutpair344";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_53\ : label is "soft_lutpair289";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_54\ : label is "soft_lutpair278";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_55\ : label is "soft_lutpair327";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_56\ : label is "soft_lutpair46";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_57\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_58\ : label is "soft_lutpair328";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_65\ : label is "soft_lutpair132";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_66\ : label is "soft_lutpair131";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_67\ : label is "soft_lutpair130";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_47\ : label is "soft_lutpair309";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_48\ : label is "soft_lutpair344";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_49\ : label is "soft_lutpair343";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_50\ : label is "soft_lutpair39";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_51\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_52\ : label is "soft_lutpair345";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_53\ : label is "soft_lutpair290";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_54\ : label is "soft_lutpair279";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_55\ : label is "soft_lutpair329";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_56\ : label is "soft_lutpair47";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_57\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_58\ : label is "soft_lutpair330";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_65\ : label is "soft_lutpair133";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_66\ : label is "soft_lutpair132";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_67\ : label is "soft_lutpair131";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_68\ : label is "soft_lutpair49";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_69\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_70\ : label is "soft_lutpair133";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_71\ : label is "soft_lutpair107";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_72\ : label is "soft_lutpair106";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_73\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_74\ : label is "soft_lutpair105";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_75\ : label is "soft_lutpair104";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_76\ : label is "soft_lutpair108";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_70\ : label is "soft_lutpair134";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_71\ : label is "soft_lutpair108";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_72\ : label is "soft_lutpair107";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_73\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_74\ : label is "soft_lutpair106";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_75\ : label is "soft_lutpair105";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_76\ : label is "soft_lutpair109";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_77\ : label is "soft_lutpair245";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_78\ : label is "soft_lutpair244";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_79\ : label is "soft_lutpair243";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_80\ : label is "soft_lutpair222";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_80\ : label is "soft_lutpair223";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_81\ : label is "soft_lutpair246";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_82\ : label is "soft_lutpair225";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_83\ : label is "soft_lutpair174";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_84\ : label is "soft_lutpair204";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_85\ : label is "soft_lutpair192";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_86\ : label is "soft_lutpair274";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_87\ : label is "soft_lutpair309";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_88\ : label is "soft_lutpair290";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_83\ : label is "soft_lutpair175";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_84\ : label is "soft_lutpair205";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_85\ : label is "soft_lutpair193";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_86\ : label is "soft_lutpair275";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_87\ : label is "soft_lutpair311";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_88\ : label is "soft_lutpair291";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_89\ : label is "soft_lutpair52";
   attribute SOFT_HLUTNM of \nxt_right[2]_i_90\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_91\ : label is "soft_lutpair310";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_92\ : label is "soft_lutpair295";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_93\ : label is "soft_lutpair294";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_94\ : label is "soft_lutpair275";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_95\ : label is "soft_lutpair48";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_96\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_97\ : label is "soft_lutpair296";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_98\ : label is "soft_lutpair143";
-  attribute SOFT_HLUTNM of \nxt_right[2]_i_99\ : label is "soft_lutpair175";
-  attribute SOFT_HLUTNM of \nxt_right[30]_i_16\ : label is "soft_lutpair26";
-  attribute SOFT_HLUTNM of \nxt_right[31]_i_13\ : label is "soft_lutpair25";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_11\ : label is "soft_lutpair363";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_12\ : label is "soft_lutpair360";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_13\ : label is "soft_lutpair341";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_14\ : label is "soft_lutpair131";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_15\ : label is "soft_lutpair105";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_16\ : label is "soft_lutpair362";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_17\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_18\ : label is "soft_lutpair360";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_19\ : label is "soft_lutpair325";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_20\ : label is "soft_lutpair327";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_21\ : label is "soft_lutpair338";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_91\ : label is "soft_lutpair312";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_92\ : label is "soft_lutpair296";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_93\ : label is "soft_lutpair295";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_94\ : label is "soft_lutpair276";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_95\ : label is "soft_lutpair46";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_96\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_97\ : label is "soft_lutpair297";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_98\ : label is "soft_lutpair126";
+  attribute SOFT_HLUTNM of \nxt_right[2]_i_99\ : label is "soft_lutpair176";
+  attribute SOFT_HLUTNM of \nxt_right[30]_i_16\ : label is "soft_lutpair27";
+  attribute SOFT_HLUTNM of \nxt_right[31]_i_13\ : label is "soft_lutpair26";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_11\ : label is "soft_lutpair364";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_12\ : label is "soft_lutpair361";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_13\ : label is "soft_lutpair342";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_14\ : label is "soft_lutpair132";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_15\ : label is "soft_lutpair106";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_16\ : label is "soft_lutpair363";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_17\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_18\ : label is "soft_lutpair361";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_19\ : label is "soft_lutpair327";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_20\ : label is "soft_lutpair329";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_21\ : label is "soft_lutpair339";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_22\ : label is "soft_lutpair69";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_28\ : label is "soft_lutpair13";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_33\ : label is "soft_lutpair258";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_28\ : label is "soft_lutpair14";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_33\ : label is "soft_lutpair259";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_34\ : label is "soft_lutpair239";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_35\ : label is "soft_lutpair149";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_36\ : label is "soft_lutpair277";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_35\ : label is "soft_lutpair150";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_36\ : label is "soft_lutpair278";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_37\ : label is "soft_lutpair245";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_38\ : label is "soft_lutpair237";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_39\ : label is "soft_lutpair44";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_40\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_40\ : label is "soft_lutpair41";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_41\ : label is "soft_lutpair244";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_44\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_45\ : label is "soft_lutpair287";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_46\ : label is "soft_lutpair341";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_47\ : label is "soft_lutpair97";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_48\ : label is "soft_lutpair322";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_45\ : label is "soft_lutpair288";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_46\ : label is "soft_lutpair342";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_47\ : label is "soft_lutpair98";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_48\ : label is "soft_lutpair324";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_49\ : label is "soft_lutpair66";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_50\ : label is "soft_lutpair152";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_51\ : label is "soft_lutpair272";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_52\ : label is "soft_lutpair291";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_53\ : label is "soft_lutpair104";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_54\ : label is "soft_lutpair326";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_55\ : label is "soft_lutpair107";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_62\ : label is "soft_lutpair129";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_63\ : label is "soft_lutpair128";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_64\ : label is "soft_lutpair40";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_65\ : label is "soft_lutpair39";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_66\ : label is "soft_lutpair106";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_50\ : label is "soft_lutpair153";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_51\ : label is "soft_lutpair273";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_52\ : label is "soft_lutpair292";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_53\ : label is "soft_lutpair105";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_54\ : label is "soft_lutpair328";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_55\ : label is "soft_lutpair108";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_62\ : label is "soft_lutpair130";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_63\ : label is "soft_lutpair129";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_64\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_65\ : label is "soft_lutpair40";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_66\ : label is "soft_lutpair107";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_67\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_68\ : label is "soft_lutpair103";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_69\ : label is "soft_lutpair102";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_70\ : label is "soft_lutpair37";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_71\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_68\ : label is "soft_lutpair104";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_69\ : label is "soft_lutpair103";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_70\ : label is "soft_lutpair38";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_71\ : label is "soft_lutpair51";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_72\ : label is "soft_lutpair242";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_73\ : label is "soft_lutpair241";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_74\ : label is "soft_lutpair240";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_75\ : label is "soft_lutpair239";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_76\ : label is "soft_lutpair224";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_77\ : label is "soft_lutpair223";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_78\ : label is "soft_lutpair202";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_79\ : label is "soft_lutpair257";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_80\ : label is "soft_lutpair276";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_81\ : label is "soft_lutpair60";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_82\ : label is "soft_lutpair308";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_83\ : label is "soft_lutpair293";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_84\ : label is "soft_lutpair260";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_85\ : label is "soft_lutpair55";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_86\ : label is "soft_lutpair292";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_87\ : label is "soft_lutpair173";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_88\ : label is "soft_lutpair126";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_89\ : label is "soft_lutpair148";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_90\ : label is "soft_lutpair124";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_91\ : label is "soft_lutpair151";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_77\ : label is "soft_lutpair307";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_78\ : label is "soft_lutpair203";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_79\ : label is "soft_lutpair258";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_80\ : label is "soft_lutpair277";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_81\ : label is "soft_lutpair58";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_82\ : label is "soft_lutpair310";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_83\ : label is "soft_lutpair294";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_84\ : label is "soft_lutpair261";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_85\ : label is "soft_lutpair54";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_86\ : label is "soft_lutpair293";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_87\ : label is "soft_lutpair174";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_88\ : label is "soft_lutpair127";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_89\ : label is "soft_lutpair149";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_90\ : label is "soft_lutpair125";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_91\ : label is "soft_lutpair152";
   attribute SOFT_HLUTNM of \nxt_right[3]_i_92\ : label is "soft_lutpair70";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_93\ : label is "soft_lutpair123";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_94\ : label is "soft_lutpair205";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_95\ : label is "soft_lutpair172";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_96\ : label is "soft_lutpair188";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_97\ : label is "soft_lutpair193";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_98\ : label is "soft_lutpair192";
-  attribute SOFT_HLUTNM of \nxt_right[3]_i_99\ : label is "soft_lutpair191";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_100\ : label is "soft_lutpair169";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_101\ : label is "soft_lutpair168";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_102\ : label is "soft_lutpair170";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_103\ : label is "soft_lutpair167";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_104\ : label is "soft_lutpair102";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_105\ : label is "soft_lutpair148";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_106\ : label is "soft_lutpair147";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_107\ : label is "soft_lutpair146";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_108\ : label is "soft_lutpair149";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_109\ : label is "soft_lutpair145";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_11\ : label is "soft_lutpair108";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_110\ : label is "soft_lutpair202";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_111\ : label is "soft_lutpair127";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_112\ : label is "soft_lutpair194";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_113\ : label is "soft_lutpair191";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_114\ : label is "soft_lutpair201";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_115\ : label is "soft_lutpair188";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_116\ : label is "soft_lutpair187";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_117\ : label is "soft_lutpair175";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_118\ : label is "soft_lutpair189";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_119\ : label is "soft_lutpair186";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_12\ : label is "soft_lutpair357";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_13\ : label is "soft_lutpair361";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_14\ : label is "soft_lutpair368";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_15\ : label is "soft_lutpair34";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_16\ : label is "soft_lutpair367";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_17\ : label is "soft_lutpair358";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_18\ : label is "soft_lutpair357";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_19\ : label is "soft_lutpair337";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_20\ : label is "soft_lutpair343";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_22\ : label is "soft_lutpair356";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_93\ : label is "soft_lutpair124";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_94\ : label is "soft_lutpair206";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_95\ : label is "soft_lutpair173";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_96\ : label is "soft_lutpair189";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_97\ : label is "soft_lutpair194";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_98\ : label is "soft_lutpair193";
+  attribute SOFT_HLUTNM of \nxt_right[3]_i_99\ : label is "soft_lutpair192";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_100\ : label is "soft_lutpair170";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_101\ : label is "soft_lutpair169";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_102\ : label is "soft_lutpair171";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_103\ : label is "soft_lutpair168";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_104\ : label is "soft_lutpair103";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_105\ : label is "soft_lutpair149";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_106\ : label is "soft_lutpair148";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_107\ : label is "soft_lutpair147";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_108\ : label is "soft_lutpair150";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_109\ : label is "soft_lutpair146";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_11\ : label is "soft_lutpair109";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_110\ : label is "soft_lutpair203";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_111\ : label is "soft_lutpair128";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_112\ : label is "soft_lutpair195";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_113\ : label is "soft_lutpair192";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_114\ : label is "soft_lutpair202";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_115\ : label is "soft_lutpair189";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_116\ : label is "soft_lutpair188";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_117\ : label is "soft_lutpair176";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_118\ : label is "soft_lutpair190";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_119\ : label is "soft_lutpair187";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_12\ : label is "soft_lutpair358";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_13\ : label is "soft_lutpair362";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_14\ : label is "soft_lutpair369";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_15\ : label is "soft_lutpair35";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_16\ : label is "soft_lutpair368";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_17\ : label is "soft_lutpair359";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_18\ : label is "soft_lutpair358";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_19\ : label is "soft_lutpair338";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_20\ : label is "soft_lutpair344";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_22\ : label is "soft_lutpair357";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_25\ : label is "soft_lutpair3";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_33\ : label is "soft_lutpair121";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_34\ : label is "soft_lutpair261";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_33\ : label is "soft_lutpair122";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_34\ : label is "soft_lutpair262";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_35\ : label is "soft_lutpair238";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_36\ : label is "soft_lutpair272";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_37\ : label is "soft_lutpair168";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_38\ : label is "soft_lutpair259";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_39\ : label is "soft_lutpair101";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_36\ : label is "soft_lutpair273";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_37\ : label is "soft_lutpair169";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_38\ : label is "soft_lutpair260";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_39\ : label is "soft_lutpair102";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_40\ : label is "soft_lutpair242";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_41\ : label is "soft_lutpair243";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_42\ : label is "soft_lutpair257";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_42\ : label is "soft_lutpair258";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_43\ : label is "soft_lutpair240";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_46\ : label is "soft_lutpair130";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_47\ : label is "soft_lutpair338";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_48\ : label is "soft_lutpair337";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_49\ : label is "soft_lutpair336";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_50\ : label is "soft_lutpair326";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_51\ : label is "soft_lutpair323";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_52\ : label is "soft_lutpair98";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_53\ : label is "soft_lutpair322";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_54\ : label is "soft_lutpair321";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_55\ : label is "soft_lutpair309";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_56\ : label is "soft_lutpair308";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_57\ : label is "soft_lutpair306";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_64\ : label is "soft_lutpair187";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_65\ : label is "soft_lutpair123";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_66\ : label is "soft_lutpair122";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_67\ : label is "soft_lutpair121";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_68\ : label is "soft_lutpair220";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_69\ : label is "soft_lutpair120";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_70\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_71\ : label is "soft_lutpair99";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_72\ : label is "soft_lutpair98";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_73\ : label is "soft_lutpair97";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_74\ : label is "soft_lutpair100";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_75\ : label is "soft_lutpair96";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_46\ : label is "soft_lutpair131";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_47\ : label is "soft_lutpair339";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_48\ : label is "soft_lutpair338";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_49\ : label is "soft_lutpair337";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_50\ : label is "soft_lutpair328";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_51\ : label is "soft_lutpair325";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_52\ : label is "soft_lutpair99";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_53\ : label is "soft_lutpair324";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_54\ : label is "soft_lutpair323";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_55\ : label is "soft_lutpair311";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_56\ : label is "soft_lutpair310";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_57\ : label is "soft_lutpair308";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_64\ : label is "soft_lutpair188";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_65\ : label is "soft_lutpair124";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_66\ : label is "soft_lutpair123";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_67\ : label is "soft_lutpair122";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_68\ : label is "soft_lutpair221";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_69\ : label is "soft_lutpair121";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_70\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_71\ : label is "soft_lutpair100";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_72\ : label is "soft_lutpair99";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_73\ : label is "soft_lutpair98";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_74\ : label is "soft_lutpair101";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_75\ : label is "soft_lutpair97";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_76\ : label is "soft_lutpair236";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_77\ : label is "soft_lutpair225";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_78\ : label is "soft_lutpair235";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_79\ : label is "soft_lutpair234";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_80\ : label is "soft_lutpair237";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_81\ : label is "soft_lutpair233";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_82\ : label is "soft_lutpair207";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_83\ : label is "soft_lutpair220";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_84\ : label is "soft_lutpair206";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_85\ : label is "soft_lutpair221";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_86\ : label is "soft_lutpair203";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_82\ : label is "soft_lutpair208";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_83\ : label is "soft_lutpair221";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_84\ : label is "soft_lutpair207";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_85\ : label is "soft_lutpair222";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_86\ : label is "soft_lutpair204";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_87\ : label is "soft_lutpair224";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_88\ : label is "soft_lutpair295";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_89\ : label is "soft_lutpair223";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_90\ : label is "soft_lutpair294";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_91\ : label is "soft_lutpair292";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_92\ : label is "soft_lutpair288";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_93\ : label is "soft_lutpair146";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_94\ : label is "soft_lutpair280";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_88\ : label is "soft_lutpair296";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_89\ : label is "soft_lutpair307";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_90\ : label is "soft_lutpair295";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_91\ : label is "soft_lutpair293";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_92\ : label is "soft_lutpair289";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_93\ : label is "soft_lutpair147";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_94\ : label is "soft_lutpair281";
   attribute SOFT_HLUTNM of \nxt_right[4]_i_95\ : label is "soft_lutpair246";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_96\ : label is "soft_lutpair287";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_97\ : label is "soft_lutpair277";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_98\ : label is "soft_lutpair273";
-  attribute SOFT_HLUTNM of \nxt_right[4]_i_99\ : label is "soft_lutpair153";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_100\ : label is "soft_lutpair161";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_11\ : label is "soft_lutpair350";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_13\ : label is "soft_lutpair346";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_96\ : label is "soft_lutpair288";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_97\ : label is "soft_lutpair278";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_98\ : label is "soft_lutpair274";
+  attribute SOFT_HLUTNM of \nxt_right[4]_i_99\ : label is "soft_lutpair154";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_100\ : label is "soft_lutpair162";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_11\ : label is "soft_lutpair351";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_13\ : label is "soft_lutpair347";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_14\ : label is "soft_lutpair65";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_15\ : label is "soft_lutpair62";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_16\ : label is "soft_lutpair61";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_17\ : label is "soft_lutpair119";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_18\ : label is "soft_lutpair366";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_19\ : label is "soft_lutpair351";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_20\ : label is "soft_lutpair365";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_17\ : label is "soft_lutpair120";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_18\ : label is "soft_lutpair367";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_19\ : label is "soft_lutpair352";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_20\ : label is "soft_lutpair366";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_21\ : label is "soft_lutpair68";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_27\ : label is "soft_lutpair6";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_32\ : label is "soft_lutpair284";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_33\ : label is "soft_lutpair271";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_34\ : label is "soft_lutpair283";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_35\ : label is "soft_lutpair118";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_36\ : label is "soft_lutpair255";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_37\ : label is "soft_lutpair267";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_38\ : label is "soft_lutpair266";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_39\ : label is "soft_lutpair265";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_40\ : label is "soft_lutpair264";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_43\ : label is "soft_lutpair144";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_44\ : label is "soft_lutpair349";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_45\ : label is "soft_lutpair348";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_46\ : label is "soft_lutpair333";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_47\ : label is "soft_lutpair347";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_48\ : label is "soft_lutpair139";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_49\ : label is "soft_lutpair320";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_50\ : label is "soft_lutpair315";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_51\ : label is "soft_lutpair317";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_52\ : label is "soft_lutpair301";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_59\ : label is "soft_lutpair111";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_60\ : label is "soft_lutpair139";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_61\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_62\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_63\ : label is "soft_lutpair117";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_64\ : label is "soft_lutpair138";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_65\ : label is "soft_lutpair79";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_66\ : label is "soft_lutpair114";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_67\ : label is "soft_lutpair113";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_68\ : label is "soft_lutpair112";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_69\ : label is "soft_lutpair78";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_27\ : label is "soft_lutpair7";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_32\ : label is "soft_lutpair285";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_33\ : label is "soft_lutpair272";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_34\ : label is "soft_lutpair284";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_35\ : label is "soft_lutpair119";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_36\ : label is "soft_lutpair256";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_37\ : label is "soft_lutpair268";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_38\ : label is "soft_lutpair267";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_39\ : label is "soft_lutpair266";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_40\ : label is "soft_lutpair265";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_43\ : label is "soft_lutpair145";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_44\ : label is "soft_lutpair350";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_45\ : label is "soft_lutpair349";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_46\ : label is "soft_lutpair335";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_47\ : label is "soft_lutpair348";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_48\ : label is "soft_lutpair140";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_49\ : label is "soft_lutpair322";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_50\ : label is "soft_lutpair317";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_51\ : label is "soft_lutpair319";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_52\ : label is "soft_lutpair302";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_59\ : label is "soft_lutpair112";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_60\ : label is "soft_lutpair140";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_61\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_62\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_63\ : label is "soft_lutpair118";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_64\ : label is "soft_lutpair139";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_65\ : label is "soft_lutpair80";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_66\ : label is "soft_lutpair115";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_67\ : label is "soft_lutpair114";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_68\ : label is "soft_lutpair113";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_69\ : label is "soft_lutpair79";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_70\ : label is "soft_lutpair232";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_71\ : label is "soft_lutpair228";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_72\ : label is "soft_lutpair335";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_73\ : label is "soft_lutpair250";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_74\ : label is "soft_lutpair219";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_75\ : label is "soft_lutpair214";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_76\ : label is "soft_lutpair216";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_72\ : label is "soft_lutpair250";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_73\ : label is "soft_lutpair251";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_74\ : label is "soft_lutpair220";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_75\ : label is "soft_lutpair215";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_76\ : label is "soft_lutpair217";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_77\ : label is "soft_lutpair227";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_78\ : label is "soft_lutpair305";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_79\ : label is "soft_lutpair302";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_80\ : label is "soft_lutpair314";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_81\ : label is "soft_lutpair313";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_82\ : label is "soft_lutpair301";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_83\ : label is "soft_lutpair300";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_84\ : label is "soft_lutpair266";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_85\ : label is "soft_lutpair181";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_86\ : label is "soft_lutpair180";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_87\ : label is "soft_lutpair134";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_88\ : label is "soft_lutpair179";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_78\ : label is "soft_lutpair306";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_79\ : label is "soft_lutpair303";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_80\ : label is "soft_lutpair316";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_81\ : label is "soft_lutpair315";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_82\ : label is "soft_lutpair302";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_83\ : label is "soft_lutpair301";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_84\ : label is "soft_lutpair267";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_85\ : label is "soft_lutpair182";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_86\ : label is "soft_lutpair181";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_87\ : label is "soft_lutpair135";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_88\ : label is "soft_lutpair180";
   attribute SOFT_HLUTNM of \nxt_right[5]_i_89\ : label is "soft_lutpair62";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_90\ : label is "soft_lutpair161";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_91\ : label is "soft_lutpair160";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_92\ : label is "soft_lutpair159";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_93\ : label is "soft_lutpair213";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_94\ : label is "soft_lutpair212";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_95\ : label is "soft_lutpair197";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_96\ : label is "soft_lutpair181";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_97\ : label is "soft_lutpair185";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_98\ : label is "soft_lutpair182";
-  attribute SOFT_HLUTNM of \nxt_right[5]_i_99\ : label is "soft_lutpair154";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_100\ : label is "soft_lutpair169";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_90\ : label is "soft_lutpair162";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_91\ : label is "soft_lutpair161";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_92\ : label is "soft_lutpair160";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_93\ : label is "soft_lutpair214";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_94\ : label is "soft_lutpair213";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_95\ : label is "soft_lutpair198";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_96\ : label is "soft_lutpair182";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_97\ : label is "soft_lutpair186";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_98\ : label is "soft_lutpair183";
+  attribute SOFT_HLUTNM of \nxt_right[5]_i_99\ : label is "soft_lutpair155";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_100\ : label is "soft_lutpair170";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_11\ : label is "soft_lutpair49";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_13\ : label is "soft_lutpair359";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_14\ : label is "soft_lutpair339";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_16\ : label is "soft_lutpair342";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_17\ : label is "soft_lutpair344";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_18\ : label is "soft_lutpair359";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_19\ : label is "soft_lutpair103";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_20\ : label is "soft_lutpair51";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_21\ : label is "soft_lutpair205";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_24\ : label is "soft_lutpair20";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_32\ : label is "soft_lutpair276";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_33\ : label is "soft_lutpair275";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_34\ : label is "soft_lutpair274";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_35\ : label is "soft_lutpair273";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_36\ : label is "soft_lutpair260";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_37\ : label is "soft_lutpair189";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_13\ : label is "soft_lutpair360";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_14\ : label is "soft_lutpair340";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_16\ : label is "soft_lutpair343";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_17\ : label is "soft_lutpair345";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_18\ : label is "soft_lutpair360";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_19\ : label is "soft_lutpair104";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_20\ : label is "soft_lutpair50";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_21\ : label is "soft_lutpair206";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_24\ : label is "soft_lutpair21";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_32\ : label is "soft_lutpair277";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_33\ : label is "soft_lutpair276";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_34\ : label is "soft_lutpair275";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_35\ : label is "soft_lutpair274";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_36\ : label is "soft_lutpair261";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_37\ : label is "soft_lutpair190";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_38\ : label is "soft_lutpair234";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_39\ : label is "soft_lutpair258";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_39\ : label is "soft_lutpair259";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_40\ : label is "soft_lutpair241";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_41\ : label is "soft_lutpair259";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_44\ : label is "soft_lutpair340";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_45\ : label is "soft_lutpair328";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_46\ : label is "soft_lutpair339";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_41\ : label is "soft_lutpair260";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_44\ : label is "soft_lutpair341";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_45\ : label is "soft_lutpair330";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_46\ : label is "soft_lutpair340";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_47\ : label is "soft_lutpair235";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_48\ : label is "soft_lutpair45";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_49\ : label is "soft_lutpair321";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_50\ : label is "soft_lutpair325";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_51\ : label is "soft_lutpair310";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_52\ : label is "soft_lutpair324";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_53\ : label is "soft_lutpair279";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_54\ : label is "soft_lutpair36";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_55\ : label is "soft_lutpair323";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_62\ : label is "soft_lutpair126";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_63\ : label is "soft_lutpair125";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_64\ : label is "soft_lutpair143";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_65\ : label is "soft_lutpair124";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_66\ : label is "soft_lutpair127";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_49\ : label is "soft_lutpair323";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_50\ : label is "soft_lutpair327";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_51\ : label is "soft_lutpair312";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_52\ : label is "soft_lutpair326";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_53\ : label is "soft_lutpair280";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_54\ : label is "soft_lutpair37";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_55\ : label is "soft_lutpair325";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_62\ : label is "soft_lutpair127";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_63\ : label is "soft_lutpair144";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_64\ : label is "soft_lutpair126";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_65\ : label is "soft_lutpair125";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_66\ : label is "soft_lutpair128";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_67\ : label is "soft_lutpair43";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_68\ : label is "soft_lutpair52";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_69\ : label is "soft_lutpair101";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_70\ : label is "soft_lutpair132";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_69\ : label is "soft_lutpair102";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_70\ : label is "soft_lutpair133";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_71\ : label is "soft_lutpair57";
   attribute SOFT_HLUTNM of \nxt_right[6]_i_72\ : label is "soft_lutpair238";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_73\ : label is "soft_lutpair201";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_74\ : label is "soft_lutpair222";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_75\ : label is "soft_lutpair208";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_76\ : label is "soft_lutpair186";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_77\ : label is "soft_lutpair293";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_78\ : label is "soft_lutpair296";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_79\ : label is "soft_lutpair307";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_80\ : label is "soft_lutpair306";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_81\ : label is "soft_lutpair291";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_82\ : label is "soft_lutpair290";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_83\ : label is "soft_lutpair289";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_84\ : label is "soft_lutpair288";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_85\ : label is "soft_lutpair172";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_86\ : label is "soft_lutpair171";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_87\ : label is "soft_lutpair120";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_88\ : label is "soft_lutpair147";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_89\ : label is "soft_lutpair129";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_90\ : label is "soft_lutpair133";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_91\ : label is "soft_lutpair150";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_92\ : label is "soft_lutpair122";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_93\ : label is "soft_lutpair193";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_94\ : label is "soft_lutpair204";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_95\ : label is "soft_lutpair167";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_96\ : label is "soft_lutpair203";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_97\ : label is "soft_lutpair173";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_98\ : label is "soft_lutpair190";
-  attribute SOFT_HLUTNM of \nxt_right[6]_i_99\ : label is "soft_lutpair145";
-  attribute SOFT_HLUTNM of \nxt_right[7]_i_13\ : label is "soft_lutpair32";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_100\ : label is "soft_lutpair195";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_101\ : label is "soft_lutpair217";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_102\ : label is "soft_lutpair219";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_103\ : label is "soft_lutpair200";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_104\ : label is "soft_lutpair199";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_105\ : label is "soft_lutpair198";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_106\ : label is "soft_lutpair178";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_107\ : label is "soft_lutpair177";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_11\ : label is "soft_lutpair367";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_12\ : label is "soft_lutpair366";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_13\ : label is "soft_lutpair304";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_15\ : label is "soft_lutpair368";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_17\ : label is "soft_lutpair282";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_18\ : label is "soft_lutpair354";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_20\ : label is "soft_lutpair80";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_21\ : label is "soft_lutpair311";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_22\ : label is "soft_lutpair41";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_73\ : label is "soft_lutpair202";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_74\ : label is "soft_lutpair223";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_75\ : label is "soft_lutpair209";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_76\ : label is "soft_lutpair187";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_77\ : label is "soft_lutpair294";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_78\ : label is "soft_lutpair297";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_79\ : label is "soft_lutpair309";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_80\ : label is "soft_lutpair308";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_81\ : label is "soft_lutpair292";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_82\ : label is "soft_lutpair291";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_83\ : label is "soft_lutpair290";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_84\ : label is "soft_lutpair289";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_85\ : label is "soft_lutpair173";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_86\ : label is "soft_lutpair172";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_87\ : label is "soft_lutpair121";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_88\ : label is "soft_lutpair148";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_89\ : label is "soft_lutpair130";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_90\ : label is "soft_lutpair134";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_91\ : label is "soft_lutpair151";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_92\ : label is "soft_lutpair123";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_93\ : label is "soft_lutpair194";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_94\ : label is "soft_lutpair205";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_95\ : label is "soft_lutpair168";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_96\ : label is "soft_lutpair204";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_97\ : label is "soft_lutpair174";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_98\ : label is "soft_lutpair191";
+  attribute SOFT_HLUTNM of \nxt_right[6]_i_99\ : label is "soft_lutpair146";
+  attribute SOFT_HLUTNM of \nxt_right[7]_i_13\ : label is "soft_lutpair33";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_100\ : label is "soft_lutpair196";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_101\ : label is "soft_lutpair218";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_102\ : label is "soft_lutpair220";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_103\ : label is "soft_lutpair201";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_104\ : label is "soft_lutpair200";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_105\ : label is "soft_lutpair199";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_106\ : label is "soft_lutpair179";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_107\ : label is "soft_lutpair178";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_11\ : label is "soft_lutpair368";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_12\ : label is "soft_lutpair367";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_13\ : label is "soft_lutpair305";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_15\ : label is "soft_lutpair369";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_17\ : label is "soft_lutpair283";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_18\ : label is "soft_lutpair355";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_20\ : label is "soft_lutpair81";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_21\ : label is "soft_lutpair313";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_22\ : label is "soft_lutpair42";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_28\ : label is "soft_lutpair28";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_33\ : label is "soft_lutpair267";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_34\ : label is "soft_lutpair286";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_33\ : label is "soft_lutpair268";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_34\ : label is "soft_lutpair287";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_35\ : label is "soft_lutpair248";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_36\ : label is "soft_lutpair263";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_37\ : label is "soft_lutpair285";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_38\ : label is "soft_lutpair270";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_39\ : label is "soft_lutpair269";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_36\ : label is "soft_lutpair264";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_37\ : label is "soft_lutpair286";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_38\ : label is "soft_lutpair271";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_39\ : label is "soft_lutpair270";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_40\ : label is "soft_lutpair226";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_41\ : label is "soft_lutpair247";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_42\ : label is "soft_lutpair271";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_43\ : label is "soft_lutpair268";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_46\ : label is "soft_lutpair355";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_47\ : label is "soft_lutpair354";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_48\ : label is "soft_lutpair353";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_49\ : label is "soft_lutpair336";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_50\ : label is "soft_lutpair335";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_51\ : label is "soft_lutpair334";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_52\ : label is "soft_lutpair314";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_53\ : label is "soft_lutpair78";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_54\ : label is "soft_lutpair312";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_42\ : label is "soft_lutpair272";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_43\ : label is "soft_lutpair269";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_46\ : label is "soft_lutpair356";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_47\ : label is "soft_lutpair355";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_48\ : label is "soft_lutpair354";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_49\ : label is "soft_lutpair337";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_50\ : label is "soft_lutpair250";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_51\ : label is "soft_lutpair336";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_52\ : label is "soft_lutpair316";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_53\ : label is "soft_lutpair79";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_54\ : label is "soft_lutpair314";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_61\ : label is "soft_lutpair72";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_62\ : label is "soft_lutpair114";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_63\ : label is "soft_lutpair142";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_64\ : label is "soft_lutpair144";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_65\ : label is "soft_lutpair141";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_66\ : label is "soft_lutpair119";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_67\ : label is "soft_lutpair118";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_68\ : label is "soft_lutpair117";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_69\ : label is "soft_lutpair59";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_70\ : label is "soft_lutpair38";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_71\ : label is "soft_lutpair156";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_72\ : label is "soft_lutpair255";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_73\ : label is "soft_lutpair254";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_74\ : label is "soft_lutpair256";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_62\ : label is "soft_lutpair115";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_63\ : label is "soft_lutpair143";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_64\ : label is "soft_lutpair145";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_65\ : label is "soft_lutpair142";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_66\ : label is "soft_lutpair120";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_67\ : label is "soft_lutpair119";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_68\ : label is "soft_lutpair118";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_69\ : label is "soft_lutpair60";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_70\ : label is "soft_lutpair71";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_71\ : label is "soft_lutpair157";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_72\ : label is "soft_lutpair256";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_73\ : label is "soft_lutpair255";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_74\ : label is "soft_lutpair257";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_75\ : label is "soft_lutpair231";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_76\ : label is "soft_lutpair210";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_76\ : label is "soft_lutpair211";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_77\ : label is "soft_lutpair230";
   attribute SOFT_HLUTNM of \nxt_right[8]_i_78\ : label is "soft_lutpair232";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_79\ : label is "soft_lutpair254";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_80\ : label is "soft_lutpair297";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_81\ : label is "soft_lutpair319";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_82\ : label is "soft_lutpair320";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_83\ : label is "soft_lutpair318";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_84\ : label is "soft_lutpair284";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_85\ : label is "soft_lutpair281";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_86\ : label is "soft_lutpair196";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_87\ : label is "soft_lutpair305";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_88\ : label is "soft_lutpair304";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_89\ : label is "soft_lutpair184";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_90\ : label is "soft_lutpair183";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_91\ : label is "soft_lutpair81";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_92\ : label is "soft_lutpair185";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_93\ : label is "soft_lutpair157";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_94\ : label is "soft_lutpair166";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_95\ : label is "soft_lutpair135";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_96\ : label is "soft_lutpair165";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_97\ : label is "soft_lutpair137";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_98\ : label is "soft_lutpair164";
-  attribute SOFT_HLUTNM of \nxt_right[8]_i_99\ : label is "soft_lutpair218";
-  attribute SOFT_HLUTNM of \nxt_right[9]_i_13\ : label is "soft_lutpair19";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_79\ : label is "soft_lutpair255";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_80\ : label is "soft_lutpair298";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_81\ : label is "soft_lutpair321";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_82\ : label is "soft_lutpair322";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_83\ : label is "soft_lutpair320";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_84\ : label is "soft_lutpair285";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_85\ : label is "soft_lutpair282";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_86\ : label is "soft_lutpair197";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_87\ : label is "soft_lutpair306";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_88\ : label is "soft_lutpair305";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_89\ : label is "soft_lutpair185";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_90\ : label is "soft_lutpair184";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_91\ : label is "soft_lutpair82";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_92\ : label is "soft_lutpair186";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_93\ : label is "soft_lutpair158";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_94\ : label is "soft_lutpair167";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_95\ : label is "soft_lutpair136";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_96\ : label is "soft_lutpair166";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_97\ : label is "soft_lutpair138";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_98\ : label is "soft_lutpair165";
+  attribute SOFT_HLUTNM of \nxt_right[8]_i_99\ : label is "soft_lutpair219";
+  attribute SOFT_HLUTNM of \nxt_right[9]_i_13\ : label is "soft_lutpair18";
 begin
+  ENC_DONE <= \^enc_done\;
 \FSM_sequential_nxt_state[0]_i_1\: unisim.vcomponents.LUT3
     generic map(
       INIT => X"07"
@@ -2869,17 +2875,40 @@ begin
       Q => DATA_O(9),
       R => '0'
     );
-nxt_done_i_1: unisim.vcomponents.LUT5
+nxt_done_i_1: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"00000020"
+      INIT => X"44444F4444444444"
     )
         port map (
-      I0 => state(1),
-      I1 => state(2),
-      I2 => state(4),
-      I3 => state(3),
-      I4 => state(0),
+      I0 => nxt_done,
+      I1 => \^enc_done\,
+      I2 => nxt_done_i_3_n_0,
+      I3 => state(4),
+      I4 => state(2),
+      I5 => state(1),
+      O => nxt_done_i_1_n_0
+    );
+nxt_done_i_2: unisim.vcomponents.LUT6
+    generic map(
+      INIT => X"0000000000000100"
+    )
+        port map (
+      I0 => state(0),
+      I1 => state(4),
+      I2 => state(1),
+      I3 => ENC_START,
+      I4 => state(3),
+      I5 => state(2),
       O => nxt_done
+    );
+nxt_done_i_3: unisim.vcomponents.LUT2
+    generic map(
+      INIT => X"E"
+    )
+        port map (
+      I0 => state(3),
+      I1 => state(0),
+      O => nxt_done_i_3_n_0
     );
 nxt_done_reg: unisim.vcomponents.FDRE
     generic map(
@@ -2888,424 +2917,424 @@ nxt_done_reg: unisim.vcomponents.FDRE
         port map (
       C => s00_axi_aclk,
       CE => '1',
-      D => nxt_done,
-      Q => ENC_DONE,
+      D => nxt_done_i_1_n_0,
+      Q => \^enc_done\,
       R => '0'
     );
 \nxt_left[0]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(6),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(57),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(57),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(6),
       O => \nxt_left[0]_i_1_n_0\
     );
 \nxt_left[10]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(20),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(43),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(43),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(20),
       O => \nxt_left[10]_i_1_n_0\
     );
 \nxt_left[11]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(28),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(35),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(35),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(28),
       O => \nxt_left[11]_i_1_n_0\
     );
 \nxt_left[12]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(4),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(27),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(27),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(4),
       O => \nxt_left[12]_i_1_n_0\
     );
 \nxt_left[13]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(12),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(19),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(19),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(12),
       O => \nxt_left[13]_i_1_n_0\
     );
 \nxt_left[14]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(20),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(11),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(11),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(20),
       O => \nxt_left[14]_i_1_n_0\
     );
 \nxt_left[15]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(28),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(3),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(3),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(28),
       O => \nxt_left[15]_i_1_n_0\
     );
 \nxt_left[16]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(2),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(61),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(61),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(2),
       O => \nxt_left[16]_i_1_n_0\
     );
 \nxt_left[17]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(10),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(53),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(53),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(10),
       O => \nxt_left[17]_i_1_n_0\
     );
 \nxt_left[18]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(18),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(45),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(45),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(18),
       O => \nxt_left[18]_i_1_n_0\
     );
 \nxt_left[19]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(26),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(37),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(37),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(26),
       O => \nxt_left[19]_i_1_n_0\
     );
 \nxt_left[1]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(14),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(49),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(49),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(14),
       O => \nxt_left[1]_i_1_n_0\
     );
 \nxt_left[20]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(2),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(29),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(29),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(2),
       O => \nxt_left[20]_i_1_n_0\
     );
 \nxt_left[21]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(10),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(21),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(21),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(10),
       O => \nxt_left[21]_i_1_n_0\
     );
 \nxt_left[22]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(18),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(13),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(13),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(18),
       O => \nxt_left[22]_i_1_n_0\
     );
 \nxt_left[23]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(26),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(5),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(5),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(26),
       O => \nxt_left[23]_i_1_n_0\
     );
 \nxt_left[24]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(0),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(63),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(63),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(0),
       O => \nxt_left[24]_i_1_n_0\
     );
 \nxt_left[25]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(8),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(55),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(55),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(8),
       O => \nxt_left[25]_i_1_n_0\
     );
 \nxt_left[26]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(16),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(47),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(47),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(16),
       O => \nxt_left[26]_i_1_n_0\
     );
 \nxt_left[27]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(24),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(39),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(39),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(24),
       O => \nxt_left[27]_i_1_n_0\
     );
 \nxt_left[28]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(0),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(31),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(31),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(0),
       O => \nxt_left[28]_i_1_n_0\
     );
 \nxt_left[29]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(8),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(23),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(23),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(8),
       O => \nxt_left[29]_i_1_n_0\
     );
 \nxt_left[2]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(22),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(41),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(41),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(22),
       O => \nxt_left[2]_i_1_n_0\
     );
 \nxt_left[30]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(16),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(15),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(15),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(16),
       O => \nxt_left[30]_i_1_n_0\
     );
 \nxt_left[31]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(24),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(7),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(7),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(24),
       O => \nxt_left[31]_i_1_n_0\
     );
 \nxt_left[3]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(30),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(33),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(33),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(30),
       O => \nxt_left[3]_i_1_n_0\
     );
 \nxt_left[4]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(6),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(25),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(25),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(6),
       O => \nxt_left[4]_i_1_n_0\
     );
 \nxt_left[5]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(14),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(17),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(17),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(14),
       O => \nxt_left[5]_i_1_n_0\
     );
 \nxt_left[6]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(22),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(9),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(9),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(22),
       O => \nxt_left[6]_i_1_n_0\
     );
 \nxt_left[7]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[7]_0\(30),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(1),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(1),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[7]_0\(30),
       O => \nxt_left[7]_i_1_n_0\
     );
 \nxt_left[8]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(4),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(59),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(59),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(4),
       O => \nxt_left[8]_i_1_n_0\
     );
 \nxt_left[9]_i_1\: unisim.vcomponents.LUT6
     generic map(
-      INIT => X"FFFFFFFE00000010"
+      INIT => X"FF00FF01FF00FE00"
     )
         port map (
       I0 => state(4),
-      I1 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
-      I2 => \nxt_right_reg[3]_0\(12),
-      I3 => state(2),
-      I4 => state(3),
-      I5 => final_permutation(51),
+      I1 => state(2),
+      I2 => state(3),
+      I3 => final_permutation(51),
+      I4 => \FSM_sequential_nxt_state_reg[1]_rep_n_0\,
+      I5 => \nxt_right_reg[3]_0\(12),
       O => \nxt_left[9]_i_1_n_0\
     );
 \nxt_left_reg[0]\: unisim.vcomponents.FDRE
@@ -20925,10 +20954,10 @@ architecture STRUCTURE of design_1_des_encryption_0_0_des_encryption_v1_0_S00_AX
   signal slv_reg_rden : STD_LOGIC;
   signal \slv_reg_wren__2\ : STD_LOGIC;
   attribute SOFT_HLUTNM : string;
-  attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair370";
-  attribute SOFT_HLUTNM of axi_awready_i_2 : label is "soft_lutpair369";
-  attribute SOFT_HLUTNM of axi_rvalid_i_1 : label is "soft_lutpair370";
-  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair369";
+  attribute SOFT_HLUTNM of axi_arready_i_1 : label is "soft_lutpair371";
+  attribute SOFT_HLUTNM of axi_awready_i_2 : label is "soft_lutpair370";
+  attribute SOFT_HLUTNM of axi_rvalid_i_1 : label is "soft_lutpair371";
+  attribute SOFT_HLUTNM of axi_wready_i_1 : label is "soft_lutpair370";
 begin
   S_AXI_ARREADY <= \^s_axi_arready\;
   S_AXI_AWREADY <= \^s_axi_awready\;
@@ -23638,7 +23667,7 @@ architecture STRUCTURE of design_1_des_encryption_0_0 is
   attribute x_interface_info of s00_axi_araddr : signal is "xilinx.com:interface:aximm:1.0 S00_AXI ARADDR";
   attribute x_interface_info of s00_axi_arprot : signal is "xilinx.com:interface:aximm:1.0 S00_AXI ARPROT";
   attribute x_interface_info of s00_axi_awaddr : signal is "xilinx.com:interface:aximm:1.0 S00_AXI AWADDR";
-  attribute x_interface_parameter of s00_axi_awaddr : signal is "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 6, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 8, NUM_WRITE_OUTSTANDING 8, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 4, NUM_WRITE_THREADS 4, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
+  attribute x_interface_parameter of s00_axi_awaddr : signal is "XIL_INTERFACENAME S00_AXI, WIZ_DATA_WIDTH 32, WIZ_NUM_REG 6, SUPPORTS_NARROW_BURST 0, DATA_WIDTH 32, PROTOCOL AXI4LITE, FREQ_HZ 100000000, ID_WIDTH 0, ADDR_WIDTH 5, AWUSER_WIDTH 0, ARUSER_WIDTH 0, WUSER_WIDTH 0, RUSER_WIDTH 0, BUSER_WIDTH 0, READ_WRITE_MODE READ_WRITE, HAS_BURST 0, HAS_LOCK 0, HAS_PROT 1, HAS_CACHE 0, HAS_QOS 0, HAS_REGION 0, HAS_WSTRB 1, HAS_BRESP 1, HAS_RRESP 1, NUM_READ_OUTSTANDING 2, NUM_WRITE_OUTSTANDING 2, MAX_BURST_LENGTH 1, PHASE 0.000, CLK_DOMAIN design_1_processing_system7_0_0_FCLK_CLK0, NUM_READ_THREADS 1, NUM_WRITE_THREADS 1, RUSER_BITS_PER_BYTE 0, WUSER_BITS_PER_BYTE 0, INSERT_VIP 0";
   attribute x_interface_info of s00_axi_awprot : signal is "xilinx.com:interface:aximm:1.0 S00_AXI AWPROT";
   attribute x_interface_info of s00_axi_bresp : signal is "xilinx.com:interface:aximm:1.0 S00_AXI BRESP";
   attribute x_interface_info of s00_axi_rdata : signal is "xilinx.com:interface:aximm:1.0 S00_AXI RDATA";

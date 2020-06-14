@@ -9,6 +9,9 @@
 #include "stdio.h"
 #include "xil_io.h"
 #include "des_encryption.h"
+#include "sleep.h"
+#include "xil_printf.h"
+
 
 #define REG0 DES_ENCRYPTION_S00_AXI_SLV_REG0_OFFSET
 #define REG1 DES_ENCRYPTION_S00_AXI_SLV_REG1_OFFSET
@@ -19,10 +22,10 @@
 
 #define READ_WRITE_MUL_FACTOR 0x10
 
-#define XPAR_AXI_GPIO_0_DATA	*((volatile INT32U *)(XPAR_AXI_GPIO_0_BASEADDR + 0x0000))
-#define XPAR_AXI_GPIO_0_TRI		*((volatile INT32U *)(XPAR_AXI_GPIO_0_BASEADDR + 0x0004))
-#define XPAR_AXI_GPIO_0_DATA_2	*((volatile INT32U *)(XPAR_AXI_GPIO_0_BASEADDR + 0x0008))
-#define XPAR_AXI_GPIO_0_TRI_2	*((volatile INT32U *)(XPAR_AXI_GPIO_0_BASEADDR + 0x000C))
+#define XPAR_AXI_GPIO_0_DATA	*((volatile int *)(XPAR_AXI_GPIO_0_BASEADDR + 0x0000))
+#define XPAR_AXI_GPIO_0_TRI		*((volatile int *)(XPAR_AXI_GPIO_0_BASEADDR + 0x0004))
+#define XPAR_AXI_GPIO_0_DATA_2	*((volatile int *)(XPAR_AXI_GPIO_0_BASEADDR + 0x0008))
+#define XPAR_AXI_GPIO_0_TRI_2	*((volatile int *)(XPAR_AXI_GPIO_0_BASEADDR + 0x000C))
 
 XStatus DES_ENCRYPTION_Reg_SelfTest(void * baseaddr_p)
 {
@@ -328,28 +331,47 @@ std::string DES(){
 }
 
 
+
+
+unsigned int r5_0 = 0;
+unsigned int r4_0 = 0;
+unsigned int r5_1 = 0;
+unsigned int r4_1 = 0;
+unsigned int r5_2 = 0;
+unsigned int r4_2 = 0;
+
 void runPLversion(std::string key, std::string data){
-	u32 *baseaddr_p = (u32 *)XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR;
 
-	// Extract key data
+//	r5_0 = DES_ENCRYPTION_mReadReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG5);
+//	r4_0 = DES_ENCRYPTION_mReadReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG4);
 
-	// Extract data
+	// Write key to REG0 (LSB) and REG1 (MSB) - (0xAABB09182736CCDD)
+	DES_ENCRYPTION_mWriteReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG0, 0x2736CCDD);
+	DES_ENCRYPTION_mWriteReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG1, 0xAABB0918);
 
-	// Write key to REG0 (LSB) and REG1 (MSB)
 
-	// Write data to REG2 (LSB) and REG3 (MSB)
+	// Write data to REG2 (LSB) and REG3 (MSB) - (0xABCDE6ABCD132536)
+	DES_ENCRYPTION_mWriteReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG2, 0xCD132536);
+	DES_ENCRYPTION_mWriteReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG3, 0xABCDE6AB);
 
 	// Set start GPIO high
+	XPAR_AXI_GPIO_0_DATA |= 0x01;	// Set high
 
-	// XPAR_GPIO_0_BASEADDR
+//	r5_1 = DES_ENCRYPTION_mReadReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG5);
+//	r4_1 = DES_ENCRYPTION_mReadReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG4);
+	XPAR_AXI_GPIO_0_DATA &= ~0x01;	// Set low
 
-	// Wait for interrupt
+	// Wait
+	while(XPAR_AXI_GPIO_0_DATA_2 == 0){}
 
-	// Read data back from hardware accelerator REG4 (LSB) and REG5 (MSB)
+	// FA4DBB70, 9E269F5A
+	// 9E269F5A FA4DBB70
+//	r5_2 = DES_ENCRYPTION_mReadReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG5);
+//	r4_2 = DES_ENCRYPTION_mReadReg(XPAR_DES_ENCRYPTION_0_S00_AXI_BASEADDR, REG4);
 
-	//return
-
+//	return
 }
+
 
 
 
@@ -365,9 +387,11 @@ int main()
 	}
 
 	// Configure XPAR_GPIO_0_BASEADDR as output
+//	XPAR_AXI_GPIO_0_TRI   = 0x00; // Set as output
+//	XPAR_AXI_GPIO_0_TRI_2 = 0xFF; // Set as input
 
 
-	unsigned int rounds = 100;
+	unsigned int rounds = 10;
 
 	// (0xAABB09182736CCDD)
 	std::string key= "1010101010111011000010010001100000100111001101101100110011011101";
@@ -402,7 +426,8 @@ int main()
 		// Calculate timing data
 		XTime elapsed = ((end-start)*1000000.0)/COUNTS_PER_SECOND;
 		totalElapsed += elapsed;
-		if(elapsed > maxElapsed)	maxElapsed = elapsed;
+		std::cout << elapsed << std::endl;
+		if(elapsed > maxElapsed && i != 0)	maxElapsed = elapsed;
 		if(elapsed < minElapsed)	minElapsed = elapsed;
 
 	}
@@ -416,13 +441,16 @@ int main()
 
 	std::cout<<std::endl<<std::endl;
 
-	totalElapsed = 0;
-	averageElapsed = 0;
-	maxElapsed = 0;
-	minElapsed = 10000;
+	totalElapsed 	= 0;
+	averageElapsed 	= 0;
+	maxElapsed		= 0;
+	minElapsed 		= 10000;
 
-	std::cout<<"Then 10,000 rounds of the encryption algorithm DES is run on the PL"<<std::endl;
+
+	rounds = 10;
+	std::cout<<"Then "<< rounds <<" rounds of the encryption algorithm DES is run on the PL"<<std::endl;
 	std::cout<<"... Running ..."<<std::endl<<std::endl;
+
 
 	for(int i = 0; i < rounds; i++){
 		// Get start time
@@ -435,19 +463,32 @@ int main()
 		// Stop timer
 		XTime end;
 		XTime_GetTime(&end);
-
+//		xil_printf("%X",r5_0);
+//		xil_printf("%X\n",r4_0);
+//		xil_printf("%X",r5_1);
+//		xil_printf("%X\n",r4_1);
+//		xil_printf("%X",r5_2);
+//		xil_printf("%X\n",r4_2);
 		// Calculate timing data
-		XTime elapsed = ((end-start)*1000.0)/COUNTS_PER_SECOND;
+//		XTime elapsed = ((end-start)*1.0)/(COUNTS_PER_SECOND*1.0);
+		XTime elapsed = end-start;
+
 		totalElapsed += elapsed;
-		if(elapsed > maxElapsed)	maxElapsed = elapsed;
+		std::cout << elapsed << std::endl;
+//		std::cout << start << ", " << end << ", " << elapsed << ", "<< totalElapsed << std::endl;
+		if(elapsed > maxElapsed && i != 0)	maxElapsed = elapsed;
 		if(elapsed < minElapsed)	minElapsed = elapsed;
 	}
-	averageElapsed = totalElapsed / (rounds*1.0);
+	double dtotalElapsed	= (totalElapsed*1000000.0)		/ COUNTS_PER_SECOND;
+	double dmaxElapsed 		= (maxElapsed*1000000.0) 		/ COUNTS_PER_SECOND;
+	double dminElapsed 		= (minElapsed*1000000.0) 		/ COUNTS_PER_SECOND;
+
+	double  daverageElapsed = dtotalElapsed / (rounds*1.0);
 	std::cout<<"... Finished ..." <<std::endl<<std::endl;
-	std::cout<<"Total time:  \t\t\t"<< totalElapsed/1000000000.0 << " s"<<std::endl;
-	std::cout<<"Max:  \t\t\t\t\t\t"<< maxElapsed 			<< " ns"<<std::endl;
-	std::cout<<"Average:  \t\t\t\t"<< averageElapsed 		<< " ns"<<std::endl;
-	std::cout<<"Min:   \t\t\t\t\t\t"<< minElapsed 			<< " ns"<<std::endl;
+	std::cout<<"Total time:  \t\t\t"<< dtotalElapsed/1000000.0 << " s"<<std::endl;
+	std::cout<<"Max:  \t\t\t\t\t\t"<< dmaxElapsed 			<< " us"<<std::endl;
+	std::cout<<"Average:  \t\t\t\t"<< daverageElapsed 		<< " us"<<std::endl;
+	std::cout<<"Min:   \t\t\t\t\t\t"<< dminElapsed 			<< " us"<<std::endl;
 
 	return 0;
 }

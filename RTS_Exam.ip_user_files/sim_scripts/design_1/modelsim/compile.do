@@ -10,9 +10,13 @@ vlib modelsim_lib/msim/processing_system7_vip_v1_0_6
 vlib modelsim_lib/msim/lib_cdc_v1_0_2
 vlib modelsim_lib/msim/proc_sys_reset_v5_0_13
 vlib modelsim_lib/msim/generic_baseblocks_v2_1_0
+vlib modelsim_lib/msim/axi_register_slice_v2_1_18
 vlib modelsim_lib/msim/fifo_generator_v13_2_3
 vlib modelsim_lib/msim/axi_data_fifo_v2_1_17
-vlib modelsim_lib/msim/axi_register_slice_v2_1_18
+vlib modelsim_lib/msim/axi_crossbar_v2_1_19
+vlib modelsim_lib/msim/axi_lite_ipif_v3_0_4
+vlib modelsim_lib/msim/interrupt_control_v3_1_4
+vlib modelsim_lib/msim/axi_gpio_v2_0_20
 vlib modelsim_lib/msim/axi_protocol_converter_v2_1_18
 
 vmap xilinx_vip modelsim_lib/msim/xilinx_vip
@@ -24,9 +28,13 @@ vmap processing_system7_vip_v1_0_6 modelsim_lib/msim/processing_system7_vip_v1_0
 vmap lib_cdc_v1_0_2 modelsim_lib/msim/lib_cdc_v1_0_2
 vmap proc_sys_reset_v5_0_13 modelsim_lib/msim/proc_sys_reset_v5_0_13
 vmap generic_baseblocks_v2_1_0 modelsim_lib/msim/generic_baseblocks_v2_1_0
+vmap axi_register_slice_v2_1_18 modelsim_lib/msim/axi_register_slice_v2_1_18
 vmap fifo_generator_v13_2_3 modelsim_lib/msim/fifo_generator_v13_2_3
 vmap axi_data_fifo_v2_1_17 modelsim_lib/msim/axi_data_fifo_v2_1_17
-vmap axi_register_slice_v2_1_18 modelsim_lib/msim/axi_register_slice_v2_1_18
+vmap axi_crossbar_v2_1_19 modelsim_lib/msim/axi_crossbar_v2_1_19
+vmap axi_lite_ipif_v3_0_4 modelsim_lib/msim/axi_lite_ipif_v3_0_4
+vmap interrupt_control_v3_1_4 modelsim_lib/msim/interrupt_control_v3_1_4
+vmap axi_gpio_v2_0_20 modelsim_lib/msim/axi_gpio_v2_0_20
 vmap axi_protocol_converter_v2_1_18 modelsim_lib/msim/axi_protocol_converter_v2_1_18
 
 vlog -work xilinx_vip -64 -incr -sv -L axi_vip_v1_1_4 -L processing_system7_vip_v1_0_6 -L xilinx_vip "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
@@ -61,9 +69,9 @@ vlog -work xil_defaultlib -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1
 
 vcom -work xil_defaultlib -64 -93 \
 "../../../bd/design_1/sim/design_1.vhd" \
-"../../../bd/design_1/ipshared/2ccc/hdl/des_encryption_v1_0_S00_AXI.vhd" \
-"../../../bd/design_1/ipshared/2ccc/src/encryption.vhd" \
-"../../../bd/design_1/ipshared/2ccc/hdl/des_encryption_v1_0.vhd" \
+"../../../bd/design_1/ipshared/e335/hdl/des_encryption_v1_0_S00_AXI.vhd" \
+"../../../bd/design_1/ipshared/e335/src/encryption.vhd" \
+"../../../bd/design_1/ipshared/e335/hdl/des_encryption_v1_0.vhd" \
 "../../../bd/design_1/ip/design_1_des_encryption_0_0/sim/design_1_des_encryption_0_0.vhd" \
 
 vcom -work lib_cdc_v1_0_2 -64 -93 \
@@ -78,6 +86,9 @@ vcom -work xil_defaultlib -64 -93 \
 vlog -work generic_baseblocks_v2_1_0 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
 "../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/b752/hdl/generic_baseblocks_v2_1_vl_rfs.v" \
 
+vlog -work axi_register_slice_v2_1_18 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
+"../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/cc23/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+
 vlog -work fifo_generator_v13_2_3 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
 "../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/64f4/simulation/fifo_generator_vlog_beh.v" \
 
@@ -90,14 +101,29 @@ vlog -work fifo_generator_v13_2_3 -64 -incr "+incdir+../../../../RTS_Exam.srcs/s
 vlog -work axi_data_fifo_v2_1_17 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
 "../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/c4fd/hdl/axi_data_fifo_v2_1_vl_rfs.v" \
 
-vlog -work axi_register_slice_v2_1_18 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
-"../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/cc23/hdl/axi_register_slice_v2_1_vl_rfs.v" \
+vlog -work axi_crossbar_v2_1_19 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
+"../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/6c9d/hdl/axi_crossbar_v2_1_vl_rfs.v" \
+
+vlog -work xil_defaultlib -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
+"../../../bd/design_1/ip/design_1_xbar_0/sim/design_1_xbar_0.v" \
+
+vcom -work axi_lite_ipif_v3_0_4 -64 -93 \
+"../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd" \
+
+vcom -work interrupt_control_v3_1_4 -64 -93 \
+"../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a040/hdl/interrupt_control_v3_1_vh_rfs.vhd" \
+
+vcom -work axi_gpio_v2_0_20 -64 -93 \
+"../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd" \
+
+vcom -work xil_defaultlib -64 -93 \
+"../../../bd/design_1/ip/design_1_axi_gpio_0_0/sim/design_1_axi_gpio_0_0.vhd" \
 
 vlog -work axi_protocol_converter_v2_1_18 -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
 "../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/7a04/hdl/axi_protocol_converter_v2_1_vl_rfs.v" \
 
 vlog -work xil_defaultlib -64 -incr "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ec67/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ipshared/70cf/hdl" "+incdir+../../../../RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_processing_system7_0_0" "+incdir+/home/jacoboffersen/Program/vivado/Vivado/2018.3/data/xilinx_vip/include" \
-"../../../bd/design_1/ip/design_1_auto_pc_2/sim/design_1_auto_pc_2.v" \
+"../../../bd/design_1/ip/design_1_auto_pc_0/sim/design_1_auto_pc_0.v" \
 
 vlog -work xil_defaultlib \
 "glbl.v"

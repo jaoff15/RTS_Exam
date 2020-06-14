@@ -18,41 +18,41 @@ Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 13419 
+INFO: Helper process launched with PID 22949 
 ---------------------------------------------------------------------------------
-Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1428.996 ; gain = 85.887 ; free physical = 3659 ; free virtual = 11379
+Starting RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1428.473 ; gain = 84.887 ; free physical = 4186 ; free virtual = 11208
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_0' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/synth/design_1_axi_gpio_0_0.vhd:84]
+INFO: [Synth 8-638] synthesizing module 'design_1_axi_gpio_0_0' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/synth/design_1_axi_gpio_0_0.vhd:85]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_GPIO_WIDTH bound to: 1 - type: integer 
-	Parameter C_GPIO2_WIDTH bound to: 32 - type: integer 
+	Parameter C_GPIO2_WIDTH bound to: 1 - type: integer 
 	Parameter C_ALL_INPUTS bound to: 0 - type: integer 
-	Parameter C_ALL_INPUTS_2 bound to: 0 - type: integer 
+	Parameter C_ALL_INPUTS_2 bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS_2 bound to: 0 - type: integer 
 	Parameter C_INTERRUPT_PRESENT bound to: 0 - type: integer 
 	Parameter C_DOUT_DEFAULT bound to: 32'b00000000000000000000000000000000 
 	Parameter C_TRI_DEFAULT bound to: 32'b11111111111111111111111111111111 
-	Parameter C_IS_DUAL bound to: 0 - type: integer 
+	Parameter C_IS_DUAL bound to: 1 - type: integer 
 	Parameter C_DOUT_DEFAULT_2 bound to: 32'b00000000000000000000000000000000 
 	Parameter C_TRI_DEFAULT_2 bound to: 32'b11111111111111111111111111111111 
-INFO: [Synth 8-3491] module 'axi_gpio' declared at '/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:1265' bound to instance 'U0' of component 'axi_gpio' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/synth/design_1_axi_gpio_0_0.vhd:168]
+INFO: [Synth 8-3491] module 'axi_gpio' declared at '/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:1265' bound to instance 'U0' of component 'axi_gpio' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/synth/design_1_axi_gpio_0_0.vhd:171]
 INFO: [Synth 8-638] synthesizing module 'axi_gpio' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:1351]
 	Parameter C_FAMILY bound to: zynq - type: string 
 	Parameter C_S_AXI_ADDR_WIDTH bound to: 9 - type: integer 
 	Parameter C_S_AXI_DATA_WIDTH bound to: 32 - type: integer 
 	Parameter C_GPIO_WIDTH bound to: 1 - type: integer 
-	Parameter C_GPIO2_WIDTH bound to: 32 - type: integer 
+	Parameter C_GPIO2_WIDTH bound to: 1 - type: integer 
 	Parameter C_ALL_INPUTS bound to: 0 - type: integer 
-	Parameter C_ALL_INPUTS_2 bound to: 0 - type: integer 
+	Parameter C_ALL_INPUTS_2 bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS_2 bound to: 0 - type: integer 
 	Parameter C_INTERRUPT_PRESENT bound to: 0 - type: integer 
 	Parameter C_DOUT_DEFAULT bound to: 0 - type: integer 
 	Parameter C_TRI_DEFAULT bound to: -1 - type: integer 
-	Parameter C_IS_DUAL bound to: 0 - type: integer 
+	Parameter C_IS_DUAL bound to: 1 - type: integer 
 	Parameter C_DOUT_DEFAULT_2 bound to: 0 - type: integer 
 	Parameter C_TRI_DEFAULT_2 bound to: -1 - type: integer 
 INFO: [Synth 8-638] synthesizing module 'axi_lite_ipif' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/66ea/hdl/axi_lite_ipif_v3_0_vh_rfs.vhd:2948]
@@ -111,20 +111,20 @@ INFO: [Synth 8-638] synthesizing module 'GPIO_Core' [/home/jacoboffersen/eclipse
 	Parameter C_DW bound to: 32 - type: integer 
 	Parameter C_AW bound to: 9 - type: integer 
 	Parameter C_GPIO_WIDTH bound to: 1 - type: integer 
-	Parameter C_GPIO2_WIDTH bound to: 32 - type: integer 
+	Parameter C_GPIO2_WIDTH bound to: 1 - type: integer 
 	Parameter C_MAX_GPIO_WIDTH bound to: 1 - type: integer 
 	Parameter C_INTERRUPT_PRESENT bound to: 0 - type: integer 
 	Parameter C_DOUT_DEFAULT bound to: 0 - type: integer 
 	Parameter C_TRI_DEFAULT bound to: -1 - type: integer 
-	Parameter C_IS_DUAL bound to: 0 - type: integer 
+	Parameter C_IS_DUAL bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS bound to: 1 - type: integer 
 	Parameter C_ALL_OUTPUTS_2 bound to: 0 - type: integer 
 	Parameter C_ALL_INPUTS bound to: 0 - type: integer 
-	Parameter C_ALL_INPUTS_2 bound to: 0 - type: integer 
+	Parameter C_ALL_INPUTS_2 bound to: 1 - type: integer 
 	Parameter C_DOUT_DEFAULT_2 bound to: 0 - type: integer 
 	Parameter C_TRI_DEFAULT_2 bound to: -1 - type: integer 
 	Parameter C_FAMILY bound to: zynq - type: string 
-INFO: [Synth 8-226] default block is never used [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:443]
+INFO: [Synth 8-226] default block is never used [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:835]
 INFO: [Synth 8-638] synthesizing module 'cdc_sync' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
 	Parameter C_CDC_TYPE bound to: 1 - type: integer 
 	Parameter C_RESET_STATE bound to: 0 - type: integer 
@@ -145,11 +145,12 @@ INFO: [Synth 8-113] binding component instance 'CROSS2_PLEVEL_IN2SCNDRY_s_level_
 	Parameter INIT bound to: 1'b0 
 INFO: [Synth 8-113] binding component instance 'CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d6' to cell 'FDR' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:837]
 INFO: [Synth 8-256] done synthesizing module 'cdc_sync' (5#1) [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/ef1e/hdl/lib_cdc_v1_0_rfs.vhd:106]
-WARNING: [Synth 8-6014] Unused sequential element Not_Dual.ALLOUT_ND.READ_REG_GEN[0].GPIO_DBus_i_reg was removed.  [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:319]
-WARNING: [Synth 8-6014] Unused sequential element Not_Dual.gpio_Data_In_reg was removed.  [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:486]
+WARNING: [Synth 8-6014] Unused sequential element Dual.ALLOUT0_ND_G1.READ_REG_GEN[0].GPIO_DBus_i_reg was removed.  [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:690]
+WARNING: [Synth 8-6014] Unused sequential element Dual.ALLIN0_ND_G2.READ_REG2_GEN[0].GPIO2_DBus_i_reg was removed.  [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:719]
+WARNING: [Synth 8-6014] Unused sequential element Dual.gpio_Data_In_reg was removed.  [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:882]
 INFO: [Synth 8-256] done synthesizing module 'GPIO_Core' (6#1) [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:178]
 INFO: [Synth 8-256] done synthesizing module 'axi_gpio' (7#1) [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:1351]
-INFO: [Synth 8-256] done synthesizing module 'design_1_axi_gpio_0_0' (8#1) [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/synth/design_1_axi_gpio_0_0.vhd:84]
+INFO: [Synth 8-256] done synthesizing module 'design_1_axi_gpio_0_0' (8#1) [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ip/design_1_axi_gpio_0_0/synth/design_1_axi_gpio_0_0.vhd:85]
 WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_aclk
 WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_resetn
 WARNING: [Synth 8-3331] design cdc_sync has unconnected port prmry_in
@@ -164,38 +165,6 @@ WARNING: [Synth 8-3331] design GPIO_Core has unconnected port BE_Reg[0]
 WARNING: [Synth 8-3331] design GPIO_Core has unconnected port BE_Reg[1]
 WARNING: [Synth 8-3331] design GPIO_Core has unconnected port BE_Reg[2]
 WARNING: [Synth 8-3331] design GPIO_Core has unconnected port BE_Reg[3]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[0]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[1]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[2]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[3]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[4]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[5]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[6]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[7]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[8]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[9]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[10]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[11]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[12]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[13]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[14]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[15]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[16]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[17]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[18]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[19]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[20]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[21]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[22]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[23]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[24]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[25]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[26]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[27]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[28]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[29]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[30]
-WARNING: [Synth 8-3331] design GPIO_Core has unconnected port GPIO2_IO_I[31]
 WARNING: [Synth 8-3331] design address_decoder has unconnected port Address_In_Erly[0]
 WARNING: [Synth 8-3331] design address_decoder has unconnected port Address_In_Erly[1]
 WARNING: [Synth 8-3331] design address_decoder has unconnected port Address_In_Erly[2]
@@ -209,7 +178,7 @@ WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB
 WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB[1]
 WARNING: [Synth 8-3331] design slave_attachment has unconnected port S_AXI_WSTRB[0]
 ---------------------------------------------------------------------------------
-Finished RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1474.746 ; gain = 131.637 ; free physical = 3666 ; free virtual = 11386
+Finished RTL Elaboration : Time (s): cpu = 00:00:02 ; elapsed = 00:00:03 . Memory (MB): peak = 1475.223 ; gain = 131.637 ; free physical = 4198 ; free virtual = 11220
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -222,12 +191,12 @@ Report Check Netlist:
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1474.746 ; gain = 131.637 ; free physical = 3666 ; free virtual = 11386
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1475.223 ; gain = 131.637 ; free physical = 4198 ; free virtual = 11220
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1474.746 ; gain = 131.637 ; free physical = 3666 ; free virtual = 11386
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1475.223 ; gain = 131.637 ; free physical = 4198 ; free virtual = 11220
 ---------------------------------------------------------------------------------
-INFO: [Netlist 29-17] Analyzing 6 Unisim elements for replacement
+INFO: [Netlist 29-17] Analyzing 12 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Device 21-403] Loading part xc7z020clg400-1
 INFO: [Project 1-570] Preparing netlist for logic optimization
@@ -244,29 +213,29 @@ Parsing XDC File [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.runs/d
 Finished Parsing XDC File [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.runs/design_1_axi_gpio_0_0_synth_1/dont_touch.xdc]
 Completed Processing XDC Constraints
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1834.785 ; gain = 0.000 ; free physical = 3408 ; free virtual = 11128
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1840.262 ; gain = 0.000 ; free physical = 3941 ; free virtual = 10963
 INFO: [Project 1-111] Unisim Transformation Summary:
-  A total of 6 instances were transformed.
-  FDR => FDRE: 6 instances
+  A total of 12 instances were transformed.
+  FDR => FDRE: 12 instances
 
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1834.785 ; gain = 0.000 ; free physical = 3408 ; free virtual = 11128
-Constraint Validation Runtime : Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.03 . Memory (MB): peak = 1834.785 ; gain = 0.000 ; free physical = 3407 ; free virtual = 11127
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1840.262 ; gain = 0.000 ; free physical = 3941 ; free virtual = 10963
+Constraint Validation Runtime : Time (s): cpu = 00:00:00.01 ; elapsed = 00:00:00.02 . Memory (MB): peak = 1840.262 ; gain = 0.000 ; free physical = 3941 ; free virtual = 10962
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3484 ; free virtual = 11204
+Finished Constraint Validation : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 4018 ; free virtual = 11040
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7z020clg400-1
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3484 ; free virtual = 11204
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 4018 ; free virtual = 11040
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Applying 'set_property' XDC Constraints
 ---------------------------------------------------------------------------------
 Applied set_property DONT_TOUCH = true for U0. (constraint file  /home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.runs/design_1_axi_gpio_0_0_synth_1/dont_touch.xdc, line 9).
 ---------------------------------------------------------------------------------
-Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3486 ; free virtual = 11206
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 4020 ; free virtual = 11042
 ---------------------------------------------------------------------------------
 INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'slave_attachment'
 INFO: [Synth 8-5544] ROM "s_axi_rresp_i" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
@@ -287,7 +256,7 @@ INFO: [Synth 8-5544] ROM "state" won't be mapped to Block RAM because address si
 ---------------------------------------------------------------------------------------------------
 INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'one-hot' in module 'slave_attachment'
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3477 ; free virtual = 11198
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:10 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 4012 ; free virtual = 11034
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -302,20 +271,20 @@ Detailed RTL Component Info :
 +---Adders : 
 	   2 Input      4 Bit       Adders := 1     
 +---Registers : 
-	               32 Bit    Registers := 3     
+	               32 Bit    Registers := 4     
 	                9 Bit    Registers := 1     
 	                4 Bit    Registers := 1     
 	                2 Bit    Registers := 3     
-	                1 Bit    Registers := 20    
+	                1 Bit    Registers := 23    
 +---Muxes : 
 	   5 Input     32 Bit        Muxes := 1     
-	   2 Input     32 Bit        Muxes := 1     
 	   2 Input      9 Bit        Muxes := 1     
 	   4 Input      4 Bit        Muxes := 1     
 	   2 Input      4 Bit        Muxes := 5     
 	   7 Input      2 Bit        Muxes := 1     
 	   2 Input      2 Bit        Muxes := 2     
-	   2 Input      1 Bit        Muxes := 9     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 12    
 	   4 Input      1 Bit        Muxes := 3     
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
@@ -365,18 +334,17 @@ Detailed RTL Component Info :
 Module GPIO_Core 
 Detailed RTL Component Info : 
 +---Registers : 
-	               32 Bit    Registers := 1     
-	                1 Bit    Registers := 4     
+	               32 Bit    Registers := 2     
+	                1 Bit    Registers := 7     
 +---Muxes : 
 	   5 Input     32 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 1     
+	   4 Input      2 Bit        Muxes := 2     
+	   2 Input      1 Bit        Muxes := 4     
 Module axi_gpio 
 Detailed RTL Component Info : 
 +---Registers : 
 	               32 Bit    Registers := 1     
 	                1 Bit    Registers := 3     
-+---Muxes : 
-	   2 Input     32 Bit        Muxes := 1     
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -394,42 +362,41 @@ Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 Warning: Parallel synthesis criteria is not met 
 INFO: [Synth 8-4471] merging register 'bus2ip_reset_reg' into 'AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/rst_reg' [/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.srcs/sources_1/bd/design_1/ipshared/a7c9/hdl/axi_gpio_v2_0_vh_rfs.vhd:1677]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[31]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[30]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[29]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[28]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[27]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[26]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[25]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[24]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[23]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[22]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[21]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[20]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[19]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[18]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[17]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[16]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[15]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[14]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[13]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[12]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[11]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[10]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[9]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[8]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[7]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[6]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[5]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[4]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[3]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[2]
+WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wdata[1]
 WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wstrb[3]
 WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wstrb[2]
 WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wstrb[1]
 WARNING: [Synth 8-3331] design axi_gpio has unconnected port s_axi_wstrb[0]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[31]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[30]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[29]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[28]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[27]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[26]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[25]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[24]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[23]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[22]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[21]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[20]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[19]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[18]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[17]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[16]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[15]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[14]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[13]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[12]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[11]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[10]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[9]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[8]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[7]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[6]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[5]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[4]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[3]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[2]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[1]
-WARNING: [Synth 8-3331] design axi_gpio has unconnected port gpio2_io_i[0]
 INFO: [Synth 8-3886] merging instance 'U0/ip2bus_data_i_D1_reg[30]' (FDR) to 'U0/ip2bus_data_i_D1_reg[29]'
 INFO: [Synth 8-3886] merging instance 'U0/ip2bus_data_i_D1_reg[29]' (FDR) to 'U0/ip2bus_data_i_D1_reg[28]'
 INFO: [Synth 8-3886] merging instance 'U0/ip2bus_data_i_D1_reg[28]' (FDR) to 'U0/ip2bus_data_i_D1_reg[27]'
@@ -494,14 +461,16 @@ INFO: [Synth 8-3886] merging instance 'U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_a
 INFO: [Synth 8-3886] merging instance 'U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_rdata_i_reg[30]' (FDRE) to 'U0/AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_rdata_i_reg[31]'
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0/\AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_bresp_i_reg[0] )
 INFO: [Synth 8-3333] propagating constant 0 across sequential element (U0/\AXI_LITE_IPIF_I/I_SLAVE_ATTACHMENT/s_axi_bresp_i_reg[1] )
-INFO: [Synth 8-3332] Sequential element (gpio_core_1/Not_Dual.INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[0].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to) is unused and will be removed from module axi_gpio.
-INFO: [Synth 8-3332] Sequential element (gpio_core_1/Not_Dual.INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d2[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d2) is unused and will be removed from module axi_gpio.
-INFO: [Synth 8-3332] Sequential element (gpio_core_1/Not_Dual.INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d3[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d3) is unused and will be removed from module axi_gpio.
-INFO: [Synth 8-3332] Sequential element (gpio_core_1/Not_Dual.INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d4[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d4) is unused and will be removed from module axi_gpio.
-INFO: [Synth 8-3332] Sequential element (gpio_core_1/Not_Dual.INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d5[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d5) is unused and will be removed from module axi_gpio.
-INFO: [Synth 8-3332] Sequential element (gpio_core_1/Not_Dual.INPUT_DOUBLE_REGS3/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d6[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d6) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS4/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_IN_cdc_to[0].CROSS2_PLEVEL_IN2SCNDRY_IN_cdc_to) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS4/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d2[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d2) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS4/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d3[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d3) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS4/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d4[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d4) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS4/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d5[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d5) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS4/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d6[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d6) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS5/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d5[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d5) is unused and will be removed from module axi_gpio.
+INFO: [Synth 8-3332] Sequential element (gpio_core_1/Dual.INPUT_DOUBLE_REGS5/GENERATE_LEVEL_P_S_CDC.MULTI_BIT.FOR_CROSS_PLEVEL_IN2SCNDRY_bus_d6[0].CROSS2_PLEVEL_IN2SCNDRY_s_level_out_bus_d6) is unused and will be removed from module axi_gpio.
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3464 ; free virtual = 11187
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:09 ; elapsed = 00:00:11 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 4001 ; free virtual = 11025
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -513,13 +482,13 @@ Report RTL Partitions:
 Start Applying XDC Timing Constraints
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3225 ; free virtual = 10948
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3875 ; free virtual = 10899
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3223 ; free virtual = 10945
+Finished Timing Optimization : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -531,7 +500,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3223 ; free virtual = 10945
+Finished Technology Mapping : Time (s): cpu = 00:00:15 ; elapsed = 00:00:16 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -555,7 +524,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -568,7 +537,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -580,25 +549,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -616,53 +585,56 @@ Report Cell Usage:
 +------+-----+------+
 |1     |LUT1 |     2|
 |2     |LUT2 |     9|
-|3     |LUT3 |    10|
-|4     |LUT4 |     4|
-|5     |LUT5 |    11|
-|6     |LUT6 |     9|
-|7     |FDRE |    35|
-|8     |FDSE |     2|
+|3     |LUT3 |     9|
+|4     |LUT4 |    10|
+|5     |LUT5 |     9|
+|6     |LUT6 |    11|
+|7     |FDR  |     4|
+|8     |FDRE |    38|
+|9     |FDSE |     3|
 +------+-----+------+
 
 Report Instance Areas: 
-+------+--------------------------------------------------------------------------+--------------------------+------+
-|      |Instance                                                                  |Module                    |Cells |
-+------+--------------------------------------------------------------------------+--------------------------+------+
-|1     |top                                                                       |                          |    82|
-|2     |  U0                                                                      |axi_gpio                  |    82|
-|3     |    AXI_LITE_IPIF_I                                                       |axi_lite_ipif             |    67|
-|4     |      I_SLAVE_ATTACHMENT                                                  |slave_attachment          |    67|
-|5     |        I_DECODER                                                         |address_decoder           |    19|
-|6     |          \MEM_DECODE_GEN[0].PER_CE_GEN[0].MULTIPLE_CES_THIS_CS_GEN.CE_I  |pselect_f                 |     1|
-|7     |          \MEM_DECODE_GEN[0].PER_CE_GEN[2].MULTIPLE_CES_THIS_CS_GEN.CE_I  |pselect_f__parameterized1 |     1|
-|8     |    gpio_core_1                                                           |GPIO_Core                 |    11|
-+------+--------------------------------------------------------------------------+--------------------------+------+
++------+--------------------------------+-----------------+------+
+|      |Instance                        |Module           |Cells |
++------+--------------------------------+-----------------+------+
+|1     |top                             |                 |    95|
+|2     |  U0                            |axi_gpio         |    95|
+|3     |    AXI_LITE_IPIF_I             |axi_lite_ipif    |    73|
+|4     |      I_SLAVE_ATTACHMENT        |slave_attachment |    73|
+|5     |        I_DECODER               |address_decoder  |    24|
+|6     |    gpio_core_1                 |GPIO_Core        |    18|
+|7     |      \Dual.INPUT_DOUBLE_REGS5  |cdc_sync         |     4|
++------+--------------------------------+-----------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3215 ; free virtual = 10937
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3873 ; free virtual = 10897
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 0 critical warnings and 36 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:12 ; elapsed = 00:00:13 . Memory (MB): peak = 1834.785 ; gain = 131.637 ; free physical = 3270 ; free virtual = 10992
-Synthesis Optimization Complete : Time (s): cpu = 00:00:16 ; elapsed = 00:00:18 . Memory (MB): peak = 1834.785 ; gain = 491.676 ; free physical = 3270 ; free virtual = 10992
+Synthesis finished with 0 errors, 0 critical warnings and 35 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 1840.262 ; gain = 131.637 ; free physical = 3930 ; free virtual = 10954
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:17 . Memory (MB): peak = 1840.262 ; gain = 496.676 ; free physical = 3930 ; free virtual = 10954
 INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 4 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1842.793 ; gain = 0.000 ; free physical = 3199 ; free virtual = 10922
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1840.262 ; gain = 0.000 ; free physical = 3870 ; free virtual = 10894
 INFO: [Project 1-111] Unisim Transformation Summary:
-No Unisim elements were transformed.
+  A total of 4 instances were transformed.
+  FDR => FDRE: 4 instances
 
 INFO: [Common 17-83] Releasing license: Synthesis
-127 Infos, 96 Warnings, 0 Critical Warnings and 0 Errors encountered.
+131 Infos, 64 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:19 . Memory (MB): peak = 1842.793 ; gain = 511.250 ; free physical = 3254 ; free virtual = 10976
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1842.793 ; gain = 0.000 ; free physical = 3254 ; free virtual = 10976
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:18 . Memory (MB): peak = 1840.262 ; gain = 508.242 ; free physical = 3925 ; free virtual = 10949
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1840.262 ; gain = 0.000 ; free physical = 3925 ; free virtual = 10949
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.runs/design_1_axi_gpio_0_0_synth_1/design_1_axi_gpio_0_0.dcp' has been generated.
-INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axi_gpio_0_0, cache-ID = 3324a9432766e5f2
-INFO: [Coretcl 2-1174] Renamed 7 cell refs.
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1866.805 ; gain = 0.000 ; free physical = 3245 ; free virtual = 10968
+INFO: [Coretcl 2-1648] Added synthesis output to IP cache for IP design_1_axi_gpio_0_0, cache-ID = dc00c8ed59dee44f
+INFO: [Coretcl 2-1174] Renamed 6 cell refs.
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1864.273 ; gain = 0.000 ; free physical = 3922 ; free virtual = 10946
 WARNING: [Constraints 18-5210] No constraints selected for write.
 Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
 INFO: [Common 17-1381] The checkpoint '/home/jacoboffersen/eclipse-workspace/RTS_Exam/RTS_Exam.runs/design_1_axi_gpio_0_0_synth_1/design_1_axi_gpio_0_0.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file design_1_axi_gpio_0_0_utilization_synth.rpt -pb design_1_axi_gpio_0_0_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sat Jun 13 16:31:15 2020...
+INFO: [Common 17-206] Exiting Vivado at Sun Jun 14 13:51:58 2020...
